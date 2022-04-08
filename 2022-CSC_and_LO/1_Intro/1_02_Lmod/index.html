@@ -2585,7 +2585,7 @@ of the code for <code>MyPythonPackages</code>.</p>
 <li>
 <p>The files <code>level1/MyPython/2.7.18.lua</code> and <code>level1/MyPython/3.6.10.lua</code>,
     both with the same contents:
-    <div class="highlight"><pre><span></span><code><span class="n">LmodMessage</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">In &#39;</span> <span class="o">..</span>  <span class="n">myModuleFullName</span><span class="p">()</span> <span class="o">..</span> <span class="s1">&#39; in mode &#39;</span>  <span class="o">..</span> <span class="n">mode</span><span class="p">()</span> <span class="p">)</span>
+    <div class="highlight"><pre><span></span><code><span class="n">LmodMessage</span><span class="p">(</span> <span class="s1">&#39;In &#39;</span> <span class="o">..</span>  <span class="n">myModuleFullName</span><span class="p">()</span> <span class="o">..</span> <span class="s1">&#39; in mode &#39;</span>  <span class="o">..</span> <span class="n">mode</span><span class="p">()</span> <span class="p">)</span>
 
 <span class="kd">local</span> <span class="n">api_version</span> <span class="o">=</span> <span class="n">myModuleVersion</span><span class="p">():</span><span class="n">match</span><span class="p">(</span> <span class="s1">&#39;(%d+%.%d+)%..*&#39;</span> <span class="p">)</span>
 
@@ -2601,7 +2601,7 @@ of the code for <code>MyPythonPackages</code>.</p>
 <li>
 <p>The files <code>level2/PythonAPI/2.7/MyPythonPackage/1.0.lua</code> and
     <code>level2/PythonAPI/3.6/MyPythonPackage/1.0.lua</code>, both with the contents:
-    <div class="highlight"><pre><span></span><code><span class="n">LmodMessage</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">In &#39;</span> <span class="o">..</span>  <span class="n">myFileName</span><span class="p">()</span> <span class="o">..</span> <span class="s1">&#39; in mode &#39;</span>  <span class="o">..</span> <span class="n">mode</span><span class="p">()</span> <span class="p">)</span>
+    <div class="highlight"><pre><span></span><code><span class="n">LmodMessage</span><span class="p">(</span> <span class="s1">&#39;In &#39;</span> <span class="o">..</span>  <span class="n">myFileName</span><span class="p">()</span> <span class="o">..</span> <span class="s1">&#39; in mode &#39;</span>  <span class="o">..</span> <span class="n">mode</span><span class="p">()</span> <span class="p">)</span>
 
 <span class="kd">local</span> <span class="n">python_api_version</span> <span class="o">=</span> <span class="n">myFileName</span><span class="p">():</span><span class="n">match</span><span class="p">(</span> <span class="s1">&#39;.*/level2/PythonAPI/([^/]+)/.*&#39;</span> <span class="p">)</span>
 <span class="n">LmodMessage</span><span class="p">(</span> <span class="s1">&#39;Detected Python API version from hierarchy: &#39;</span> <span class="o">..</span> <span class="n">python_api_version</span> <span class="p">)</span>
