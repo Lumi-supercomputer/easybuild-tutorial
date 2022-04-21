@@ -136,18 +136,6 @@
 </div>
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -179,18 +167,6 @@
     </a>
     EasyBuild tutorial
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2295,10 +2271,6 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/klust/easybuild-tutorial/edit/master/docs/2022-CSC_and_LO/2_Using/2_02_creating_easyconfig_files.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
-
 
 
 <h1 id="creating-easyconfig-files">Creating easyconfig files<a class="headerlink" href="#creating-easyconfig-files" title="Permanent link">&para;</a></h1>
@@ -2349,13 +2321,13 @@ specific for a certain compiler and don't recognise the Cray compilers.</p>
     bootstrapping with the system compiler and then re-installing with itself.</em> </li>
 </ul>
 <p>For implementing easyblocks we refer to the 
-<a href="2_03_implementing_easyblocks">"Implementing easyblocks" section of this tutorial</a>
+<a href="../2_04_implementing_easyblocks">"Implementing easyblocks" section of this tutorial</a>
 and the <a href="https://docs.easybuild.io/en/latest/Implementing-easyblocks.html">EasyBuild documentation</a>.</p>
 <h2 id="writing-easyconfig-files">Writing easyconfig files<a class="headerlink" href="#writing-easyconfig-files" title="Permanent link">&para;</a></h2>
 <p>Writing an easyconfig file boils down to defining a set of easyconfig parameters in a text file,
 which we give a '<code>.eb</code>' extension by convention. The name of an easyconfig file doesn't matter
 when using it directly to install software, but it does matter when EasyBuild needs to find it
-to resolve a dependency for example (as we <a href="../1_08_basic_usage/#easyconfig-filenames">discussed earlier</a>).</p>
+to resolve a dependency for example (as we <a href="../../1_Intro/1_08_basic_usage/#easyconfig-filenames">discussed earlier</a>).</p>
 <p>The syntax for easyconfig files is <em>Python syntax</em>: you are basically defining a bunch of Python variables
 that correspond to easyconfig parameters.</p>
 <p>The order in which the easyconfig parameters are defined doesn't matter, but we generally try to stick to a particular
@@ -2662,7 +2634,7 @@ Here is an example:</p>
 <div class="highlight"><pre><span></span><code><span class="n">moduleclass</span> <span class="o">=</span> <span class="s1">&#39;lib&#39;</span>
 </code></pre></div>
 <p>This is done to categorize software, and it is used to group the generated module files into smaller sets 
-(<a href="../1_08_basic_usage/#using-installed-software">remember what we saw when installing software earlier</a>).</p>
+(<a href="../../1_Intro/1_08_basic_usage/#using-installed-software">remember what we saw when installing software earlier</a>).</p>
 <p>This is currently not used on LUMI since we feel that (a) it is not easy to explain to users how they can
 then only make certain classes that are useful to them visible and more importantly (b) since it is not
 always intuitive to decide which moduleclass should be used for a package, or from a user 's perspective,
@@ -2743,9 +2715,9 @@ in this case <code>EB_eb_minus_tutorial</code>, which it does not have. Does tha
 <p>In this simple case it doesn't, since we can leverage one of the available <em>generic easyblocks</em>.
 But, which one?</p>
 <p>Build instructions are usually included in a <code>README</code> file, or in the documentation.
-In this case, there's indeed a minimal <a href="https://github.com/easybuilders/easybuild-tutorial/tree/main/docs/files/eb-tutorial-1.0.1/README"><code>README</code>
-file</a> available,
-which tells us that we should use the <code>cmake</code> command to configure the installation, followed by <code>make</code> and <code>make install</code>.</p>
+In this case, there's indeed a minimal 
+<a href="https://github.com/easybuilders/easybuild-tutorial/blob/main/docs/files/eb-tutorial-1.0.1/README"><code>README</code> file</a> 
+available, which tells us that we should use the <code>cmake</code> command to configure the installation, followed by <code>make</code> and <code>make install</code>.</p>
 <p><a href="#easyblock">We briefly discussed</a> a generic easyblock that does exactly this: <code>CMakeMake</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">easyblock</span> <span class="o">=</span> <span class="s1">&#39;CMakeMake&#39;</span>
 </code></pre></div>
@@ -3060,7 +3032,7 @@ eb eb-tutorial-1.1.0-cpeCray-21.12.eb --inject-checksum
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
       
     
   </small>

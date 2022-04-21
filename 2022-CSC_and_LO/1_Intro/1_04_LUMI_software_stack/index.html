@@ -136,18 +136,6 @@
 </div>
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -179,18 +167,6 @@
     </a>
     EasyBuild tutorial
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1851,10 +1827,6 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/klust/easybuild-tutorial/edit/master/docs/2022-CSC_and_LO/1_Intro/1_04_LUMI_software_stack.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
-
 
 
 <h1 id="lumi-software-stacks-technical">LUMI software stacks (technical)<a class="headerlink" href="#lumi-software-stacks-technical" title="Permanent link">&para;</a></h1>
@@ -1868,8 +1840,36 @@ On this page we focus more on the technical implementation behind it.</p>
 <p>LUMI has different node types providing compute resources:</p>
 <ul>
 <li>LUMI has 16 login nodes, though many of those are reserved for special purposes and not
-    available to all users. TODO</li>
+    available to all users. These login nodes have a zen2 CPU. These nodes have a SlingShot 10
+    interconnect.</li>
+<li>There are 1536 regular CPU compute nodes in a partition denoted as LUMI-C. These
+    compute nodes have a zen3 CPU and run a reduced version of SUSE Linux optimised
+    by Cray to reduce OS jitter. These nodes will in the future be equipped with a 
+    SlingShot 11 interconnect card.</li>
+<li>There are 2560 GPU compute nodes in a partition denoted as LUMI-G. These nodes have
+    a single zen3-based CPU with optimised I/O die linked to 4 AMD MI250X GPUs. Each node
+    has 4 SlingShot 11 interconnect cards, one attached to each GPU.</li>
+<li>The interactive data analytics and visualisation partition is really two different partitions 
+    from the software point-of-view:<ul>
+<li>8 nodes are CPU-only but differ considerably from the regular compute nodes,
+    not only in the amount of memory. These nodes are equipped with zen2 CPUs
+    and in that sense comparable to the login nodes. They also have local SSDs
+    and are equipped with SlingShot 10 interconnect cards (2 each???)</li>
+<li>8 nodes have zen2 CPUs and 8 NVIDIA A40 GPUs each, and have 2 SlingShot 10
+    interconnect cards each.</li>
 </ul>
+</li>
+<li>The early access platform (EAP) has 14 nodes equiped with a single 64-core
+    zen2 CPU and 4 AMD MI100 GPUS. Each node has a single SlingShot 10 interconnect
+    and also local SSDs.</li>
+</ul>
+<p>SlingShot 10 and SlingShot 11 are different software-wise. SlingShot 10 uses a
+Mellanox CX5 NIC that support both OFI and UCX, and hence can also use the
+UCX version of Cray MPICH. SlingShot 11 uses a NIC code-named Cassini and
+supports only OFI with an OFI provider specific for the Cassini NIC. However,
+given that the nodes that are equipped with SlingShot 10 cards are not meant
+to be used for big MPI jobs, we build our software stack solely on top of 
+libfabric and Cray MPICH.</p>
 <hr />
 <h2 id="crayenv-and-lumi-modules">CrayEnv and LUMI modules<a class="headerlink" href="#crayenv-and-lumi-modules" title="Permanent link">&para;</a></h2>
 <p>On LUMI, two types of software stacks are currently offered:</p>
@@ -1896,7 +1896,9 @@ modules for that node.</p>
 <p>A deliberate choice was made to only offer a limited number of software
 packages in the globally installed stack as the setup of redundancy on LUMI
 makes it difficult to update the stack in a way that is guaranteed to not
-affect running jobs and as a large central stack is also hard to manage.
+affect running jobs and as a large central stack is also hard to manage, especially
+as we expect frequent updates to the OS and compiler infrastructure in 
+the first years of operation.
 However, the EasyBuild setup is such that users can easily install
 additional software in their home or project directory using EasyBuild build
 recipes that we provide or they develop, and that software will fully
@@ -1946,6 +1948,11 @@ be reduced in the future:</p>
 <td><code>craype-x86-rome</code></td>
 <td align="left"><code>craype-accel-nvidia80</code></td>
 </tr>
+<tr>
+<td align="left"><code>partition/EAP</code></td>
+<td><code>craype-x86-rome</code></td>
+<td align="left"><code>craype-accel-amd-gfx908</code></td>
+</tr>
 </tbody>
 </table>
 <p>All <code>partition</code> modules also load `craype-network-ofi``.</p>
@@ -1963,7 +1970,7 @@ partition.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
       
     
   </small>

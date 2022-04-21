@@ -136,18 +136,6 @@
 </div>
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -179,18 +167,6 @@
     </a>
     EasyBuild tutorial
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2167,10 +2143,6 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/klust/easybuild-tutorial/edit/master/docs/2022-CSC_and_LO/3_Advanced/3_04_module_naming_schemes.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
-
 
 
 <h1 id="module-naming-schemes">Module naming schemes<a class="headerlink" href="#module-naming-schemes" title="Permanent link">&para;</a></h1>
@@ -2214,7 +2186,7 @@ module naming schemes, which are characterized by:</p>
 <p>In contrast, a <em>hierarchical</em> module naming scheme
 consists of a <em>hierarchy</em> of module files. 
 A fairly typical 3-level scheme (<code>Core</code>, <code>Compiler</code> and <code>MPI</code>) has been
-discussed in the <a href="../1_Intro/1_02_Lmod#lmod-hierarchy">section on Lmod</a>.
+discussed in the <a href="../../1_Intro/1_02_Lmod#lmod-hierarchy">section on Lmod</a>.
 This typical Lmod hierarcny would map very well on the EasyBuild common toolchains.</p>
 <p>In fact, for the example</p>
 <div align="center"><img src="../../../img/hmns.png" width="60%"/></div>
@@ -2224,7 +2196,7 @@ toolchains. Software at the <code>Compiler</code> level would be installed with 
 toolchain, while software at the <code>MPI</code> level after loading the <code>OpenMPI</code> module
 would be installed using the regular <code>foss</code> toolchain or the <code>gompi</code> toolchain
 (see the diagram in the 
-<a href="../1_Intro/1_05_terminology/#common-toolchains">"Common toolchains" section of the page on terminology</a>).</p>
+<a href="../../1_Intro/1_05_terminology/#common-toolchains">"Common toolchains" section of the page on terminology</a>).</p>
 <p>On LUMI, where software is installed through the Cray Programming Environment with no real choice of
 MPI implementation, a two-level arrangement would still make a lot of sense, with at the <code>Core</code> level
 all software compiled with the SYSTEM toolchain while there could be a <code>PrgEnv</code> level for software
@@ -2281,7 +2253,7 @@ and so these modules can not be loaded together easily.</p>
 <h4 id="visibility-of-existing-modules">Visibility of existing modules<a class="headerlink" href="#visibility-of-existing-modules" title="Permanent link">&para;</a></h4>
 <p>One downside of a module hierarchy is that not all existing modules are directly available for loading
 or are even <em>visible</em> to the user, since the output of "<code>module avail</code>" only shows a subset of all modules.</p>
-<p>As we have discussed in <a href="../LMOD">the Lmod section</a>. 
+<p>As we have discussed in <a href="../../1_Intro/1_02_Lmod">the Lmod section</a>. 
 <a href="https://lmod.readthedocs.io">Lmod</a> provides a powerful solution to search for modules through the
 <code>module spider</code> and to some extent also the <code>module keyword</code> commands. 
 So as long as the end users are
@@ -2433,7 +2405,7 @@ module unuse <span class="nv">$MODULEPATH</span>
 <p>In this part of the tutorial, we are assuming you are <em>not</em> using an EasyBuild installation provided through
 a module. We have just made all modules unavailable, so we would have to first
 install EasyBuild again in our hierarchical module tree before we can continue.</p>
-<p><strong>We strongly recommend using an EasyBuild installation that was <a href="../1_Intro/1_06_installation#method-1-using-pip">installed via "<code>pip install</code>"
+<p><strong>We strongly recommend using an EasyBuild installation that was <a href="../../1_Intro/1_06_installation#method-1-using-pip">installed via "<code>pip install</code>"
 or "<code>pip3 install</code>"</a> in this part of the tutorial.</strong></p>
 <p>An easy way to do this is in the prepared environment is to run:</p>
 <div class="highlight"><pre><span></span><code>pip3 install --user easybuild
@@ -2615,7 +2587,7 @@ Currently Loaded Modules:
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
       
     
   </small>

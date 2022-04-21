@@ -136,18 +136,6 @@
 </div>
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -179,18 +167,6 @@
     </a>
     EasyBuild tutorial
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2347,10 +2323,6 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/klust/easybuild-tutorial/edit/master/docs/2022-CSC_and_LO/1_Intro/1_06_installation.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
-
 
 
 <h1 id="installing-easybuild">Installing EasyBuild<a class="headerlink" href="#installing-easybuild" title="Permanent link">&para;</a></h1>
@@ -2418,10 +2390,10 @@ Any sufficiently recent Lmod version (8.x or even 7.x) should be fine. </p>
 you have the original Tcl-based environment modules tool installed, either in its original
 C-based imnplementation (<code>VERSION=3.2.10</code>) or the new Tcl-based implementation developed at CEA
 (<code>Modules Release 4.5.0</code>)
-and <a href="https://easybuild.readthedocs.io/en/latest/Configuration.html#modules-tool-modules-tool"><em>EasyBuild will need to be configured to use it after installation</em></a>.</p>
+and <a href="https://docs.easybuild.io/en/latest/Configuration.html#modules-tool-modules-tool"><em>EasyBuild will need to be configured to use it after installation</em></a>.</p>
 <p>If the <code>module</code> function is not defined either you do not have a modules tool installed
 or your environment is not properly set up to use it. In this case,
-please refer to the EasyBuild documentation <a href="https://easybuild.readthedocs.io/en/latest/Installation.html#required-modules-tool">here</a> for more information.</p>
+please refer to the EasyBuild documentation <a href="https://docs.easybuild.io/en/latest/Installation.html#required-modules-tool">here</a> for more information.</p>
 <p>HPE Cray supports both the old-style Environments Modules (based on version 3.2.10) and Lmod. On LUMI,
 we use Lmod as the default module system for users, and EasyBuild is configured to use that one.</p>
 <hr />
@@ -2657,6 +2629,8 @@ git clone https://github.com/easybuilders/easybuild-easyconfigs.git
 <p>To keep the different versions of the LUMI software stack as independent from one another as possible,
 EasyBuild is bootstrapped for each software stack by the <code>prepare_LUMI_stack.sh</code> script. We use the 
 system Python 3 for running EasyBuild. That Python version currently doesn't have <code>pip</code> installed. 
+Our procedure is based on the <a href="#method-2-installing-easybuild-with-easybuild">"Installing EasyBuild with EasyBuild" procedure</a>
+but works around the lack of <code>pip</code>. 
 EasyBuild is first installed in a temporary work directory from files downloaded from PyPi. These
 are each untarred and then installed into their location by running 
 <code>python3 setup.py install --prefix=...</code> in their unpacked directory.
@@ -2664,18 +2638,17 @@ We do so only for the framework and easyblocks files as the easconfig files are 
 install EasyBuild. Instead we create our own EasyConfig file for EasyBuild which contains
 some additional packages that enable extra features in EasyBuild and also provide more information
 to Lmod. Next the configuration module for EasyBuild (see the next section, 
-<a href="1_07_configuration">"Configuring EasyBuild"</a>, for more information) and use the temporary 
+<a href="../1_07_configuration">"Configuring EasyBuild"</a>, for more information) and use the temporary 
 installation of EasyBuild with our own EasyConfig file to do a proper installation of EasyBuild
 with module in the final location.</p>
-<p>TODO: follow development setup but with downloading rather than cloning, then use that one with the
-EasyBuild configuration module to install EasyBuild with itself.</p>
 <h2 id="verifying-the-installation">Verifying the installation<a class="headerlink" href="#verifying-the-installation" title="Permanent link">&para;</a></h2>
 <p>Regardless of how EasyBuild was installed, you can now run a couple of basic commands to verify the installation:</p>
 <h4 id="checking-the-version">Checking the version<a class="headerlink" href="#checking-the-version" title="Permanent link">&para;</a></h4>
 <p>To check which EasyBuild version you have installed, run:</p>
 <div class="highlight"><pre><span></span><code>eb --version
 </code></pre></div>
-<p>The output should match with the <a href="https://pypi.org/project/easybuild/">latest EasyBuild version</a>.</p>
+<p>The latest version (and an overview of previous versions) can always be 
+<a href="https://pypi.org/project/easybuild/">found on PyPi</a>.</p>
 <h4 id="consulting-the-help-output">Consulting the help output<a class="headerlink" href="#consulting-the-help-output" title="Permanent link">&para;</a></h4>
 <p>You can consult the help output of the <code>eb</code> command, which produces a long list of available options
 along with a short informative message.</p>
@@ -2686,7 +2659,7 @@ along with a short informative message.</p>
 <div class="highlight"><pre><span></span><code>eb --show-config
 </code></pre></div>
 <p>This should tell you that EasyBuild (ab)uses <code>$HOME/.local/easybuild</code> as a default location.
-More on configuring EasyBuild in the <a href="configuration">next part of the tutorial</a>.</p>
+More on configuring EasyBuild in the <a href="../1_07_configuration">next part of the tutorial</a>.</p>
 <h4 id="system-information">System information<a class="headerlink" href="#system-information" title="Permanent link">&para;</a></h4>
 <p>You ask EasyBuild to collect and print some information about the
 system you are using it on (OS, CPU, Python, etc.) using this command:</p>
@@ -2743,7 +2716,7 @@ installation provided by LUMI.</strong></p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
       
     
   </small>

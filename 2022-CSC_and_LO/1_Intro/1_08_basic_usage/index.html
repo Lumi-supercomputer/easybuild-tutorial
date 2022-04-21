@@ -136,18 +136,6 @@
 </div>
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -179,18 +167,6 @@
     </a>
     EasyBuild tutorial
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/klust/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    EasyBuild @ GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2195,10 +2171,6 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/klust/easybuild-tutorial/edit/master/docs/2022-CSC_and_LO/1_Intro/1_08_basic_usage.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
-
 
 
 <h1 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h1>
@@ -2339,7 +2311,7 @@ up the search procedure, especially when the easyconfig files are located on a s
 operations involving lots of (small) files can be slow.</p>
 <p>For the easyconfig files included with an EasyBuild release, a search index is readily provided.
 For other directories, you can create a search index using <code>eb --create-index &lt;path&gt;</code>.
-<a href="https://easybuild.readthedocs.io/en/latest/Easyconfigs_index.html">See the EasyBuild documentation for more information</a>.</p>
+<a href="https://docs.easybuild.io/en/latest/Easyconfigs_index.html">See the EasyBuild documentation for more information</a>.</p>
 <hr />
 <h2 id="inspecting-easyconfigs">Inspecting easyconfigs<a class="headerlink" href="#inspecting-easyconfigs" title="Permanent link">&para;</a></h2>
 <p>Once you have determined the name of the easyconfig file that corresponds to the software you want to install,
@@ -2445,7 +2417,7 @@ are already installed, and which ones are still missing.</p>
 <p>This can be helpful to ensure that your EasyBuild configuration is set up correctly,
 and to prevent from accidentally installing an entirely new software stack from scratch
 in an unintended location (like <code>$HOME/.local/easybuild</code>, the
-<a href="../configuration/#install-path">default installation path</a>).</p>
+<a href="../1_07_configuration/#install-path">default installation path</a>).</p>
 <hr />
 <h3 id="dry-run">Dry run<a class="headerlink" href="#dry-run" title="Permanent link">&para;</a></h3>
 <p>To get a complete overview of all required dependencies, and see which ones are already installed
@@ -2987,7 +2959,6 @@ load the first module file that matches the request being made (there are some c
 won't go into those here).</p>
 <hr />
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
-<p>TODO: Rework for LUMI and provide the necessary EasyConfig files.</p>
 <p><strong><em>Guidelines</em></strong></p>
 <p>Do yourself a favor: don't peek at the solution until you have made an attempt to solve the exercise yourself!</p>
 <p>Please do not spoil solutions to others before they have been discussed by the tutorial organisers.</p>
@@ -3183,7 +3154,7 @@ and it's a lot to take in at once, take your time...</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
       
     
   </small>
