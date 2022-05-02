@@ -271,87 +271,112 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/adding_support_additional_software/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/4_00_additional_reading/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/basic_usage/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/community/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/1_01_what_is_easybuild/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/comparison_other_tools/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/1_02_Lmod/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/configuration/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/1_03_CPE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/contributing/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/1_04_LUMI_software_stack/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/installation/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/1_05_terminology/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/installing_software/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/1_06_installation/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/integration_eessi/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/1_07_configuration/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/integration_jsc/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/1_Intro/1_08_basic_usage/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/integration_lumi/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/2_Using/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/introduction/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/2_Using/2_01_troubleshooting/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/module_naming_schemes/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/2_Using/2_02_creating_easyconfig_files/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/practical_info/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/2_Using/2_03_external_modules/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/terminology/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/2_Using/2_04_implementing_easyblocks/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://klust.github.io/easybuild-tutorial/2022-isc22/troubleshooting/</loc>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/3_Advanced/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/3_Advanced/3_01_easybuild_library/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/3_Advanced/3_02_hooks/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/3_Advanced/3_03_slurm_jobs/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/3_Advanced/3_04_module_naming_schemes/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/3_Advanced/3_05_github_integration/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
