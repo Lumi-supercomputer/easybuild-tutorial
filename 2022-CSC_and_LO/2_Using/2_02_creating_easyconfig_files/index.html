@@ -2306,18 +2306,26 @@ included with EasyBuild work poorly on HPE Cray systems, e.g., because they want
 specific for a certain compiler and don't recognise the Cray compilers.</p>
 <p>Reasons to consider implementing a software-specific easyblock rather than using a generic easyblock include:</p>
 <ul>
-<li>'critical' values for easyconfig parameters required to make installation succeed;</li>
-<li>toolchain-specific aspects of the build and installation procedure (e.g., configure options);</li>
-<li>interactive commands that need to be run;
-    <em>For example: The easyblock to <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/m/maple.py">install maple</a> 
-    responds to a number of interactive questions.</em> </li>
-<li>custom (configure) options for dependencies;
-    <em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/v/vmd.py">easyblock for VMD</a>
+<li>'critical' values for easyconfig parameters required to make installation succeed;
+    <em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/b/bowtie2.py">easyblock for bowtie2</a>
+    defines a number of variables used in the Makefile are specified on the make command line to ensure that the right
+    compilers are used.</em></li>
+<li>toolchain-specific aspects of the build and installation procedure (e.g., configure options);<br />
+<em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/c/cp2k.py">easyblock for CP2K</a> 
+    will add several compiler options when compiling with gcc and gfortran, including the infamous
+    <code>-fallow-argument-mismatch</code> which is required from gfortran 10 on for many older codes.</em></li>
+<li>custom (configure) options for dependencies;<br />
+<em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/v/vmd.py">easyblock for VMD</a>
     will add configure options depending on the dependency list of the package.</em></li>
-<li>having to create or adjust specific (configuration) files;</li>
+<li>interactive commands that need to be run;<br />
+<em>For example: The <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/m/maple.py">easyblock for maple</a> 
+    responds to a number of interactive questions.</em> </li>
+<li>having to create or adjust specific (configuration) files;<br />
+<em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/s/siesta.py">easyblock for Siesta</a>
+    edits one of the configuration files through regular expressions.</em></li>
 <li>'hackish' usage of a generic easyblock;</li>
-<li>complex or very non-standard installation procedure;
-    <em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/g/gcc.py">easyblock to install the gcc compilers from source</a>,
+<li>complex or very non-standard installation procedure;<br />
+<em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/g/gcc.py">easyblock to install the gcc compilers from source</a>,
     bootstrapping with the system compiler and then re-installing with itself.</em> </li>
 </ul>
 <p>For implementing easyblocks we refer to the 

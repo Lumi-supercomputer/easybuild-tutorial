@@ -2280,15 +2280,15 @@ the <code>robot</code> or <code>robot-paths</code> configuration options.</p>
 <code>eb --search</code> will print the full path to each easyconfig file that matches the specified search pattern,
 while <code>eb -S</code> produces a more concise output.</p>
 <p>For example, let's check which easyconfig files are available for OpenFOAM 8 with a <code>foss</code> toolchain:</p>
-<div class="highlight"><pre><span></span><code>$ eb --search openfoam-8-foss
- * /home/example/.local/easybuild/easyconfigs/o/OpenFOAM/OpenFOAM-8-foss-2020a.eb
- * /home/example/.local/easybuild/easyconfigs/o/OpenFOAM/OpenFOAM-8-foss-2020b.eb
+<div class="highlight"><pre><span></span><code>$ eb --search openfoam-9
+ * /appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/o/OpenFOAM/OpenFOAM-9-cpeGNU-21.08.eb
+ * /appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/o/OpenFOAM/OpenFOAM-9-cpeGNU-21.12.eb
 </code></pre></div>
 <p>The output is a bit more condensed when using <code>eb -S</code>:</p>
-<div class="highlight"><pre><span></span><code>$ eb -S openfoam-8-foss
-<span class="nv">CFGS1</span><span class="o">=</span>/home/example/.local/easybuild/easyconfigs/o/OpenFOAM
- * <span class="nv">$CFGS1</span>/OpenFOAM-8-foss-2020a.eb
- * <span class="nv">$CFGS1</span>/OpenFOAM-8-foss-2020b.eb
+<div class="highlight"><pre><span></span><code>$ eb -S openfoam-9
+<span class="nv">CFGS1</span><span class="o">=</span>/appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/o/OpenFOAM
+ * <span class="nv">$CFGS1</span>/OpenFOAM-9-cpeGNU-21.08.eb
+ * <span class="nv">$CFGS1</span>/OpenFOAM-9-cpeGNU-21.12.eb
 </code></pre></div>
 <p>Note that the search is performed <em>case-insensitive</em>.</p>
 <p>The search pattern can include wildcards like <code>.*</code> and/or character groups like <code>[0-9]</code>,
@@ -2296,10 +2296,13 @@ or other special characters like <code>^</code> or <code>$</code> to mark the st
 but you need to be careful that <code>bash</code> does not expand these before the <code>eb</code> command is started,
 so it is recommended to wrap the search pattern in single quotes (<code>'...'</code>) when using wildcards.</p>
 <p>For example, to check which easyconfigs are available to install TensorFlow 2.4.1 with the <code>2020b</code> version of a toolchain:</p>
-<div class="highlight"><pre><span></span><code>$ eb -S <span class="s1">&#39;^tensorflow-2.4.1.*2020b&#39;</span>
-<span class="nv">CFGS1</span><span class="o">=</span>/home/example/.local/easybuild/easyconfigs/t/TensorFlow
- * <span class="nv">$CFGS1</span>/TensorFlow-2.4.1-foss-2020b.eb
- * <span class="nv">$CFGS1</span>/TensorFlow-2.4.1-fosscuda-2020b.eb
+<div class="highlight"><pre><span></span><code>$ eb -S <span class="s1">&#39;^gromacs-2021.*cpeGNU.*&#39;</span>
+<span class="nv">CFGS1</span><span class="o">=</span>/appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/g/GROMACS
+ * <span class="nv">$CFGS1</span>/GROMACS-2021-cpeGNU-21.08-PLUMED-2.7.2-CPU.eb
+ * <span class="nv">$CFGS1</span>/GROMACS-2021.3-cpeGNU-21.08-CPU.eb
+ * <span class="nv">$CFGS1</span>/GROMACS-2021.4-cpeGNU-21.12-PLUMED-2.7.4-CPU.eb
+ * <span class="nv">$CFGS1</span>/GROMACS-2021.4-cpeGNU-21.12-PLUMED-2.8.0-CPU.eb
+ * <span class="nv">$CFGS1</span>/GROMACS-2021.5-cpeGNU-21.12-CPU.eb
 </code></pre></div>
 <hr />
 <h4 id="search-index">Search index<a class="headerlink" href="#search-index" title="Permanent link">&para;</a></h4>
