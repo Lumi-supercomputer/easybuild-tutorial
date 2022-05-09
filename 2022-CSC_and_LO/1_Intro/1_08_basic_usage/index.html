@@ -2295,7 +2295,8 @@ while <code>eb -S</code> produces a more concise output.</p>
 or other special characters like <code>^</code> or <code>$</code> to mark the start/end of the filename,
 but you need to be careful that <code>bash</code> does not expand these before the <code>eb</code> command is started,
 so it is recommended to wrap the search pattern in single quotes (<code>'...'</code>) when using wildcards.</p>
-<p>For example, to check which easyconfigs are available to install TensorFlow 2.4.1 with the <code>2020b</code> version of a toolchain:</p>
+<p>For example, to check which easyconfigs are available to install GROMACS 2021 and subversions with 
+the <code>cpeGNU</code> toolchains:</p>
 <div class="highlight"><pre><span></span><code>$ eb -S <span class="s1">&#39;^gromacs-2021.*cpeGNU.*&#39;</span>
 <span class="nv">CFGS1</span><span class="o">=</span>/appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/g/GROMACS
  * <span class="nv">$CFGS1</span>/GROMACS-2021-cpeGNU-21.08-PLUMED-2.7.2-CPU.eb
@@ -2965,185 +2966,178 @@ won't go into those here).</p>
 <p><strong><em>Guidelines</em></strong></p>
 <p>Do yourself a favor: don't peek at the solution until you have made an attempt to solve the exercise yourself!</p>
 <p>Please do not spoil solutions to others before they have been discussed by the tutorial organisers.</p>
-<p>The exercises are based on the easyconfig files included with EasyBuild 4.3.3.</p>
-<hr />
-<p><strong><em>Exercise U.0</em></strong><em> - Making installed software available</em></p>
-<p>Before working on the exercises for this part of the tutorial,
-make sure that the software that is already installed in the prepared environment is available.</p>
-<p>We will assume that you have a small software stack installed using the <code>2020b</code> version of the <code>foss</code> toolchain.</p>
-<p><strong>Tip:</strong> execute a "<code>module use</code>" command, and verify with "<code>module avail</code>" that a bunch of software modules
-are available for loading.</p>
-<details class="success">
-<summary>(click to show solution)</summary>
-<p>Use the following command to make the modules for the software available that is pre-installed
-in the prepared environment:
-<div class="highlight"><pre><span></span><code>module use /easybuild/modules/all
-</code></pre></div></p>
-<p>If software is installed in a different location than <code>/easybuild/</code> in your environment,
-you should adjust the command accordingly.</p>
-</details>
+<p>The exercises are based on the easyconfig files available on LUMI during the tutorial of
+May 2022.</p>
 <hr />
 <p><strong><em>Exercise U.1</em></strong><em> - Searching easyconfigs</em></p>
-<p>See if EasyBuild provides any easyconfig files for installing GROMACS version 2020/5.</p>
+<p>See if EasyBuild on LUMI provides any easyconfig files for installing PLUMED in one of the 2.7 versions.</p>
 <details class="success">
 <summary>(click to show solution)</summary>
-<p>To check for available easyconfig files, we can use <code>eb --search</code> or <code>eb -S</code>:
-<div class="highlight"><pre><span></span><code>$ eb -S gromacs-2020.5
-<span class="o">==</span> found valid index <span class="k">for</span> /home/example/.local/easybuild/easyconfigs, so using it...
-<span class="nv">CFGS1</span><span class="o">=</span>/home/example/.local/easybuild/easyconfigs/g/GROMACS
- * <span class="nv">$CFGS1</span>/GROMACS-2020.5-fosscuda-2020a-Python-3.8.2.eb
- * <span class="nv">$CFGS1</span>/GROMACS-2020.5_fix_threads_gpu_Gmxapitests.patch
+<p>To check for available easyconfig files, we can use <code>eb --search</code> or <code>eb -S</code>:</p>
+<div class="highlight"><pre><span></span><code>eb -S PLUMED-2.7
+<span class="nv">CFGS1</span><span class="o">=</span>/appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs
+* <span class="nv">$CFGS1</span>/g/GROMACS/GROMACS-2020.6-cpeCray-21.08-PLUMED-2.7.2-CPU.eb
+* <span class="nv">$CFGS1</span>/g/GROMACS/GROMACS-2020.6-cpeGNU-21.08-PLUMED-2.7.2-CPU.eb
+* <span class="nv">$CFGS1</span>/g/GROMACS/GROMACS-2021-cpeCray-21.08-PLUMED-2.7.2-CPU.eb
+* <span class="nv">$CFGS1</span>/g/GROMACS/GROMACS-2021-cpeGNU-21.08-PLUMED-2.7.2-CPU.eb
+* <span class="nv">$CFGS1</span>/g/GROMACS/GROMACS-2021.4-cpeAOCC-21.12-PLUMED-2.7.4-CPU.eb
+* <span class="nv">$CFGS1</span>/g/GROMACS/GROMACS-2021.4-cpeCray-21.12-PLUMED-2.7.4-CPU.eb
+* <span class="nv">$CFGS1</span>/g/GROMACS/GROMACS-2021.4-cpeGNU-21.12-PLUMED-2.7.4-CPU.eb
+* <span class="nv">$CFGS1</span>/p/PLUMED/PLUMED-2.7.2-cpeAMD-21.08.eb
+* <span class="nv">$CFGS1</span>/p/PLUMED/PLUMED-2.7.2-cpeCray-21.08.eb
+* <span class="nv">$CFGS1</span>/p/PLUMED/PLUMED-2.7.2-cpeGNU-21.08.eb
+* <span class="nv">$CFGS1</span>/p/PLUMED/PLUMED-2.7.2-cpeGNU-21.12.eb
+* <span class="nv">$CFGS1</span>/p/PLUMED/PLUMED-2.7.4-cpeAOCC-21.12.eb
+* <span class="nv">$CFGS1</span>/p/PLUMED/PLUMED-2.7.4-cpeCray-21.12.eb
+* <span class="nv">$CFGS1</span>/p/PLUMED/PLUMED-2.7.4-cpeGNU-21.12.eb
 </code></pre></div>
-This actually shows one easyconfig file but also a patch file. We can also search specifically
-for GROMACS 2020.5 in the <code>foss</code> and <code>fosscuda</code> toolchains using
-<div class="highlight"><pre><span></span><code>$ eb -S gromacs-2020.5-foss
-<span class="o">==</span> found valid index <span class="k">for</span> /home/example/.local/easybuild/easyconfigs, so using it...
-<span class="nv">CFGS1</span><span class="o">=</span>/home/example/.local/easybuild/easyconfigs/g/GROMACS
- * <span class="nv">$CFGS1</span>/GROMACS-2020.5-fosscuda-2020a-Python-3.8.2.eb
+<p>We do get more output than we were hoping for as it also shows the GROMACS
+versions using PLUMED. One way around this is to use regular expressions:</p>
+<div class="highlight"><pre><span></span><code>$ eb -S ^PLUMED-2.7
+<span class="nv">CFGS1</span><span class="o">=</span>/appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/p/PLUMED
+* <span class="nv">$CFGS1</span>/PLUMED-2.7.2-cpeAMD-21.08.eb
+* <span class="nv">$CFGS1</span>/PLUMED-2.7.2-cpeCray-21.08.eb
+* <span class="nv">$CFGS1</span>/PLUMED-2.7.2-cpeGNU-21.08.eb
+* <span class="nv">$CFGS1</span>/PLUMED-2.7.2-cpeGNU-21.12.eb
+* <span class="nv">$CFGS1</span>/PLUMED-2.7.4-cpeAOCC-21.12.eb
+* <span class="nv">$CFGS1</span>/PLUMED-2.7.4-cpeCray-21.12.eb
+* <span class="nv">$CFGS1</span>/PLUMED-2.7.4-cpeGNU-21.12.eb
 </code></pre></div>
-and now we find a single easyconfig file.  </p>
+<p>It is also possible to check for all 2.7 variants for the cpeGNU toolchain but
+this requires a bit more care in composing the regular expression to ensure that
+the shell does not try to expand the expression:</p>
+<div class="highlight"><pre><span></span><code>eb -S &#39;^PLUMED-2.7.*-cpeGNU&#39;
+CFGS1=/appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/p/PLUMED
+* $CFGS1/PLUMED-2.7.2-cpeGNU-21.08.eb
+* $CFGS1/PLUMED-2.7.2-cpeGNU-21.12.eb
+* $CFGS1/PLUMED-2.7.4-cpeGNU-21.12.eb
+</code></pre></div>
 </details>
 <hr />
 <p><strong><em>Exercise U.2</em></strong><em> - Checking dependencies</em></p>
-<p>Check which dependencies are missing to install QuantumESPRESSO version 6.6 with the <code>2020b</code> version of the <code>foss</code> toolchain.</p>
+<p>Check which dependencies are missing to install GROMACS 2021.4 with the
+<code>cpeGNU</code> toolchain and with the PLUMED plugin in the
+most recent version available in the LUMI recipes.</p>
 <details class="success">
 <summary>(click to show solution)</summary>
-<p>First, we need to determine the name of the easyconfig file for QuantumESPRESSO version 6.6:
-<div class="highlight"><pre><span></span><code>$ eb -S <span class="s1">&#39;QuantumESPRESSO-6.6.*foss-2020b&#39;</span>
-<span class="o">==</span> found valid index <span class="k">for</span> /home/example/.local/easybuild/easyconfigs, so using it...
-<span class="nv">CFGS1</span><span class="o">=</span>/home/example/.local/easybuild/easyconfigs/q/QuantumESPRESSO
- * <span class="nv">$CFGS1</span>/QuantumESPRESSO-6.6-foss-2020b.eb
+<p>First, we need to determine the name of the easyconfig file for the required
+version of GROMACS. Easyconfigs would start with <code>GROMACS-2021.4-cpeGNU</code> so
+let's simply search for that:</p>
+<div class="highlight"><pre><span></span><code>$ eb -S GROMACS-2021.4-cpeGNU
+<span class="nv">CFGS1</span><span class="o">=</span>/appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/g/GROMACS
+* <span class="nv">$CFGS1</span>/GROMACS-2021.4-cpeGNU-21.12-PLUMED-2.7.4-CPU.eb
+* <span class="nv">$CFGS1</span>/GROMACS-2021.4-cpeGNU-21.12-PLUMED-2.8.0-CPU.eb
 </code></pre></div>
-To determine which dependencies are missing to install this QuantumESPRESSO easyconfig file, we can use <code>--missing</code>:
-<div class="highlight"><pre><span></span><code>$ eb QuantumESPRESSO-6.6-foss-2020b.eb --missing
+<p>We want the one for the most recent <code>PLUMED</code> toolchian, hence the second one.</p>
+<p>To determine which dependencies are missing to install this GROMACS easyconfig file, we can use <code>--missing</code>:
+<div class="highlight"><pre><span></span><code>$ eb GROMACS-2021.4-cpeGNU-21.12-PLUMED-2.8.0-CPU.eb --missing
 
-<span class="m">3</span> out of <span class="m">58</span> required modules missing:
+<span class="m">2</span> out of <span class="m">15</span> required modules missing:
 
-* libxc/4.3.4-GCC-10.2.0 <span class="o">(</span>libxc-4.3.4-GCC-10.2.0.eb<span class="o">)</span>
-* ELPA/2020.11.001-foss-2020b <span class="o">(</span>ELPA-2020.11.001-foss-2020b.eb<span class="o">)</span>
-* QuantumESPRESSO/6.6-foss-2020b <span class="o">(</span>QuantumESPRESSO-6.6-foss-2020b.eb<span class="o">)</span>
+* PLUMED/2.8.0-cpeGNU-21.12 <span class="o">(</span>PLUMED-2.8.0-cpeGNU-21.12.eb<span class="o">)</span>
+* GROMACS/2021.4-cpeGNU-21.12-PLUMED-2.8.0-CPU <span class="o">(</span>GROMACS-2021.4-cpeGNU-21.12-PLUMED-2.8.0-CPU.eb<span class="o">)</span>
 </code></pre></div>
 (some nonessential output removed).</p>
 </details>
 <hr />
 <p><strong><em>Exercise U.3</em></strong><em> - Performing a dry run</em></p>
 <p>Figure out which command EasyBuild would use to compile
-the software provided by the <code>Bowtie2-2.4.2-GCC-9.3.0.eb</code> easyconfig file,
-without actually installing <code>Bowtie2</code>.</p>
+the software provided by the <code>SAMtools-1.14-cpeGNU-21.12.eb</code> easyconfig file,
+without actually installing <code>SAMtools</code>.</p>
 <p>Also, which binaries will EasyBuild check for to sanity check the installation?</p>
 <details class="success">
 <summary>(click to show solution)</summary>
-<p>To inspect the installation procedure, we can use <code>eb -x Bowtie2-2.4.2-GCC-9.3.0.eb</code>.</p>
+<p>To inspect the installation procedure, we can use <code>SAMtools-1.14-cpeGNU-21.12.eb</code>.</p>
 <p>The output for the build step shows the actual compilation command that would be performed (<code>make ...</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>build_step method<span class="o">]</span>
-&gt;&gt; running command:
-    <span class="o">[</span>started at: <span class="m">2021</span>-03-08 <span class="m">20</span>:15:08<span class="o">]</span>
-    <span class="o">[</span>working dir: /local_scratch/hkenneth/eb-1wodfohg/__ROOT__/local_scratch/hkenneth/Bowtie2/2.4.2/GCC-9.3.0/Bowtie2-2.4.2<span class="o">]</span>
-    <span class="o">[</span>output logged <span class="k">in</span> /local_scratch/hkenneth/eb-1wodfohg/easybuild-run_cmd-haojzisn.log<span class="o">]</span>
-    make -j <span class="m">48</span>  <span class="nv">CC</span><span class="o">=</span><span class="s2">&quot;gcc&quot;</span>  <span class="nv">CPP</span><span class="o">=</span><span class="s2">&quot;g++&quot;</span> <span class="nv">CXX</span><span class="o">=</span><span class="s2">&quot;g++&quot;</span>  <span class="nv">RELEASE_FLAGS</span><span class="o">=</span><span class="s2">&quot;-O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -std=gnu++98&quot;</span>
-<span class="o">(</span><span class="k">in</span> /local_scratch/hkenneth/Bowtie2/2.4.2/GCC-9.3.0/Bowtie2-2.4.2<span class="o">)</span>
+  running <span class="nb">command</span> <span class="s2">&quot;make  -j 256  CC=&quot;</span>cc<span class="s2">&quot;  CXX=&quot;</span>CC<span class="s2">&quot;  CFLAGS=&quot;</span>-O2 -ftree-vectorize -fno-math-errno -fPIC<span class="s2">&quot;  CXXFLAGS=&quot;</span>-O2 -ftree-vectorize -fno-math-errno -fPIC<span class="s2">&quot;&quot;</span>
+  <span class="o">(</span><span class="k">in</span> /XXXX/build/SAMtools/1.14/cpeGNU-21.12/SAMtools-1.14<span class="o">)</span>    
 </code></pre></div>
-<p>If the output you get is less detailed, you may not have set <code>export EASYBUILD_TRACE=1</code>.</p>
+<p>(And if you also add <code>--trace</code> the output will even be a bit more detailed).</p>
 <p>The output for the sanity check step shows which binaries are expected to be installed:
 <div class="highlight"><pre><span></span><code>[sanity_check_step method]
 Sanity check paths - file [&#39;files&#39;]
-  * bin/bowtie2
-  * bin/bowtie2-align-l
-  * bin/bowtie2-align-s
-  * bin/bowtie2-build
-  * bin/bowtie2-build-l
-  * bin/bowtie2-build-s
-  * bin/bowtie2-inspect
-  * bin/bowtie2-inspect-l
-  * bin/bowtie2-inspect-s
+  * bin/ace2sam
+  * bin/blast2sam.pl
+  * bin/bowtie2sam.pl
+  * bin/export2sam.pl
+  * bin/interpolate_sam.pl
+  * bin/maq2sam-long
+  * bin/maq2sam-short
+  * bin/md5fa
+  * bin/md5sum-lite
+  * bin/novo2sam.pl
+  * bin/plot-bamstats
+  * bin/psl2sam.pl
+  * bin/r2plot.lua
+  * bin/sam2vcf.pl
+  * bin/samtools
+  * bin/samtools.pl
+  * bin/seq_cache_populate.pl
+  * bin/soap2sam.pl
+  * bin/vcfutils.lua
+  * bin/wgsim
+  * bin/wgsim_eval.pl
+  * bin/zoom2sam.pl
+  * include/bam/bam.h
+  * include/bam/bam2bcf.h
+  * include/bam/sample.h
 </code></pre></div></p>
 </details>
 <hr />
 <p><strong><em>Exercise U.4</em></strong><em> - Installing software</em></p>
-<p>Install version 3.1.0 of the <code>h5py</code> Python package and all missing dependencies,
-using the <code>foss/2020b</code> toolchain, into <code>/tmp/$USER/easybuild</code>,
-while leveraging the already installed software available from <code>/easybuild</code>.</p>
+<p>Install version 2.0.5 of CDO using the cpeGNU toolchain (21.12 version)
+including all missing dependencies.</p>
 <p>Enable trace output so you can see which parts of the installation take a while.</p>
 <details class="success">
 <summary>(click to show solution)</summary>
 <p>First, determine the easyconfig file we can use for this:
-<div class="highlight"><pre><span></span><code>$ eb -S <span class="s1">&#39;h5py-3.1.0.*foss-2020b&#39;</span>
-<span class="nv">CFGS1</span><span class="o">=</span>/home/example/.local/easybuild/easyconfigs/h/h5py
-* <span class="nv">$CFGS1</span>/h5py-3.1.0-foss-2020b.eb
+<div class="highlight"><pre><span></span><code>$ eb -S <span class="s1">&#39;^CDO.*cpeGNU-21.12&#39;</span>
+<span class="nv">CFGS1</span><span class="o">=</span>/appl/lumi/LUMI-EasyBuild-contrib/easybuild/easyconfigs/c/CDO
+ * <span class="nv">$CFGS1</span>/CDO-2.0.5-cpeGNU-21.12.eb
 </code></pre></div></p>
-<p>Make sure the pre-install software in <code>/easybuild/</code> is available:
-<div class="highlight"><pre><span></span><code>module use /easybuild/modules/all
-</code></pre></div></p>
-<p>Check which dependencies are missing to install this <code>h5py</code> easyconfig:
-<div class="highlight"><pre><span></span><code>$ eb h5py-3.1.0-foss-2020b.eb --missing
+<p>Check which dependencies are missing to install this CDO easyconfig:
+<div class="highlight"><pre><span></span><code>$ eb CDO-2.0.5-cpeGNU-21.12.eb
 
-<span class="m">2</span> out of <span class="m">63</span> required modules missing:
+<span class="m">4</span> out of <span class="m">32</span> required modules missing:
 
-* pkgconfig/1.5.1-GCCcore-10.2.0-python <span class="o">(</span>pkgconfig-1.5.1-GCCcore-10.2.0-python.eb<span class="o">)</span>
-* h5py/3.1.0-foss-2020b <span class="o">(</span>h5py-3.1.0-foss-2020b.eb<span class="o">)</span>
+ * json-c/0.16-cpeGNU-21.12 <span class="o">(</span>json-c-0.16-cpeGNU-21.12.eb<span class="o">)</span>
+ * ecCodes/2.25.0-cpeGNU-21.12 <span class="o">(</span>ecCodes-2.25.0-cpeGNU-21.12.eb<span class="o">)</span>
+ * CMOR/3.6.1-cpeGNU-21.12 <span class="o">(</span>CMOR-3.6.1-cpeGNU-21.12.eb<span class="o">)</span>
+ * CDO/2.0.5-cpeGNU-21.12 <span class="o">(</span>CDO-2.0.5-cpeGNU-21.12.eb<span class="o">)</span>
 </code></pre></div></p>
-<p>Install <code>h5py</code> by specifying the easyconfig file and enabling dependency resolution via <code>--robot</code>,
-while indicating that we want to install the software into <code>/tmp/$USER/easybuild</code> using the <code>--installpath</code>
-option. Also make sure that trace mode is enabled by defining the <code>$EASYBUILD_TRACE</code> environment variable.
+<p>Install CDO by specifying the easyconfig file and enabling dependency resolution via <code>--robot</code>,
+Also make sure that trace mode is enabled by defining the <code>$EASYBUILD_TRACE</code> environment variable.
 <div class="highlight"><pre><span></span><code>$ <span class="nb">export</span> <span class="nv">EASYBUILD_TRACE</span><span class="o">=</span><span class="m">1</span>
-$ eb h5py-3.1.0-foss-2020b.eb --robot --installpath /tmp/<span class="nv">$USER</span>/easybuild
+$ eb CDO-2.0.5-cpeGNU-21.12.eb --robot
 ...
-<span class="o">==</span> building and installing pkgconfig/1.5.1-GCCcore-10.2.0-python...
+<span class="o">==</span> building and installing ecCodes/2.25.0-cpeGNU-21.12...
 ...
-<span class="o">==</span> building and installing h5py/3.1.0-foss-2020b...
+<span class="o">==</span> building and installing json-c/0.16-cpeGNU-21.12...
 ...
+<span class="o">==</span> building and installing CMOR/3.6.1-cpeGNU-21.12...
+...
+<span class="o">==</span> building and installing CDO/2.0.5-cpeGNU-21.12...
+...
+<span class="o">==</span> configuring...
+  &gt;&gt; running command:
+...
+  &gt;&gt; <span class="nb">command</span> completed: <span class="nb">exit</span> <span class="m">0</span>, ran <span class="k">in</span> <span class="nv">00h01m52s</span>
+<span class="o">==</span> ... <span class="o">(</span>took <span class="m">1</span> min <span class="m">52</span> secs<span class="o">)</span>
 <span class="o">==</span> building...
   &gt;&gt; running command:
-        <span class="o">[</span>started at: <span class="m">2020</span>-06-10 <span class="m">21</span>:47:32<span class="o">]</span>
-        <span class="o">[</span>working dir: /tmp/example/h5py/3.1.0/foss-2020b/h5py-3.1.0<span class="o">]</span>
-        <span class="o">[</span>output logged <span class="k">in</span> /tmp/eb-rjjkbqe1/easybuild-run_cmd-d_dkc4iz.log<span class="o">]</span>  
-        python setup.py configure --mpi --hdf5<span class="o">=</span><span class="nv">$EBROOTHDF5</span> <span class="o">&amp;&amp;</span> /easybuild/software/Python/3.8.6-GCCcore-10.2.0/bin/python setup.py build
-  &gt;&gt; <span class="nb">command</span> completed: <span class="nb">exit</span> <span class="m">0</span>, ran <span class="k">in</span> 00h01m27s
+        <span class="o">[</span>started at: <span class="m">2022</span>-05-09 <span class="m">20</span>:07:44<span class="o">]</span>
+        <span class="o">[</span>working dir: /run/user/10012026/easybuild/build/CDO/2.0.5/cpeGNU-21.12/cdo-2.0.5<span class="o">]</span>
+        <span class="o">[</span>output logged <span class="k">in</span> /run/user/10012026/easybuild/tmp/eb-0ihsqw7j/easybuild-run_cmd-pnuot3pi.log<span class="o">]</span>
+        make  -j <span class="m">256</span>
+  &gt;&gt; <span class="nb">command</span> completed: <span class="nb">exit</span> <span class="m">0</span>, ran <span class="k">in</span> 00h00m57s
 ...
-<span class="o">==</span> COMPLETED: Installation ended successfully <span class="o">(</span>took <span class="m">2</span> min <span class="m">46</span> sec<span class="o">)</span>
+<span class="o">==</span> COMPLETED: Installation ended successfully <span class="o">(</span>took <span class="m">3</span> mins <span class="m">14</span> secs<span class="o">)</span>
 ...
-<span class="o">==</span> Build succeeded <span class="k">for</span> <span class="m">2</span> out of <span class="m">2</span>
+<span class="o">==</span> Build succeeded <span class="k">for</span> <span class="m">4</span> out of <span class="m">4</span>
 </code></pre></div></p>
-<p>The trace output shows that most time is spent in the build command,
-which runs both <code>python setup.py configure</code> and <code>python setup.py build</code>.</p>
-</details>
-<hr />
-<p><strong><em>Exercise U.5</em></strong><em> - Using installed software</em></p>
-<p>Using the <code>h5py</code> installation from the previous exercise to create an empty HDF5 file,
-using the following Python statements:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">h5py</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s2">&quot;empty.hdf5&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
-<p>Check the resulting file using the <code>h5stat</code> command.</p>
-<details class="success">
-<summary>(click to show solution)</summary>
-<p>First, we need to make the modules tool aware of the module files that were installed into <code>/tmp/$USER/easybuild</code>:
-<div class="highlight"><pre><span></span><code>module use /tmp/<span class="nv">$USER</span>/easybuild/modules/all
-</code></pre></div></p>
-<p>Then we can check the <code>h5py</code> module is available, and load it:
-<div class="highlight"><pre><span></span><code>$ module avail h5py
------------- /tmp/example/easybuild/modules/all ------------
-h5py/3.1.0-foss-2020b
-</code></pre></div></p>
-<div class="highlight"><pre><span></span><code>module load h5py/3.1.0-foss-2020b
-</code></pre></div>
-<p>The Python code snippet can be run directly on the command line using "<code>python -c '...'</code>", since it's tiny:
-<div class="highlight"><pre><span></span><code>python -c <span class="s1">&#39;import h5py; f = h5py.File(&quot;empty.hdf5&quot;, &quot;w&quot;); f.close()&#39;</span>
-</code></pre></div>
-Of course you can also copy the Python code snippet in a file named <code>test_h5py.py</code>,
-and then run it with <code>python test_h5py.py</code>.</p>
-<p>Checking with the <code>h5stat</code> command shows that the resulting <code>empty.hdf5</code> is indeed a valid HDF5 file:
-<div class="highlight"><pre><span></span><code>$ ls -l empty.hdf5 
--rw-rw-r-- <span class="m">1</span> example example <span class="m">800</span> Jun <span class="m">10</span> <span class="m">21</span>:54 empty.hdf5
-
-$ h5stat empty.hdf5
-Filename: empty.hdf5
-File information
-        <span class="c1"># of unique groups: 1</span>
-        <span class="c1"># of unique datasets: 0</span>
-...
-</code></pre></div></p>
+<p>The trace output shows that most time is spent in the configure phase (and this is also the 
+case for some of the dependencies).</p>
 </details>
 <hr />
 <p>If you've made it through the hands-on exercises, congratulations!</p>
@@ -3157,7 +3151,7 @@ and it's a lot to take in at once, take your time...</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 9, 2022</span>
       
     
   </small>

@@ -2168,7 +2168,7 @@ to writing easyconfig files from scratch <a href="../2_02_creating_easyconfig_fi
 
 <span class="n">start_dir</span> <span class="o">=</span> <span class="s1">&#39;src&#39;</span>
 
-<span class="c1"># -fcommon is required to compile Subread 2.0.1 with GCC 10,</span>
+<span class="c1"># -fcommon is required to compile Subread 2.0.1 with GCC 10/11,</span>
 <span class="c1"># which uses -fno-common by default (see https://www.gnu.org/software/gcc/gcc-10/porting_to.html)</span>
 <span class="n">buildopts</span> <span class="o">=</span> <span class="s1">&#39;-f Makefile.Linux CFLAGS=&quot;-fast -fcommon&quot;&#39;</span>
 
@@ -2204,8 +2204,43 @@ exercise, but it may help with the step-wise approach we'll take and
 grasping the solutions.</p>
 <p>Remember though: <em>no peeking</em> before you tried to solve each step yourself!</p>
 <hr />
-<p><strong><em>Exercise T.1</em></strong><em> - Sources</em></p>
+<p><strong><em>Exercise T.1</em></strong><em> - Toolchain</em></p>
 <p>Try to install the <code>subread.eb</code> easyconfig file, see what happens.</p>
+<p>Take into account that we just want to get this software package installed,
+we don't care too much about details like the version of the dependencies or
+the toolchain here...</p>
+<details class="success">
+<summary>(click to show solution)</summary>
+<p>The installation fails because the easyconfig specifies that <code>PrgEnv-gnu/21.10</code>
+should be used as toolchain:</p>
+<div class="highlight"><pre><span></span><code>$ eb subread.eb
+...
+ERROR: Failed to process easyconfig /pfs/lustrep3/users/kurtlust/easybuild-tutorial/Troubleshooting/subread.eb: Toolchain PrgEnv-gnu not found, 
+available toolchains: ...
+...
+</code></pre></div>
+<p><code>PrgEnv-gnu</code> is an HPE Cray PE module that may look like a toolchain - it certainly has 
+the same function: provide compiler, MPI and basic math libraries - but it is not 
+recognised as a toolchain by EasyBuild. EasyBuild prefers to manage its own modules so that it knows
+well what is in it which is not the case with the <code>PrgEnv-*</code> modules from the Cray PE
+as the content may differ between systems and as the versions of the compilers etc. that
+are loaded differ on other modules that are loaded. Hence we created Cray-specific toolchains.
+You'll actually find two series of Cray toolchains in the list of available toolchains. </p>
+<p>A more readable list of toolchains supported by EasyBuild can be generated using</p>
+<div class="highlight"><pre><span></span><code>eb --list-toolchains
+</code></pre></div>
+<p>The <code>CrayGNU</code>, <code>CrayIntel</code>, <code>CrayPGI</code> and <code>CrayCCE</code> are included with the EasyBuild distribution
+and where developed by CSCS for their systems using Environment Modules. These were not compatible
+with the initial releases of the Cray PE with Lmod modules so new ones were developed on which we
+also built for the LUMI toolchains. Those are called <code>cpeCray</code>, <code>cpeGNU</code>, <code>cpeAOCC</code> and <code>cpeAMD</code>
+and are maintained by LUST and available via the LUMI repositories.</p>
+</details>
+<p>Note: Depending on how you use EasyBuild you may now first run into the problem of Exercise T.2 or 
+first run into the problem covered by Exercise T.3.</p>
+<hr />
+<p><strong><em>Exercise T.2</em></strong><em> - Sources</em></p>
+<p>After fixing the problem with the name of the toolchain, try running <code>eb</code> again.</p>
+<p>What's wrong now? How can you fix it quickly?</p>
 <p>Can you fix the problem you run into, perhaps without even changing
 the easyconfig file?</p>
 <details class="success">
@@ -2231,6 +2266,8 @@ and move it to the location where EasyBuild expects to find it
 mkdir -p $EBU_USER_PREFIX/sources/s/Subread
 mv subread-2.0.1-source.tar.gz $EBU_USER_PREFIX/sources/s/Subread/
 </code></pre></div></p>
+<p>(assuming you have set <code>EBU_USER_PREFIX</code>, otherwise replace <code>$EBU_USER_PREFIX</code> with
+<code>$HOME/EasyBuild</code>).</p>
 <p>Or, we can change the easyconfig file to specify the location where
 the easyconfig file can be downloaded from:
 <div class="highlight"><pre><span></span><code><span class="n">source_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://download.sourceforge.net/subread/&#39;</span><span class="p">]</span>
@@ -2246,7 +2283,7 @@ total 23M
 </code></pre></div>
 </details>
 <hr />
-<p><strong><em>Exercise T.2</em></strong><em> - Toolchain</em></p>
+<p><strong><em>Exercise T.3</em></strong><em> - Toolchain revisited</em></p>
 <p>After fixing the problem with missing source file, try the installation again.</p>
 <p>What's wrong now? How can you fix it quickly?</p>
 <p>Take into account that we just want to get this software package installed,
@@ -2254,34 +2291,15 @@ we don't care too much about details like the version of the dependencies or
 the toolchain here...</p>
 <details class="success">
 <summary>(click to show solution)</summary>
-<p>The installation fails because the easyconfig specifies that GCC 8.5.0
+<p>The installation fails because the easyconfig specifies that <code>PrgEnv-gnu/21.12</code>
 should be used as toolchain:</p>
 <div class="highlight"><pre><span></span><code>$ eb subread.eb
 ...
-ERROR: Failed to process easyconfig /pfs/lustrep3/users/kurtlust/easybuild-tutorial/Troubleshooting/subread.eb: Toolchain PrgEnv-gnu not found, 
-available toolchains: ...
+ERROR: Build of /pfs/lustrep3/users/kurtlust/easybuild-tutorial/Troubleshooting/subread.eb failed <span class="o">(</span>err: <span class="s1">&#39;build failed (first 300 chars): </span>
+<span class="s1">No module found for toolchain: cpeGNU/21.10&#39;</span><span class="o">)</span>
 ...
 </code></pre></div>
-<p><code>PrgEnv-gnu</code> is an HPE Cray PE module that may look like a toolchain - it certainly has 
-the same function: provide compiler, MPI and basic math libraries - but it is not 
-recognised as a toolchain by EasyBuild. EasyBuild prefers to manage its own modules so that it knows
-well what is in it which is not the case with the <code>PrgEnv-*</code> modules from the Cray PE
-as the content may differe between systems and as the versions of the compilers etc. that
-are loaded differ on other modules that are loaded. Hence we created Cray-specific toolchains.
-You'll actually find two series of Cray toolchains in the list of available toolchains. The
-<code>CrayGNU</code>, <code>CrayIntel</code>, <code>CrayPGI</code> and <code>CrayCCE</code> are included with the EasyBuild distribution
-and where developed by CSCS for their systems using Environment Modules. These were not compatible
-with the initial releases of the Cray PE with Lmod modules so new ones were developed on which we
-also built for the LUMI toolchains. Those are called <code>cpeCray</code>, <code>cpeGNU</code>, <code>cpeAOCC</code> and <code>cpeAMD</code>
-and are maintained by LUST and available via the LUMI repositories.</p>
-<p>Changing the toolchain name to <code>cpeGNU</code> is not enough to solve all problems though:</p>
-<div class="highlight"><pre><span></span><code>$ eb subread.eb
-...
-ERROR: Build of /pfs/lustrep3/users/kurtlust/easybuild-tutorial/Troubleshooting/subread.eb failed (err: &#39;build failed (first 300 chars): 
-No module found for toolchain: cpeGNU/21.10&#39;)
-...
-</code></pre></div>
-<p>We don't have this <code>cpeGNU</code> version installed, but we do have GCC 21.12:</p>
+<p>We don't have this <code>cpeGNU</code> version installed, but we do have <code>cpeGNU/21.12</code>:</p>
 <div class="highlight"><pre><span></span><code>$ module avail cpeGNU/
 ----- Infrastructure modules <span class="k">for</span> the software stack LUMI/21.12 on LUMI-L -----
    cpeGNU/21.12
@@ -2293,8 +2311,8 @@ No module found for toolchain: cpeGNU/21.10&#39;)
 </code></pre></div>
 </details>
 <hr />
-<p><strong><em>Exercise T.3</em></strong><em> - Build step</em></p>
-<p>With the first two problems fixed, now we can actually try to build the software.</p>
+<p><strong><em>Exercise T.4</em></strong><em> - Build step</em></p>
+<p>With the first three problems fixed, now we can actually try to build the software.</p>
 <p>Can you fix the next problem you run into?</p>
 <details class="success">
 <summary>(click to show solution)</summary>
@@ -2356,7 +2374,7 @@ defaults in EasyBuild, settings in the EasyBuild configuration and settings in t
 easyconfig file that we shall discuss later).</p>
 </details>
 <hr />
-<p><strong><em>Exercise T.4</em></strong><em> - Sanity check</em></p>
+<p><strong><em>Exercise T.5</em></strong><em> - Sanity check</em></p>
 <p>After fixing the compilation issue, you're really close to getting the installation working, we promise!</p>
 <p>Don't give up now, try one last time and fix the last problem that occurs...</p>
 <details class="success">
@@ -2384,7 +2402,10 @@ sanity check and generate the module file again:
 </code></pre></div></p>
 </details>
 <hr />
-<p>In the end, you should be able to install Subread 2.0.1 with the cpeGNU 21.12 toolchain by fixing the problems with the <code>subread.eb</code> easyconfig file.</p>
+<hr />
+<p><strong><em>Exercise T.6</em></strong><em> - Post-install check of the log file</em></p>
+<p>In the end, you should be able to install Subread 2.0.1 with the cpeGNU 21.12 toolchain by 
+fixing the problems with the <code>subread.eb</code> easyconfig file.</p>
 <p>Check your work by manually loading the module and checking the version
 via the <code>featureCounts</code> command, which should look like this:</p>
 <div class="highlight"><pre><span></span><code>$ module load Subread/2.0.1-cpeGNU-21.12
@@ -2392,6 +2413,136 @@ via the <code>featureCounts</code> command, which should look like this:</p>
 $ featureCounts -v
 featureCounts v2.0.1
 </code></pre></div>
+<p>So all is well know, or is it?</p>
+<p>Unfortunately we don't have a complete log file of the last build (at least if you only re-installed
+the module) as most of the steps were skipped in the last build.</p>
+<p>Let's do the build again and check the full log file, just to be sure. But we'll first need to
+clean up a bit as EasyBuild doesn't like to build in a shell in which the modules which are
+used for the build are already loaded:</p>
+<div class="highlight"><pre><span></span><code>module unload Subread cpeGNU
+</code></pre></div>
+<p>Now look at the output of an extended dry run and then rebuild to have a full log file so
+that we can expect if EasyBuild really did what we expected:</p>
+<div class="highlight"><pre><span></span><code>eb subread.eb -x
+eb subread.eb -f
+</code></pre></div>
+<p>(the last line to force a rebuild).</p>
+<p>Now go to the <code>$EBU_USER_PREFIX/SW/LUMI-21.12/L/Subread/2.0.1-cpeGNU-21.12/easybuild</code>
+(or <code>$HOME/EasyBuild/SW/LUMI-21.12/L/Subread/2.0.1-cpeGNU-21.12/easybuild</code>, depending on your configuration,) directory and open
+the log file in your favourite editor. Search for the build step by searching for the string
+<code>INFO Starting build</code> and look carefully at how the program was actually build...</p>
+<p>You'll very likely have to look at the solution to understand how to correct the
+problems as that requires more advanced knowlege than we have at this point in
+the tutorial, but try to figure out what could be wrong first though...</p>
+<details class="hint">
+<summary>(Click for a hint)</summary>
+<p>Check the compiler that has been used and the compiler flags. Are these really
+what you would like to see and what you would expect from running <code>eb subread.eb -x</code>
+as we did before?</p>
+</details>
+<details class="success">
+<summary>(click to show solution)</summary>
+<p>According to the output of <code>eb subread.eb -x</code>, the build should be done using 
+<code>cc</code> as the compiler as that is the value assigned to the <code>CC</code> environment which
+by convention points to the C compiler. Moreover, EasyBuild sets <code>CFLAGS</code> to 
+<code>-O2 -ftree-vectorize -fno-math-errno</code>, and then the <code>make</code> command line adds
+<code>-fcommon</code> to those flags.</p>
+<p>However, this is not what we see in the build log. It turns out that Subread
+is one of those horror packages that follows no established convention for 
+build procedures.</p>
+<p>One of the first lines we 
+run into (yours may differ since this is a parallel build) is</p>
+<div class="highlight"><pre><span></span><code>gcc  -mtune=core2  -O3 -DMAKE_FOR_EXON  -D MAKE_STANDALONE -D SUBREAD_VERSION=\&quot;&quot;2.0.1&quot;\&quot;  -D_FILE_OFFSET_BITS=64    -fmessage-length=0  -ggdb  -O2 -ftree-vectorize -fno-math-errno -fcommon -I/opt/cray/pe/libsci/21.08.1.2/GNU/9.1/x86_64/include  -c -o core.o core.c
+</code></pre></div>
+<p>The flags that we added via <code>CFLAGS</code> are in there but only after some other flags.
+The build process didn't pick up our C compiler either! And o horror, it even defines
+the processor architecture! So it will not run on older architectures than the Intel Sandy 
+Bridge family, but it will not exploit newer architectures either (well, it it could, the code
+may not benefit at all from newer vectorisation instructions, but at least the compiler might
+do a better job optimising). 
+Scrolling down a bit we see some lines that generate executables from a single
+C file and a list of already generated object files, and there we don't even see our
+compiler flags at all!</p>
+<p>The problem is truly in the makefiles of Subread. We could now untar the source file
+that was saved by EasyBuild in a temporary work directory and inspect the sources, or we could
+retry the build and stop after the build step. Let's take the latter option. The command to 
+do this is</p>
+<div class="highlight"><pre><span></span><code>eb subread.eb -f --stop build
+</code></pre></div>
+<p>We'll need to search for the build directory now as it is not printed when EasyBuild stops in
+a regular way.</p>
+<div class="highlight"><pre><span></span><code>pushd $EASYBUILD_BUILDPATH/Subread/2.0.1/cpeGNU-21.12
+cd subread-2.0.1-source
+cd src
+</code></pre></div>
+<p>The EasyConfig uses the makefile <code>Makefile.Linux</code> so let's check that one. Some of the crucial
+lines are:</p>
+<div class="highlight"><pre><span></span><code>CC_EXEC = gcc
+OPT_LEVEL = 3
+
+CCFLAGS = -mtune=core2 ${MACOS} -O${OPT_LEVEL} -DMAKE_FOR_EXON  -D MAKE_STANDALONE -D SUBREAD_VERSION=\&quot;${SUBREAD_VERSION}\&quot;  -D_FILE_OFFSET_BITS=64 ${WARNING_LEVEL}
+CC = ${CC_EXEC}  ${CCFLAGS}  -fmessage-length=0  -ggdb
+</code></pre></div>
+<p>We see several problems at once</p>
+<ul>
+<li><code>CC</code> is defined in the Makefile in a way that we do not want to redefine it on the <code>make`` command
+    line as it also already includes all compiler options. It turns out we need to redefine</code>CC_EXEC`
+    instead to use a different compiler.</li>
+<li><code>CCFLAGS</code> includes several options that should enter through <code>CFLAGS</code> and should not be imposed in
+    a proper build process. The most dangerous one is the <code>-mtune=core2</code>, but in general we prefer to 
+    leave the choice of the optimisation level to EasyBuild also unless there are good reasons to use
+    a very specific optimisation level.</li>
+<li>One may wonder why at least some of the compiles did pick up <code>CFLAGS</code> then. This is because these
+    files were compiled using an implicit rule that used the <code>CC</code> command as defined in <code>Makefile.Linux</code>
+    so with a lot of compiler flags already added to it and then adds <code>CFLAGS</code> as defined on the <code>make</code>
+    command line generated by EasyBuild. Those compile commands that were generated from an explicit rule 
+    don't pick up <code>CFLAGS</code> though.</li>
+</ul>
+<p>There are two ways to fix this in EasyBuild (besides teaching the developer of this software package how
+to write a proper Makefile following the usual conventions).</p>
+<ol>
+<li>
+<p>The approach which is usually followed is to make a patch file for <code>Makefile.Linux</code> that changes the line</p>
+<div class="highlight"><pre><span></span><code>CCFLAGS = -mtune=core2 ${MACOS} -O${OPT_LEVEL} -DMAKE_FOR_EXON  -D MAKE_STANDALONE -D SUBREAD_VERSION=\&quot;${SUBREAD_VERSION}\&quot;  -D_FILE_OFFSET_BITS=64 ${WARNING_LEVEL}
+</code></pre></div>
+<p>to, e.g.,</p>
+<div class="highlight"><pre><span></span><code>CCFLAGS = ${CFLAGS} -DMAKE_FOR_EXON  -D MAKE_STANDALONE -D SUBREAD_VERSION=\&quot;${SUBREAD_VERSION}\&quot;  -D_FILE_OFFSET_BITS=64 ${WARNING_LEVEL}
+</code></pre></div>
+<p>combined with changing the <code>buildopts</code> line to also overwrite <code>CC_EXEC</code>:</p>
+<div class="highlight"><pre><span></span><code>buildopts = &#39;-f Makefile.Linux CC_EXEC=&quot;$CC&quot; CFLAGS=&quot;-fast -fcommon&quot;&#39;
+</code></pre></div>
+<p>(or you could also change the <code>CC_EXEC</code> line in <code>Makefile.Linux</code> with the same patch to use the <code>cc</code> command,
+but that would also make the patch file Cray-only.) </p>
+</li>
+<li>
+<p>The other option is to simply edit <code>Makefile.Linux</code> using <code>sed</code> to replace 
+    <code>-mtune=core2 ${MACOS} -O${OPT_LEVEL}</code> with
+    <code>${CFLAGS}</code>. This can be done by executing a <code>sed</code> command before calling <code>make</code>. 
+    As we shall see later in this tutorial, this can be done with <code>prebuildopts</code>: </p>
+<div class="highlight"><pre><span></span><code><span class="n">prebuildopts</span> <span class="o">=</span> <span class="s2">&quot;sed -e &#39;s/-mtune=core2 $</span><span class="si">{MACOS}</span><span class="s2"> -O$</span><span class="si">{OPT_LEVEL}</span><span class="s2">/$</span><span class="si">{CFLAGS}</span><span class="s2">/&#39; -i Makefile.Linux &amp;&amp; &quot;</span>
+</code></pre></div>
+<p>and as in the previous case we also still need to overwrite <code>CC_EXEC</code> with the 
+correct compiler on the <code>make</code> command line:</p>
+<div class="highlight"><pre><span></span><code>buildopts = &#39;-f Makefile.Linux CC_EXEC=&quot;$CC&quot; CFLAGS=&quot;-fast -fcommon&quot;&#39;
+</code></pre></div>
+<p>Now check the output of <code>eb subread.eb -x</code> to see what will happen during the build phase.</p>
+</li>
+</ol>
+<p>Let's implement the second approach, then do a full rebuild:</p>
+<div class="highlight"><pre><span></span><code>eb subread.eb -f
+</code></pre></div>
+<p>and then open the log file (again in the <code>easybuild</code> subdirectory of the software installation
+directory) and check what happened now during the build step.</p>
+<p>As we scroll through the output of the build step, we still see a few lines mentioning
+<code>gcc</code>... It turns out there is a second Makefile hidden in the subdirectory <code>longread-one</code> so we 
+need to edit that one too... So following the second approach we can do this with</p>
+<div class="highlight"><pre><span></span><code><span class="n">prebuildopts</span> <span class="o">=</span> <span class="s2">&quot;sed -e &#39;s/-mtune=core2 $</span><span class="si">{MACOS}</span><span class="s2"> -O$</span><span class="si">{OPT_LEVEL}</span><span class="s2">/$</span><span class="si">{CFLAGS}</span><span class="s2">/&#39; -i Makefile.Linux &amp;&amp; &quot;</span>
+<span class="n">prebuildopts</span> <span class="o">+=</span> <span class="s2">&quot;sed -e &#39;s/-mtune=core2 $</span><span class="si">{MACOS}</span><span class="s2"> -O$</span><span class="si">{OPT_LEVEL}</span><span class="s2">/$</span><span class="si">{CFLAGS}</span><span class="s2">/&#39; -i longread-one/Makefile &amp;&amp; &quot;</span>
+</code></pre></div>
+<p>Now we can build once more and check the log file and finally we can be satisfied...</p>
+<p>This exercise also show how tedious developing an easyconfig can be. And it also shows mistakes that
+are sometimes overlooked in easyconfigs that come with EasyBuild.</p>
+</details>
 <hr />
 <p><em><a href="../2_02_creating_easyconfig_files/">[next: Creating easyconfig files]</a></em></p>
 
@@ -2400,7 +2551,7 @@ featureCounts v2.0.1
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 9, 2022</span>
       
     
   </small>
