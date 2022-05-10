@@ -2047,7 +2047,8 @@ community:</p>
 <ul>
 <li>Enforce some site policies on easyconfig files. A practical example for LUMI could be imposing
     the use of the <code>whatis</code> parameter and ensuring that it contains a <code>Description</code> line to have a
-    more consistent format for module files.</li>
+    more consistent format for module files (or, alternatively, imposing this if the mandatory
+    <code>description</code> parameter is to long to be good for a <code>whatis</code> line).</li>
 <li>Ensuring that some information is always in the module file. E.g., on LUMI the <code>site_contacts</code> 
     parameter is added automatically when installing in the central stack if it is not already in 
     the easyconfig file to refer to the LUST     support pages.</li>
@@ -2056,13 +2057,15 @@ community:</p>
     to offer the common EasyBuild FOSS toolchain and its subtoolchains to users on LUMI-C, while using hooks to
     adapt, e.g., the easyconfig files for Open MPI to work on LUMI.</li>
 </ul>
-<p>Some site have really large hook files to implement policies and modify standard EasyBuild build recipes, e.g.,
--   <a href="https://github.com/easybuilders/JSC/blob/2022/Custom_Hooks/eb_hooks.py">The hooks file from Jülich Supercomputing Centre</a>
--   ComputeCanada <a href="https://github.com/ComputeCanada/easybuild-computecanada-config/blob/main/cc_hooks_common.py">cc_hooks_common.py</a>
-    and <a href="https://github.com/ComputeCanada/easybuild-computecanada-config/blob/main/cc_hooks_gentoo.py">cc_hooks_gento.py</a>
--   <a href="https://github.com/EESSI/software-layer/blob/main/eb_hooks.py">The hooks file from the EESSI software stack</a>. 
+<p>Some site have really large hook files to implement policies and modify standard EasyBuild build recipes, e.g.,</p>
+<ul>
+<li><a href="https://github.com/easybuilders/JSC/blob/2022/Custom_Hooks/eb_hooks.py">The hooks file from Jülich Supercomputing Centre</a></li>
+<li>ComputeCanada <a href="https://github.com/ComputeCanada/easybuild-computecanada-config/blob/main/cc_hooks_common.py">cc_hooks_common.py</a>
+    and <a href="https://github.com/ComputeCanada/easybuild-computecanada-config/blob/main/cc_hooks_gentoo.py">cc_hooks_gento.py</a></li>
+<li><a href="https://github.com/EESSI/software-layer/blob/main/eb_hooks.py">The hooks file from the EESSI software stack</a>. 
    <a href="https://www.eessi-hpc.org/">EESSI</a> is an effort to build a software stack distributed via 
-   <a href="https://cernvm.cern.ch/fs/">CernVM-FS</a> using EasyBuild to build all software.</p>
+   <a href="https://cernvm.cern.ch/fs/">CernVM-FS</a> using EasyBuild to build all software.</li>
+</ul>
 <h2 id="implementing-and-using-hooks">Implementing and using hooks<a class="headerlink" href="#implementing-and-using-hooks" title="Permanent link">&para;</a></h2>
 <p>Using hooks is done by implementing functions with specific names in a Python module,
 and configuring EasyBuild to use them by specifying the path to the file that contains them
@@ -2183,7 +2186,7 @@ when updating the easyconfig parameter:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 10, 2022</span>
       
     
   </small>

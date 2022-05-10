@@ -2375,11 +2375,12 @@ how template values like <code>%(version)s</code> are handled), you need to be a
 <p>If want to <em>add</em> to the existing value however, you <em>must</em> use the <code>self.cfg.update</code> method. For example:</p>
 <div class="highlight"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">cfg</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;some_list&#39;</span><span class="p">,</span> <span class="s1">&#39;example&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>This will <strong><em>not</em></strong> work (because <code>self.cfg['some_list']</code> does not return a reference to the original value,
-but to a <em>temporary copy</em> thereof):</p>
+<p>One could be tempted to use</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># anti-pattern, this does NOT work as expected!</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;some_list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
 </code></pre></div>
+<p>instead, but this will <strong><em>not</em></strong> work because <code>self.cfg['some_list']</code> does not return a reference to the original value,
+but to a <em>temporary copy</em> thereof.</p>
 <h3 id="custom-parameters">Custom parameters<a class="headerlink" href="#custom-parameters" title="Permanent link">&para;</a></h3>
 <p>Additional custom easyconfig parameters can be defined in an easyblock to steer its behaviour.
 This is done via the <code>extra_options</code> <em>static</em> method. Custom parameters can be specified to be mandatory.</p>
@@ -2839,7 +2840,7 @@ with CMake.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 10, 2022</span>
       
     
   </small>

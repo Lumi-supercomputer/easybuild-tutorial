@@ -2141,7 +2141,8 @@ that are specified via an <a href="../../1_Intro/1_07_configuration#configuratio
 that are in place in the job environment are most likely <em>irrelevant</em>, since configuration settings
 they specify they will most likely be overruled by the corresponding command line options.
 It does also imply however that the EasyBuild configuration that is in place when <code>eb --job</code> is used
-does also work on the compute nodes to which the job is submitted.</p>
+should also work on the compute nodes to which the job is submitted as EasyBuild will generate the command
+line options used in the job script based on that configuration.</p>
 <h2 id="using-eb-job">Using <code>eb --job</code><a class="headerlink" href="#using-eb-job" title="Permanent link">&para;</a></h2>
 <h3 id="job-backend">Job backend<a class="headerlink" href="#job-backend" title="Permanent link">&para;</a></h3>
 <p>The default job backend in EasyBuild v4.x is <a href="https://gc3pie.readthedocs.io"><code>GC3Pie</code></a>.
@@ -2168,7 +2169,7 @@ use the <code>eb</code> command to perform a single installation. These scripts 
 using the <code>sbatch</code> command.</p>
 <p>EasyBuild currently doesn't provide away to customize the Slurm submission options,
 for example to submit to a particular partition, or to use a particular account,
-build you can set the corresponding <code>$SBATCH_*</code> environment variables prior to running <code>eb --job</code>.</p>
+build you can set the corresponding <code>SBATCH_*</code> environment variables prior to running <code>eb --job</code>.</p>
 <p>For example, to specify a particular account that should be used for the jobs submitted by EasyBuild
 (equivalent with using the <code>-A</code> or <code>--account</code> command line option for <code>sbatch</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">SBATCH_ACCOUNT</span><span class="o">=</span><span class="s1">&#39;project_XXXXXXXXX&#39;</span>
@@ -2176,12 +2177,12 @@ build you can set the corresponding <code>$SBATCH_*</code> environment variables
 <p>Or to submit to a particular Slurm partition (equivalent with the <code>-p</code> or <code>--partition</code> option for <code>sbatch</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">SBATCH_PARTITION</span><span class="o">=</span><span class="s1">&#39;small&#39;</span>
 </code></pre></div>
-<p>For more information about supported <code>$SBATCH_*</code> environment variables,
+<p>For more information about supported <code>SBATCH_*</code> environment variables,
 see the <a href="https://slurm.schedmd.com/sbatch.html#lbAJ">Slurm documentation</a>.</p>
 <h2 id="combining-job-and-robot">Combining <code>--job</code> and <code>--robot</code><a class="headerlink" href="#combining-job-and-robot" title="Permanent link">&para;</a></h2>
 <p>If one or more dependencies are still missing for the software you want to install,
 you can combine <code>--job</code> and <code>--robot</code> to get EasyBuild to submit a <em>separate</em> job
-for each of the installations. These jobs will <em>not</em> <code>--robot</code>, they will each only
+for each of the installations. These jobs will <em>not</em> use <code>--robot</code>, they will each only
 perform a single installation.</p>
 <p>Dependencies between jobs will be "registered" at submission time, so Slurm will put jobs
 on hold until the jobs that install the required (build) dependencies have completed successfully,
@@ -2264,9 +2265,10 @@ module load LUMI/21.12
 module load partition/C
 module load EasyBuild-user
 
-<span class="c1"># use ramdisk for build directories</span>
-<span class="nb">export</span> <span class="nv">EASYBUILD_BUILDPATH</span><span class="o">=</span>/dev/shm/<span class="nv">$USER</span>/build
-<span class="nb">export</span> <span class="nv">EASYBUILD_TMPDIR</span><span class="o">=</span>/dev/shm/<span class="nv">$USER</span>/tmp
+<span class="c1"># use /tmp for build directories and temporary directories as we have those</span>
+<span class="c1"># on login and compute nodes.</span>
+<span class="nb">export</span> <span class="nv">EASYBUILD_BUILDPATH</span><span class="o">=</span>/tmp/<span class="nv">$USER</span>/build
+<span class="nb">export</span> <span class="nv">EASYBUILD_TMPDIR</span><span class="o">=</span>/tmp/<span class="nv">$USER</span>/tmp
 
 <span class="c1"># use Slurm as job backend</span>
 <span class="nb">export</span> <span class="nv">EASYBUILD_JOB_BACKEND</span><span class="o">=</span>Slurm
@@ -2356,7 +2358,7 @@ $ module avail AUGUSTUS
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 10, 2022</span>
       
     
   </small>

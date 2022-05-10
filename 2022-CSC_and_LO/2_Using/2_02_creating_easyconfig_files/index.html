@@ -573,15 +573,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sources-patches-and-checksums" class="md-nav__link">
-    Sources, patches, and checksums
+  <a href="#easyblock" class="md-nav__link">
+    Easyblock
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#easyblock" class="md-nav__link">
-    Easyblock
+  <a href="#sources-patches-and-checksums" class="md-nav__link">
+    Sources, patches, and checksums
   </a>
   
 </li>
@@ -2111,15 +2111,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sources-patches-and-checksums" class="md-nav__link">
-    Sources, patches, and checksums
+  <a href="#easyblock" class="md-nav__link">
+    Easyblock
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#easyblock" class="md-nav__link">
-    Easyblock
+  <a href="#sources-patches-and-checksums" class="md-nav__link">
+    Sources, patches, and checksums
   </a>
   
 </li>
@@ -2308,8 +2308,8 @@ specific for a certain compiler and don't recognise the Cray compilers.</p>
 <ul>
 <li>'critical' values for easyconfig parameters required to make installation succeed;
     <em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/b/bowtie2.py">easyblock for bowtie2</a>
-    defines a number of variables used in the Makefile are specified on the make command line to ensure that the right
-    compilers are used.</em></li>
+    defines a number of variables used in the Makefile on the make command line to ensure that the right
+    compilers are used (look for the <code>build_step</code> in the easyblock).</em></li>
 <li>toolchain-specific aspects of the build and installation procedure (e.g., configure options);<br />
 <em>For example, the <a href="https://github.com/easybuilders/easybuild-easyblocks/blob/develop/easybuild/easyblocks/c/cp2k.py">easyblock for CP2K</a> 
     will add several compiler options when compiling with gcc and gfortran, including the infamous
@@ -2399,49 +2399,6 @@ for example:</p>
 We will cover the most commonly used ones here, but keep in mind that these are <em>not</em> mandatory.</p>
 <p>A full overview of all known easyconfig parameters can be obtained via "<code>eb --avail-easyconfig-params</code>"
 or just "<code>eb -a</code>" for short, or can be consulted in the <a href="https://docs.easybuild.io/en/latest/version-specific/easyconfig_parameters.html">EasyBuild documentation</a>.</p>
-<h4 id="sources-patches-and-checksums">Sources, patches, and checksums<a class="headerlink" href="#sources-patches-and-checksums" title="Permanent link">&para;</a></h4>
-<p>In most easyconfig files you will see that a list of source files is specified via the <code>sources</code>
-easyconfig parameter, usually combined
-with one or more URLs where these sources can be downloaded specified via <code>source_urls</code>.
-There also may be patch files listed (specified via <code>patches</code>),
-and checksums for both the source files and patches (specified via <code>checksums</code>).</p>
-<p>The <code>sources</code> easyconfig parameter is commonly defined but it is <em>not</em> mandatory,
-because some easyconfig files only specify bundles of software packages and hence only
-serve to generate a module file.</p>
-<p>Here is an example of how these easyconfig parameters can be specified:</p>
-<div class="highlight"><pre><span></span><code><span class="n">source_urls</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;https://example.org/download/&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;https://example.org/download/archive/&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;example-1.0-src.tar.gz&#39;</span><span class="p">]</span>
-<span class="n">patches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;example-fix.patch&#39;</span><span class="p">]</span>
-<span class="n">checksums</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;9febae18533d035ac688d977cb2ca050e6ca8379311d7a14490ad1ef948d45fa&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;864395d648ad9a5b75d1a745c8ef82b78421d571584037560a22a581ed7a261c&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-</code></pre></div>
-<p>Each of these require a <em>list</em> of values, so even if there is only a single source file or download URL
-you must use square brackets as shown in the example. The default value for each of these is an empty list (<code>[]</code>).</p>
-<p>Some things worth pointing out here:</p>
-<ul>
-<li>The download URLs specified via <code>source_urls</code> do <em>not</em> include the name of the file, that is added
-  automatically by EasyBuild when it tries to download the file (only if it's not available already.)</li>
-<li>If multiple download URLs are specified, they are each tried once in order until the download of the source file was
-  successful. This can be useful to include backup locations where source files can be downloaded from.</li>
-<li>Names of source files and patches should not include hardcoded software versions, they usually use a
-  template value like <code>%(version)s</code> instead:
-  <div class="highlight"><pre><span></span><code><span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;example-</span><span class="si">%(version)s</span><span class="s1">-src.tar.gz&#39;</span><span class="p">]</span>
-</code></pre></div>
-  EasyBuild will use the value of the <code>version</code> easyconfig parameter to determine the actual name of the source
-  file. This way the software version is only specified in one place and the easyconfig file is easier to
-  update to other software versions. A list of template values can be consulted via the EasyBuild command
-  line via the <code>--avail-easyconfig-templates</code> option, or in the <a href="https://docs.easybuild.io/en/latest/version-specific/easyconfig_templates.html">EasyBuild documentation</a>.</li>
-<li>Source files can also be specified in ways other than just using a filename, see the 
-  <a href="https://docs.easybuild.io/en/latest/Writing_easyconfig_files.html#common-easyconfig-param-sources-alt">EasyBuild documentation</a> for more information.
-  It is also possible to download a given commit from a GitHub repository.</li>
-<li>Specified checksums are usually SHA256 checksum values, but 
-  <a href="https://docs.easybuild.io/en/latest/Writing_easyconfig_files.html?highlight=checksums#checksums">other types are also supported</a>.</li>
-</ul>
 <h4 id="easyblock">Easyblock<a class="headerlink" href="#easyblock" title="Permanent link">&para;</a></h4>
 <p>The easyblock that should be used for the installation can be specified via the <code>easyblock</code> easyconfig parameter.</p>
 <p>This is not mandatory however, because by default EasyBuild will determine the easyblock to use based on the
@@ -2485,6 +2442,49 @@ install_cmd*            Build <span class="nb">command</span> to use <span class
 prefix_opt*             Prefix <span class="nb">command</span> line option <span class="k">for</span> configure script <span class="o">(</span><span class="s1">&#39;--prefix=&#39;</span> <span class="k">if</span> None<span class="o">)</span> <span class="o">[</span>default: None<span class="o">]</span>
 tar_config_opts*        Override tar settings as determined by configure. <span class="o">[</span>default: False<span class="o">]</span>
 </code></pre></div>
+<h4 id="sources-patches-and-checksums">Sources, patches, and checksums<a class="headerlink" href="#sources-patches-and-checksums" title="Permanent link">&para;</a></h4>
+<p>In most easyconfig files you will see that a list of source files is specified via the <code>sources</code>
+easyconfig parameter, usually combined
+with one or more URLs where these sources can be downloaded specified via <code>source_urls</code>.
+There also may be patch files listed (specified via <code>patches</code>),
+and checksums for both the source files and patches (specified via <code>checksums</code>).</p>
+<p>The <code>sources</code> easyconfig parameter is commonly defined but it is <em>not</em> mandatory,
+because some easyconfig files only specify bundles of software packages and hence only
+serve to generate a module file.</p>
+<p>Here is an example of how these easyconfig parameters can be specified:</p>
+<div class="highlight"><pre><span></span><code><span class="n">source_urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;https://example.org/download/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;https://example.org/download/archive/&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;example-1.0-src.tar.gz&#39;</span><span class="p">]</span>
+<span class="n">patches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;example-fix.patch&#39;</span><span class="p">]</span>
+<span class="n">checksums</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;9febae18533d035ac688d977cb2ca050e6ca8379311d7a14490ad1ef948d45fa&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;864395d648ad9a5b75d1a745c8ef82b78421d571584037560a22a581ed7a261c&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Each of these require a <em>list</em> of values, so even if there is only a single source file or download URL
+you must use square brackets as shown in the example. The default value for each of these is an empty list (<code>[]</code>).</p>
+<p>Some things worth pointing out here:</p>
+<ul>
+<li>The download URLs specified via <code>source_urls</code> do <em>not</em> include the name of the file, that is added
+  automatically by EasyBuild when it tries to download the file (only if it's not available already.)</li>
+<li>If multiple download URLs are specified, they are each tried once in order until the download of the source file was
+  successful. This can be useful to include backup locations where source files can be downloaded from.</li>
+<li>Names of source files and patches should not include hardcoded software versions, they usually use a
+  template value like <code>%(version)s</code> instead:
+  <div class="highlight"><pre><span></span><code><span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;example-</span><span class="si">%(version)s</span><span class="s1">-src.tar.gz&#39;</span><span class="p">]</span>
+</code></pre></div>
+  EasyBuild will use the value of the <code>version</code> easyconfig parameter to determine the actual name of the source
+  file. This way the software version is only specified in one place and the easyconfig file is easier to
+  update to other software versions. A list of template values can be consulted via the EasyBuild command
+  line via the <code>--avail-easyconfig-templates</code> option, or in the <a href="https://docs.easybuild.io/en/latest/version-specific/easyconfig_templates.html">EasyBuild documentation</a>.</li>
+<li>Source files can also be specified in ways other than just using a filename, see the 
+  <a href="https://docs.easybuild.io/en/latest/Writing_easyconfig_files.html#common-easyconfig-param-sources-alt">EasyBuild documentation</a> for more information.
+  It is also possible to download a given commit from a GitHub repository.</li>
+<li>Specified checksums are usually SHA256 checksum values, but 
+  <a href="https://docs.easybuild.io/en/latest/Writing_easyconfig_files.html?highlight=checksums#checksums">other types are also supported</a>.</li>
+</ul>
 <h4 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h4>
 <p>You will often need to list one or more <a href="../../1_Intro/1_05_terminology/#dependencies">dependencies</a> that are required
 to install or run the software.
@@ -2508,20 +2508,18 @@ increase the reproducibility of the build process</p>
 <span class="p">]</span>
 
 <span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;3.8.2&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;HDF5&#39;</span><span class="p">,</span> <span class="s1">&#39;1.10.6&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;SciPy-bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;2020.03&#39;</span><span class="p">,</span> <span class="s1">&#39;-Python-</span><span class="si">%(pyver)s</span><span class="s1">&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;cray-hdf5&#39;</span><span class="p">,</span>   <span class="n">EXTERNAL_MODULE</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;cray-netcdf&#39;</span><span class="p">,</span> <span class="n">EXTERNAL_MODULE</span><span class="p">),</span>    
+    <span class="p">(</span><span class="s1">&#39;GSL&#39;</span><span class="p">,</span>         <span class="s1">&#39;2.7&#39;&#39;),</span>
+    <span class="p">(</span><span class="s1">&#39;ANTLR&#39;</span><span class="p">,</span>       <span class="s1">&#39;2.7.7&#39;</span><span class="p">,</span> <span class="s1">&#39;-python3&#39;</span><span class="p">),</span>
 <span class="p">]</span>
 </code></pre></div>
 <p>Both <code>builddependencies</code> and <code>dependencies</code> require a list of tuples,
 each of which specifying one dependency.
 The name and version of a dependency is specified with a 2-tuple (a tuple with two string values).</p>
-<p>In some cases additional information may have to be provided, as is shown in the example above for the <code>SciPy-bundle</code>
+<p>In some cases additional information may have to be provided, as is shown in the example above for the <code>ANTLR</code>
 dependency where a 3rd value is specified corresponding to the <code>versionsuffix</code> value of this dependency.
 If this is not specified, it is assumed to be the empty string (<code>''</code>). </p>
-<p>Note how we use the '<code>%(pyver)s'</code> template value in the <code>SciPy-bundle</code> dependency
-specification, to avoid hardcoding the Python version in different places. (Though this
-specific parameter is less useful on LUMI as we currently try to build on top of <code>cray-python</code>.)</p>
 <p>The <code>buildtools</code> build dependency shows that there is a fourth parameter specifying the toolchain 
 used for that dependency and is needed if that toolchain is different from the one used in the example.
 As it is not possible to load several Cray toolchains together (they are not in a hierarchical relation)
@@ -2529,10 +2527,29 @@ the only useful value on LUMI is <code>True</code> which tells that <code>buildt
 toolchain. Here also we use a template, <code>%(toolchain_version)s</code> which - as its name suggests - expands
 to the version of the toolchain, as we version our <code>buildtools</code> modules after the version of the Cray
 toolchains for which they are intended. </p>
+<p>When using the HPE Cray PE based toolchains, another type of dependency comes in: 
+<a href="../2_03_external_modules">external modules</a> (discussed in the next section) that 
+are used to interface with modules provided by the HPE Cray PE but could also be
+used to interfact with other modules that do not contain the metadata that EasyBuild
+includes in module files that it generates. (EasyBuild sets a number of EasyBuild-specific
+environment variables in each module, including one pointing to the installation directory 
+and one specifying the version of the packages.)</p>
+<p>Another example (with modules taken from the EasyBuild common toolchains, not from a repository
+on LUMI) is</p>
+<div class="highlight"><pre><span></span><code><span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;3.9.6&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;HDF5&#39;</span><span class="p">,</span> <span class="s1">&#39;1.12.1&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;SciPy-bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;2021.10&#39;</span><span class="p">,</span> <span class="s1">&#39;-Python-</span><span class="si">%(pyver)s</span><span class="s1">&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Note how we use the '<code>%(pyver)s'</code> template value in the <code>SciPy-bundle</code> dependency
+specification, to avoid hardcoding the Python version in different places. (Though this
+specific parameter is less useful on LUMI as we currently try to build on top of <code>cray-python</code>.)</p>
 <p>See also the <a href="https://docs.easybuild.io/en/latest/Writing_easyconfig_files.html#dependencies">EasyBuild documentation</a> 
 for additional options on specifying dependencies. That page specifies two more dependency types:</p>
 <ul>
-<li><code>hiddendependencies</code> are currently not used on LUMI, and if we would use them in the future, it will likely
+<li><code>hiddendependencies</code> are currently not used on LUMI nor in the easyconfigs included with EasyBuild, 
+  and if we would use them in the future, it will likely
   be through a way that does not require this parameter.</li>
 <li><code>osdependencies</code> can be used to let EasyBuild check if certain needed OS packages are installed.
   See, e.g., the <a href="https://github.com/Lumi-supercomputer/LUMI-SoftwareStack/tree/main/easybuild/easyconfigs/b/buildtools">easyconfigs for the <code>buildtools</code> package</a>
@@ -2936,7 +2953,7 @@ automatically via <code>eb --inject-checksums</code>:</p>
 <p>Finally, we should consider changing the name of the easyconfig that we just developed
 to align with the EasyBuild conventions as otherwise it would not be found when used as
 a dependency of another package. In this case, the name should be
-<code>eb-tutorial-1.0.0-cpeCray-21.12.eb</code>. In fact, EasyBuild stored a processed version
+<code>eb-tutorial-1.0.1-cpeCray-21.12.eb</code>. In fact, EasyBuild stored a processed version
 of our easyconfig with that name in the repository:</p>
 <div class="highlight"><pre><span></span><code>$ ls $EASYBUILD_REPOSITORYPATH
 eb-tutorial
@@ -3049,7 +3066,7 @@ eb eb-tutorial-1.1.0-cpeCray-21.12.eb --inject-checksum
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 9, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 10, 2022</span>
       
     
   </small>
