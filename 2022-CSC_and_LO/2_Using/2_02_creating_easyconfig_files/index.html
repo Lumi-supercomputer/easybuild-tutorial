@@ -2921,13 +2921,13 @@ Hello from the EasyBuild tutorial!
 <span class="n">homepage</span> <span class="o">=</span> <span class="s1">&#39;https://easybuilders.github.io/easybuild-tutorial&#39;</span>
 <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;EasyBuild tutorial example&quot;</span>
 
-<span class="n">toolchain</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GCC&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;10.2.0&#39;</span><span class="p">}</span>
+<span class="n">toolchain</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;cpeCray&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;21.12&#39;</span><span class="p">}</span>
 
 <span class="n">source_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://github.com/easybuilders/easybuild-tutorial/raw/main/docs/files/&#39;</span><span class="p">]</span>
 <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">SOURCE_TAR_GZ</span><span class="p">]</span>
 <span class="n">checksums</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;d6cec2ea298f4092cb1b880cb017220ab191561da941e9e480639cf3354b7ef9&#39;</span><span class="p">]</span>
 
-<span class="n">builddependencies</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;CMake&#39;</span><span class="p">,</span> <span class="s1">&#39;3.18.4&#39;</span><span class="p">)]</span>
+<span class="n">builddependencies</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;buildtools&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%(toolchain_version)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)]</span>
 
 <span class="n">configopts</span> <span class="o">=</span> <span class="s2">&quot;-DEBTUTORIAL_MSG=&#39;Hello from the EasyBuild tutorial!&#39; &quot;</span>
 
