@@ -1,0 +1,17 @@
+software:
+  foss:
+    toolchains:
+      SYSTEM:
+        versions: ['2021b']
+  CMake:
+    toolchains:
+      GCCcore-11.2.0:
+        versions: ['3.22.1']
+  Python:
+    toolchains:
+      GCCcore-11.2.0:
+        versions: ['3.9.6'] 
+  SciPy-bundle:
+    toolchains:
+      foss-2021b:
+        versions: ['2021.10']
