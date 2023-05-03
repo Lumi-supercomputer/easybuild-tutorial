@@ -3,7 +3,12 @@ all: build
 build:
 	mkdocs build --config-file mkdocs-LUMI.yml
 
-deploy:
+deploy: deploy-LUMI
+
+deploy-LUMI:
+	mkdocs gh-deploy --config-file mkdocs-LUMI.yml --remote-name LUMI --force
+
+deploy-origin:
 	mkdocs gh-deploy --config-file mkdocs-LUMI.yml --remote-name origin --force
 
 check test:
