@@ -1,0 +1,193 @@
+site_name: "EasyBuild tutorials for LUMI"
+site_url: https://klust.github.io/easybuild-tutorial
+theme:
+  name: material
+  logo: img/easybuild_logo.png
+  features:
+      - instant
+      - navigation.top
+      - navigation.indexes
+# repo_name: EasyBuild @ GitHub
+# repo_url: https://github.com/klust
+# edit_uri: easybuild-tutorial/edit/master/docs
+nav:
+    - Home: index.md
+    - "CSC (spring '22)":
+        - 2022-CSC_and_LO/index.md
+        - Introduction to EasyBuild:
+            - 2022-CSC_and_LO/1_Intro/index.md
+            - What is EasyBuild?: 2022-CSC_and_LO/1_Intro/1_01_what_is_easybuild.md
+            - The Lmod module system: 2022-CSC_and_LO/1_Intro/1_02_Lmod.md
+            - The HPE Cray Programming Environment: 2022-CSC_and_LO/1_Intro/1_03_CPE.md
+            - LUMI software stacks: 2022-CSC_and_LO/1_Intro/1_04_LUMI_software_stack.md
+            - Terminology: 2022-CSC_and_LO/1_Intro/1_05_terminology.md
+            - Installation: 2022-CSC_and_LO/1_Intro/1_06_installation.md
+            - Configuration: 2022-CSC_and_LO/1_Intro/1_07_configuration.md
+            - Basic usage: 2022-CSC_and_LO/1_Intro/1_08_basic_usage.md
+        - Using EasyBuild:
+            - 2022-CSC_and_LO/2_Using/index.md
+            - Troubleshooting: 2022-CSC_and_LO/2_Using/2_01_troubleshooting.md
+            - Creating easyconfig files: 2022-CSC_and_LO/2_Using/2_02_creating_easyconfig_files.md
+            - Using external modules from the Cray PE: 2022-CSC_and_LO/2_Using/2_03_external_modules.md
+            - Implementing easyblocks: 2022-CSC_and_LO/2_Using/2_04_implementing_easyblocks.md
+        - Advanced topics:
+            - 2022-CSC_and_LO/3_Advanced/index.md
+            - Using EasyBuild as a library: 2022-CSC_and_LO/3_Advanced/3_01_easybuild_library.md
+            - Using hooks to customise EasyBuild: 2022-CSC_and_LO/3_Advanced/3_02_hooks.md
+            - Submitting installations as Slurm jobs: 2022-CSC_and_LO/3_Advanced/3_03_slurm_jobs.md
+            - Module naming schemes (incl. hierarchical): 2022-CSC_and_LO/3_Advanced/3_04_module_naming_schemes.md
+            - GitHub integration to facilitate contributing to EasyBuild: 2022-CSC_and_LO/3_Advanced/3_05_github_integration.md
+        - Additional reading: 2022-CSC_and_LO/4_00_additional_reading.md
+    - "LUST (spring '21)":
+        - (overview): 2021-lust/index.md
+        - Introduction to EasyBuild:
+            - (overview): 2021-lust/part1_intro.md
+            - What is EasyBuild?: 2021-lust/what_is_easybuild.md
+            - Terminology: 2021-lust/terminology.md
+            - Installation: 2021-lust/installation.md
+            - Configuration: 2021-lust/configuration.md
+            - Basic usage: 2021-lust/basic_usage.md
+        - Using EasyBuild:
+            - (overview): 2021-lust/part2_using.md
+            - Troubleshooting: 2021-lust/troubleshooting.md
+            - Creating easyconfig files: 2021-lust/creating_easyconfig_files.md
+            - Implementing easyblocks: 2021-lust/implementing_easyblocks.md
+        - Advanced topics:
+            - (overview): 2021-lust/part3_advanced.md
+            - Using EasyBuild as a library: 2021-lust/easybuild_library.md
+            - Using hooks to customise EasyBuild: 2021-lust/hooks.md
+            - Submitting installations as Slurm jobs: 2021-lust/slurm_jobs.md
+            - Module naming schemes (incl. hierarchical): 2021-lust/module_naming_schemes.md
+            - GitHub integration to facilitate contributing to EasyBuild: 2021-lust/github_integration.md
+        - EasyBuild on Cray systems:
+            - (overview): 2021-lust/part4_cray.md
+            - Introduction to the Cray PE: 2021-lust/cray/introduction.md
+            - Using external modules: 2021-lust/cray/external_modules.md
+            - Custom Cray toolchains: 2021-lust/cray/custom_toolchains.md
+            - EasyBuild at CSCS: 2021-lust/cray/easybuild_at_cscs.md
+    - Generic tutorials:
+        - "EasyBuild + EESSI UK workshop (April 2023)":
+            - (overview): 2023-eb-eessi-uk-workshop/index.md
+            - "Day 1: Introduction to EasyBuild":
+                - Practical info: 2023-eb-eessi-uk-workshop/easybuild-practical-info.md
+                - What is EasyBuild?: 2023-eb-eessi-uk-workshop/easybuild-introduction.md
+                - Terminology: 2023-eb-eessi-uk-workshop/easybuild-terminology.md
+                - Installing EasyBuild: 2023-eb-eessi-uk-workshop/easybuild-installation.md
+                - Configuring EasyBuild: 2023-eb-eessi-uk-workshop/easybuild-configuration.md
+                - Basic usage of EasyBuild: 2023-eb-eessi-uk-workshop/easybuild-basic-usage.md
+                - Installing Software with EasyBuild: 2023-eb-eessi-uk-workshop/easybuild-installing-software.md
+                - Troubleshooting: 2023-eb-eessi-uk-workshop/easybuild-troubleshooting.md
+                - Writing Easyconfigs: 2023-eb-eessi-uk-workshop/easybuild-writing-easyconfigs.md
+                - Module Naming Schemes: 2023-eb-eessi-uk-workshop/easybuild-module-naming-schemes.md
+            - "Day 2 (part 1): EasyBuild (advanced)":
+                - Contributing to EasyBuild: 2023-eb-eessi-uk-workshop/easybuild-contributing.md
+                - Customizing EasyBuild Using Hooks: 2023-eb-eessi-uk-workshop/easybuild-hooks.md
+                - Implementing EasyBlocks: 2023-eb-eessi-uk-workshop/easybuild-implementing-easyblocks.md
+                - Submitting installations as Slurm jobs: 2023-eb-eessi-uk-workshop/easybuild-slurm-jobs.md
+                - Using EasyBuild as a Python Library: 2023-eb-eessi-uk-workshop/easybuild-python-library.md
+            - "Day 2 (part 2): EESSI":
+                - Introduction to EESSI: 2023-eb-eessi-uk-workshop/eessi-introduction.md
+                - Getting access to EESSI: 2023-eb-eessi-uk-workshop/eessi-getting-access.md
+                - Using EESSI: 2023-eb-eessi-uk-workshop/eessi-usage.md
+                - Use Cases for EESSI: 2023-eb-eessi-uk-workshop/eessi-use-cases.md
+        - "ISC'22 (29 May 2022)":
+            - (overview): 2022-isc22/index.md
+            - Practical info: 2022-isc22/practical_info.md
+            - Introduction: 2022-isc22/introduction.md
+            - Terminology: 2022-isc22/terminology.md
+            - Installation: 2022-isc22/installation.md
+            - Configuration: 2022-isc22/configuration.md
+            - Basic usage: 2022-isc22/basic_usage.md
+            - Installing software: 2022-isc22/installing_software.md
+            - Troubleshooting: 2022-isc22/troubleshooting.md
+            - Support for additional software: 2022-isc22/adding_support_additional_software.md
+            - Module naming schemes: 2022-isc22/module_naming_schemes.md
+            - Integration of EasyBuild in JSC: 2022-isc22/integration_jsc.md
+            - Integration of EasyBuild in EESSI: 2022-isc22/integration_eessi.md
+            - Integration of EasyBuild in LUMI: 2022-isc22/integration_lumi.md
+            - The EasyBuild community: 2022-isc22/community.md
+            - Contributing to EasyBuild: 2022-isc22/contributing.md
+            - Comparison with other tools: 2022-isc22/comparison_other_tools.md
+        - "ISC'21 (25 June 2021)":
+            - (overview): 2021-isc21/index.md
+            - Practical info: 2021-isc21/practical_info.md
+            - Introduction: 2021-isc21/introduction.md
+            - Terminology: 2021-isc21/terminology.md
+            - Installation: 2021-isc21/installation.md
+            - Configuration: 2021-isc21/configuration.md
+            - Basic usage: 2021-isc21/basic_usage.md
+            - Installing software: 2021-isc21/installing_software.md
+            - Troubleshooting: 2021-isc21/troubleshooting.md
+            - Module naming schemes: 2021-isc21/module_naming_schemes.md
+            - Support for additional software: 2021-isc21/adding_support_additional_software.md
+            - EasyBuild at JSC: 2021-isc21/jsc.md
+            - EasyBuild at Compute Canada: 2021-isc21/computecanada.md
+            - The EasyBuild community: 2021-isc21/community.md
+            - Contributing to EasyBuild: 2021-isc21/contributing.md
+        - "ISC'20 (June '20)":
+            - Start page: 2020-06-isc20/index.md
+            - Practical information: 2020-06-isc20/practical_information.md
+            - Introduction: 2020-06-isc20/introduction.md
+            - Installation: 2020-06-isc20/installation.md
+            - Configuration: 2020-06-isc20/configuration.md
+            - Basic usage: 2020-06-isc20/basic_usage.md
+            - Troubleshooting: 2020-06-isc20/troubleshooting.md
+            - Hierarchical module naming schemes: 2020-06-isc20/hmns.md
+            - Adding support for additional software: 2020-06-isc20/adding_support_software.md
+            - EasyBuild at Jülich Supercomputing Centre: 2020-06-isc20/jsc.md
+            - EasyBuild at Compute Canada: 2020-06-isc20/computecanada.md
+            - The EasyBuild community: 2020-06-isc20/community.md
+            - Contributing to EasyBuild: 2020-06-isc20/contributing.md
+            - Comparison with other tools: 2020-06-isc20/comparison_other_tools.md
+            - Getting help: 2020-06-isc20/getting_help.md
+
+plugins:
+  # show revision date at bottom of each page
+  - git-revision-date-localized
+  # necessary for search to work
+  - search
+  # redirects to avoid broken URLs in original version of the tutorial (June 2020)
+  - redirects:
+      redirect_maps:
+          practical_information.md: 2020-06-isc20/practical_information.md
+          introduction.md: 2020-06-isc20/introduction.md
+          installation.md: 2020-06-isc20/installation.md
+          configuration.md: 2020-06-isc20/configuration.md
+          basic_usage.md: 2020-06-isc20/basic_usage.md
+          troubleshooting.md: 2020-06-isc20/troubleshooting.md
+          hmns.md: 2020-06-isc20/hmns.md
+          adding_support_software.md: 2020-06-isc20/adding_support_software.md
+          jsc.md: 2020-06-isc20/jsc.md
+          computecanada.md: 2020-06-isc20/computecanada.md
+          community.md: 2020-06-isc20/community.md
+          contributing.md: 2020-06-isc20/contributing.md
+          comparison_other_tools.md: 2020-06-isc20/comparison_other_tools.md
+          getting_help.md: 2020-06-isc20/getting_help.md
+
+markdown_extensions:
+  # notes, warnings, hints, ...
+  - admonition
+  # code blocks with syntax highlighting, graphs
+  - pymdownx.superfences:
+        custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  # clickable details
+  - pymdownx.details
+  # tabbed contents
+  - pymdownx.tabbed
+  - toc:
+      permalink: true
+extra:
+  # add links in bottom right
+  social:
+      #- type: github
+      #icon: octicons/logo-github
+      #link: https://github.com/easybuilders
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/easy_build
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/c/easybuilders
+    - icon: fontawesome/solid/book
+      link: https://easybuild.readthedocs.io

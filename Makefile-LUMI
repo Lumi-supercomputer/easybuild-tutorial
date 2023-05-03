@@ -1,0 +1,15 @@
+all: build
+
+build:
+	mkdocs build --config-file mkdocs-LUMI.yml
+
+deploy:
+	mkdocs gh-deploy --config-file mkdocs-LUMI.yml --remote-name origin --force
+
+check test:
+	mkdocs build --config-file mkdocs-LUMI.yml --strict
+
+preview:
+	mkdocs serve --config-file mkdocs-LUMI.yml
+
+serve: preview
