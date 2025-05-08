@@ -1,0 +1,3 @@
+* Consider a new third exercise in the section on writing easyconfig files as the Python
+  one isn't really suited for LUMI at the moment.
+
