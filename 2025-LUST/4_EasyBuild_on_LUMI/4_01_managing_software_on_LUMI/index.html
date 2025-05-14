@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/easybuild-tutorial/2022-isc22/configuration/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST/4_EasyBuild_on_LUMI/4_01_managing_software_on_LUMI/">
       
       
-        <link rel="prev" href="../installation/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../basic_usage/">
+        <link rel="next" href="../4_02_tips_and_tricks/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>Configuration - EasyBuild tutorials for LUMI</title>
+        <title>Managing software - EasyBuild tutorials for LUMI</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
       
       
 
@@ -45,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuring-easybuild" class="md-skip">
+        <a href="#managing-easybuild-installed-software-on-lumi" class="md-skip">
           Skip to content
         </a>
       
@@ -80,9 +80,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="EasyBuild tutorials for LUMI" class="md-header__button md-logo" aria-label="EasyBuild tutorials for LUMI" data-md-component="logo">
+    <a href="../../.." title="EasyBuild tutorials for LUMI" class="md-header__button md-logo" aria-label="EasyBuild tutorials for LUMI" data-md-component="logo">
       
-  <img src="../../img/easybuild_logo.png" alt="logo">
+  <img src="../../../img/easybuild_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration
+              Managing software
             
           </span>
         </div>
@@ -177,9 +177,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="EasyBuild tutorials for LUMI" class="md-nav__button md-logo" aria-label="EasyBuild tutorials for LUMI" data-md-component="logo">
+    <a href="../../.." title="EasyBuild tutorials for LUMI" class="md-nav__button md-logo" aria-label="EasyBuild tutorials for LUMI" data-md-component="logo">
       
-  <img src="../../img/easybuild_logo.png" alt="logo">
+  <img src="../../../img/easybuild_logo.png" alt="logo">
 
     </a>
     EasyBuild tutorials for LUMI
@@ -194,7 +194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -213,6 +213,8 @@
       
   
   
+    
+  
   
   
     
@@ -236,15 +238,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2025-LUST/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -263,7 +265,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             LUST (spring '25)
@@ -313,7 +315,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2025-LUST/1_Intro/" class="md-nav__link ">
+            <a href="../../1_Intro/" class="md-nav__link ">
               
   
   
@@ -348,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/1_Intro/1_01_what_is_easybuild/" class="md-nav__link">
+      <a href="../../1_Intro/1_01_what_is_easybuild/" class="md-nav__link">
         
   
   
@@ -371,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/1_Intro/1_02_Lmod/" class="md-nav__link">
+      <a href="../../1_Intro/1_02_Lmod/" class="md-nav__link">
         
   
   
@@ -394,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/1_Intro/1_03_CPE/" class="md-nav__link">
+      <a href="../../1_Intro/1_03_CPE/" class="md-nav__link">
         
   
   
@@ -417,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/1_Intro/1_04_LUMI_software_stack/" class="md-nav__link">
+      <a href="../../1_Intro/1_04_LUMI_software_stack/" class="md-nav__link">
         
   
   
@@ -440,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/1_Intro/1_05_terminology/" class="md-nav__link">
+      <a href="../../1_Intro/1_05_terminology/" class="md-nav__link">
         
   
   
@@ -463,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/1_Intro/1_06_installation/" class="md-nav__link">
+      <a href="../../1_Intro/1_06_installation/" class="md-nav__link">
         
   
   
@@ -486,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/1_Intro/1_07_configuration/" class="md-nav__link">
+      <a href="../../1_Intro/1_07_configuration/" class="md-nav__link">
         
   
   
@@ -509,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/1_Intro/1_08_basic_usage/" class="md-nav__link">
+      <a href="../../1_Intro/1_08_basic_usage/" class="md-nav__link">
         
   
   
@@ -566,7 +568,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2025-LUST/2_Using/" class="md-nav__link ">
+            <a href="../../2_Using/" class="md-nav__link ">
               
   
   
@@ -601,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/2_Using/2_01_troubleshooting/" class="md-nav__link">
+      <a href="../../2_Using/2_01_troubleshooting/" class="md-nav__link">
         
   
   
@@ -624,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/2_Using/2_02_creating_easyconfig_files/" class="md-nav__link">
+      <a href="../../2_Using/2_02_creating_easyconfig_files/" class="md-nav__link">
         
   
   
@@ -647,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/2_Using/2_03_external_modules/" class="md-nav__link">
+      <a href="../../2_Using/2_03_external_modules/" class="md-nav__link">
         
   
   
@@ -670,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/2_Using/2_04_implementing_easyblocks/" class="md-nav__link">
+      <a href="../../2_Using/2_04_implementing_easyblocks/" class="md-nav__link">
         
   
   
@@ -729,7 +731,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2025-LUST/3_Advanced/" class="md-nav__link ">
+            <a href="../../3_Advanced/" class="md-nav__link ">
               
   
   
@@ -764,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/3_Advanced/3_01_easybuild_library/" class="md-nav__link">
+      <a href="../../3_Advanced/3_01_easybuild_library/" class="md-nav__link">
         
   
   
@@ -787,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/3_Advanced/3_02_hooks/" class="md-nav__link">
+      <a href="../../3_Advanced/3_02_hooks/" class="md-nav__link">
         
   
   
@@ -810,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/3_Advanced/3_03_slurm_jobs/" class="md-nav__link">
+      <a href="../../3_Advanced/3_03_slurm_jobs/" class="md-nav__link">
         
   
   
@@ -833,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/3_Advanced/3_04_module_naming_schemes/" class="md-nav__link">
+      <a href="../../3_Advanced/3_04_module_naming_schemes/" class="md-nav__link">
         
   
   
@@ -856,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/3_Advanced/3_05_github_integration/" class="md-nav__link">
+      <a href="../../3_Advanced/3_05_github_integration/" class="md-nav__link">
         
   
   
@@ -884,6 +886,8 @@
                 
   
   
+    
+  
   
   
     
@@ -901,15 +905,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2025-LUST/4_EasyBuild_on_LUMI/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -928,7 +932,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             EasyBuild on LUMI
@@ -941,10 +945,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../2025-LUST/4_EasyBuild_on_LUMI/4_01_managing_software_on_LUMI/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Managing software
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -955,6 +981,86 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repositories-and-their-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repositories and their function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-and-installing-a-new-release-of-the-lumi-software-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating and installing a new release of the LUMI software stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-the-software-stack-on-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documenting the software stack on LUMI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documenting the software stack on LUMI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lumi-software-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI Software Library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lumi-softwarestack-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI-SoftwareStack repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documenting-the-actual-installation-process-on-lumi-uan06" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documenting the actual installation process on LUMI uan06
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -967,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/4_EasyBuild_on_LUMI/4_02_tips_and_tricks/" class="md-nav__link">
+      <a href="../4_02_tips_and_tricks/" class="md-nav__link">
         
   
   
@@ -998,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025-LUST/5_00_additional_reading/" class="md-nav__link">
+      <a href="../../5_00_additional_reading/" class="md-nav__link">
         
   
   
@@ -1054,7 +1160,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2022-CSC_and_LO/" class="md-nav__link ">
+            <a href="../../../2022-CSC_and_LO/" class="md-nav__link ">
               
   
   
@@ -1123,7 +1229,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2022-CSC_and_LO/1_Intro/" class="md-nav__link ">
+            <a href="../../../2022-CSC_and_LO/1_Intro/" class="md-nav__link ">
               
   
   
@@ -1158,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/1_Intro/1_01_what_is_easybuild/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/1_Intro/1_01_what_is_easybuild/" class="md-nav__link">
         
   
   
@@ -1181,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/1_Intro/1_02_Lmod/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/1_Intro/1_02_Lmod/" class="md-nav__link">
         
   
   
@@ -1204,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/1_Intro/1_03_CPE/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/1_Intro/1_03_CPE/" class="md-nav__link">
         
   
   
@@ -1227,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/1_Intro/1_04_LUMI_software_stack/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/1_Intro/1_04_LUMI_software_stack/" class="md-nav__link">
         
   
   
@@ -1250,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/1_Intro/1_05_terminology/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/1_Intro/1_05_terminology/" class="md-nav__link">
         
   
   
@@ -1273,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/1_Intro/1_06_installation/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/1_Intro/1_06_installation/" class="md-nav__link">
         
   
   
@@ -1296,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/1_Intro/1_07_configuration/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/1_Intro/1_07_configuration/" class="md-nav__link">
         
   
   
@@ -1319,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/1_Intro/1_08_basic_usage/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/1_Intro/1_08_basic_usage/" class="md-nav__link">
         
   
   
@@ -1376,7 +1482,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2022-CSC_and_LO/2_Using/" class="md-nav__link ">
+            <a href="../../../2022-CSC_and_LO/2_Using/" class="md-nav__link ">
               
   
   
@@ -1411,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/2_Using/2_01_troubleshooting/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/2_Using/2_01_troubleshooting/" class="md-nav__link">
         
   
   
@@ -1434,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/2_Using/2_02_creating_easyconfig_files/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/2_Using/2_02_creating_easyconfig_files/" class="md-nav__link">
         
   
   
@@ -1457,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/2_Using/2_03_external_modules/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/2_Using/2_03_external_modules/" class="md-nav__link">
         
   
   
@@ -1480,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/2_Using/2_04_implementing_easyblocks/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/2_Using/2_04_implementing_easyblocks/" class="md-nav__link">
         
   
   
@@ -1539,7 +1645,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2022-CSC_and_LO/3_Advanced/" class="md-nav__link ">
+            <a href="../../../2022-CSC_and_LO/3_Advanced/" class="md-nav__link ">
               
   
   
@@ -1574,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/3_Advanced/3_01_easybuild_library/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/3_Advanced/3_01_easybuild_library/" class="md-nav__link">
         
   
   
@@ -1597,7 +1703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/3_Advanced/3_02_hooks/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/3_Advanced/3_02_hooks/" class="md-nav__link">
         
   
   
@@ -1620,7 +1726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/3_Advanced/3_03_slurm_jobs/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/3_Advanced/3_03_slurm_jobs/" class="md-nav__link">
         
   
   
@@ -1643,7 +1749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/3_Advanced/3_04_module_naming_schemes/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/3_Advanced/3_04_module_naming_schemes/" class="md-nav__link">
         
   
   
@@ -1666,7 +1772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/3_Advanced/3_05_github_integration/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/3_Advanced/3_05_github_integration/" class="md-nav__link">
         
   
   
@@ -1697,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2022-CSC_and_LO/4_00_additional_reading/" class="md-nav__link">
+      <a href="../../../2022-CSC_and_LO/4_00_additional_reading/" class="md-nav__link">
         
   
   
@@ -1753,7 +1859,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2021-lust/" class="md-nav__link ">
+            <a href="../../../2021-lust/" class="md-nav__link ">
               
   
   
@@ -1840,7 +1946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/part1_intro/" class="md-nav__link">
+      <a href="../../../2021-lust/part1_intro/" class="md-nav__link">
         
   
   
@@ -1863,7 +1969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/what_is_easybuild/" class="md-nav__link">
+      <a href="../../../2021-lust/what_is_easybuild/" class="md-nav__link">
         
   
   
@@ -1886,7 +1992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/terminology/" class="md-nav__link">
+      <a href="../../../2021-lust/terminology/" class="md-nav__link">
         
   
   
@@ -1909,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/installation/" class="md-nav__link">
+      <a href="../../../2021-lust/installation/" class="md-nav__link">
         
   
   
@@ -1932,7 +2038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/configuration/" class="md-nav__link">
+      <a href="../../../2021-lust/configuration/" class="md-nav__link">
         
   
   
@@ -1955,7 +2061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/basic_usage/" class="md-nav__link">
+      <a href="../../../2021-lust/basic_usage/" class="md-nav__link">
         
   
   
@@ -2034,7 +2140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/part2_using/" class="md-nav__link">
+      <a href="../../../2021-lust/part2_using/" class="md-nav__link">
         
   
   
@@ -2057,7 +2163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/troubleshooting/" class="md-nav__link">
+      <a href="../../../2021-lust/troubleshooting/" class="md-nav__link">
         
   
   
@@ -2080,7 +2186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/creating_easyconfig_files/" class="md-nav__link">
+      <a href="../../../2021-lust/creating_easyconfig_files/" class="md-nav__link">
         
   
   
@@ -2103,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/implementing_easyblocks/" class="md-nav__link">
+      <a href="../../../2021-lust/implementing_easyblocks/" class="md-nav__link">
         
   
   
@@ -2186,7 +2292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/part3_advanced/" class="md-nav__link">
+      <a href="../../../2021-lust/part3_advanced/" class="md-nav__link">
         
   
   
@@ -2209,7 +2315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/easybuild_library/" class="md-nav__link">
+      <a href="../../../2021-lust/easybuild_library/" class="md-nav__link">
         
   
   
@@ -2232,7 +2338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/hooks/" class="md-nav__link">
+      <a href="../../../2021-lust/hooks/" class="md-nav__link">
         
   
   
@@ -2255,7 +2361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/slurm_jobs/" class="md-nav__link">
+      <a href="../../../2021-lust/slurm_jobs/" class="md-nav__link">
         
   
   
@@ -2278,7 +2384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/module_naming_schemes/" class="md-nav__link">
+      <a href="../../../2021-lust/module_naming_schemes/" class="md-nav__link">
         
   
   
@@ -2301,7 +2407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/github_integration/" class="md-nav__link">
+      <a href="../../../2021-lust/github_integration/" class="md-nav__link">
         
   
   
@@ -2382,7 +2488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/part4_cray/" class="md-nav__link">
+      <a href="../../../2021-lust/part4_cray/" class="md-nav__link">
         
   
   
@@ -2405,7 +2511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/cray/introduction/" class="md-nav__link">
+      <a href="../../../2021-lust/cray/introduction/" class="md-nav__link">
         
   
   
@@ -2428,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/cray/external_modules/" class="md-nav__link">
+      <a href="../../../2021-lust/cray/external_modules/" class="md-nav__link">
         
   
   
@@ -2451,7 +2557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/cray/custom_toolchains/" class="md-nav__link">
+      <a href="../../../2021-lust/cray/custom_toolchains/" class="md-nav__link">
         
   
   
@@ -2474,7 +2580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-lust/cray/easybuild_at_cscs/" class="md-nav__link">
+      <a href="../../../2021-lust/cray/easybuild_at_cscs/" class="md-nav__link">
         
   
   
@@ -2509,10 +2615,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -2528,11 +2632,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -2548,7 +2652,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Generic tutorials
@@ -2586,7 +2690,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2023-eb-eessi-uk-workshop/" class="md-nav__link ">
+            <a href="../../../2023-eb-eessi-uk-workshop/" class="md-nav__link ">
               
   
   
@@ -2681,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-practical-info/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-practical-info/" class="md-nav__link">
         
   
   
@@ -2704,7 +2808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-introduction/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-introduction/" class="md-nav__link">
         
   
   
@@ -2727,7 +2831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-terminology/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-terminology/" class="md-nav__link">
         
   
   
@@ -2750,7 +2854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-installation/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-installation/" class="md-nav__link">
         
   
   
@@ -2773,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-configuration/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-configuration/" class="md-nav__link">
         
   
   
@@ -2796,7 +2900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-basic-usage/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-basic-usage/" class="md-nav__link">
         
   
   
@@ -2819,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-installing-software/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-installing-software/" class="md-nav__link">
         
   
   
@@ -2842,7 +2946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-troubleshooting/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-troubleshooting/" class="md-nav__link">
         
   
   
@@ -2865,7 +2969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-writing-easyconfigs/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-writing-easyconfigs/" class="md-nav__link">
         
   
   
@@ -2888,7 +2992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-module-naming-schemes/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-module-naming-schemes/" class="md-nav__link">
         
   
   
@@ -2969,7 +3073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-contributing/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-contributing/" class="md-nav__link">
         
   
   
@@ -2992,7 +3096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-hooks/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-hooks/" class="md-nav__link">
         
   
   
@@ -3015,7 +3119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-implementing-easyblocks/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-implementing-easyblocks/" class="md-nav__link">
         
   
   
@@ -3038,7 +3142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-slurm-jobs/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-slurm-jobs/" class="md-nav__link">
         
   
   
@@ -3061,7 +3165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/easybuild-python-library/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/easybuild-python-library/" class="md-nav__link">
         
   
   
@@ -3140,7 +3244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/eessi-introduction/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/eessi-introduction/" class="md-nav__link">
         
   
   
@@ -3163,7 +3267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/eessi-getting-access/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/eessi-getting-access/" class="md-nav__link">
         
   
   
@@ -3186,7 +3290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/eessi-usage/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/eessi-usage/" class="md-nav__link">
         
   
   
@@ -3209,7 +3313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023-eb-eessi-uk-workshop/eessi-use-cases/" class="md-nav__link">
+      <a href="../../../2023-eb-eessi-uk-workshop/eessi-use-cases/" class="md-nav__link">
         
   
   
@@ -3245,8 +3349,6 @@
                 
   
   
-    
-  
   
   
     
@@ -3292,15 +3394,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../2022-isc22/" class="md-nav__link ">
               
   
   
@@ -3319,7 +3421,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             ISC'22 (29 May 2022)
@@ -3335,7 +3437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practical_info/" class="md-nav__link">
+      <a href="../../../2022-isc22/practical_info/" class="md-nav__link">
         
   
   
@@ -3358,7 +3460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
+      <a href="../../../2022-isc22/introduction/" class="md-nav__link">
         
   
   
@@ -3381,7 +3483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../terminology/" class="md-nav__link">
+      <a href="../../../2022-isc22/terminology/" class="md-nav__link">
         
   
   
@@ -3404,7 +3506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../../2022-isc22/installation/" class="md-nav__link">
         
   
   
@@ -3424,32 +3526,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Configuration
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../2022-isc22/configuration/" class="md-nav__link">
         
   
   
@@ -3460,197 +3540,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#available-configuration-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Available configuration settings
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Available configuration settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overall-prefix" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overall prefix
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install path
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      Build path
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#source-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source path
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#easyconfigs-archive" class="md-nav__link">
-    <span class="md-ellipsis">
-      Easyconfigs archive
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modules-tool-module-syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      Modules tool &amp; module syntax
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#robot-search-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      Robot search path
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#module-naming-scheme" class="md-nav__link">
-    <span class="md-ellipsis">
-      Module naming scheme
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration levels
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration levels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuration-level-hierarchy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration level hierarchy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration files
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#easybuild-configuration-files-vs-easyconfig-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      EasyBuild configuration files vs easyconfig files
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#easybuild_-environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      $EASYBUILD_* environment variables
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eb-command-line-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      eb command line options
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inspecting-the-current-configuration-show-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inspecting the current configuration (--show-config)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercises" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercises
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3663,7 +3552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic_usage/" class="md-nav__link">
+      <a href="../../../2022-isc22/basic_usage/" class="md-nav__link">
         
   
   
@@ -3686,7 +3575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installing_software/" class="md-nav__link">
+      <a href="../../../2022-isc22/installing_software/" class="md-nav__link">
         
   
   
@@ -3709,7 +3598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../troubleshooting/" class="md-nav__link">
+      <a href="../../../2022-isc22/troubleshooting/" class="md-nav__link">
         
   
   
@@ -3732,7 +3621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adding_support_additional_software/" class="md-nav__link">
+      <a href="../../../2022-isc22/adding_support_additional_software/" class="md-nav__link">
         
   
   
@@ -3755,7 +3644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module_naming_schemes/" class="md-nav__link">
+      <a href="../../../2022-isc22/module_naming_schemes/" class="md-nav__link">
         
   
   
@@ -3778,7 +3667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../integration_jsc/" class="md-nav__link">
+      <a href="../../../2022-isc22/integration_jsc/" class="md-nav__link">
         
   
   
@@ -3801,7 +3690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../integration_eessi/" class="md-nav__link">
+      <a href="../../../2022-isc22/integration_eessi/" class="md-nav__link">
         
   
   
@@ -3824,7 +3713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../integration_lumi/" class="md-nav__link">
+      <a href="../../../2022-isc22/integration_lumi/" class="md-nav__link">
         
   
   
@@ -3847,7 +3736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../community/" class="md-nav__link">
+      <a href="../../../2022-isc22/community/" class="md-nav__link">
         
   
   
@@ -3870,7 +3759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contributing/" class="md-nav__link">
+      <a href="../../../2022-isc22/contributing/" class="md-nav__link">
         
   
   
@@ -3893,7 +3782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../comparison_other_tools/" class="md-nav__link">
+      <a href="../../../2022-isc22/comparison_other_tools/" class="md-nav__link">
         
   
   
@@ -3970,7 +3859,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2021-isc21/" class="md-nav__link ">
+            <a href="../../../2021-isc21/" class="md-nav__link ">
               
   
   
@@ -4005,7 +3894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/practical_info/" class="md-nav__link">
+      <a href="../../../2021-isc21/practical_info/" class="md-nav__link">
         
   
   
@@ -4028,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/introduction/" class="md-nav__link">
+      <a href="../../../2021-isc21/introduction/" class="md-nav__link">
         
   
   
@@ -4051,7 +3940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/terminology/" class="md-nav__link">
+      <a href="../../../2021-isc21/terminology/" class="md-nav__link">
         
   
   
@@ -4074,7 +3963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/installation/" class="md-nav__link">
+      <a href="../../../2021-isc21/installation/" class="md-nav__link">
         
   
   
@@ -4097,7 +3986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/configuration/" class="md-nav__link">
+      <a href="../../../2021-isc21/configuration/" class="md-nav__link">
         
   
   
@@ -4120,7 +4009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/basic_usage/" class="md-nav__link">
+      <a href="../../../2021-isc21/basic_usage/" class="md-nav__link">
         
   
   
@@ -4143,7 +4032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/installing_software/" class="md-nav__link">
+      <a href="../../../2021-isc21/installing_software/" class="md-nav__link">
         
   
   
@@ -4166,7 +4055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/troubleshooting/" class="md-nav__link">
+      <a href="../../../2021-isc21/troubleshooting/" class="md-nav__link">
         
   
   
@@ -4189,7 +4078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/module_naming_schemes/" class="md-nav__link">
+      <a href="../../../2021-isc21/module_naming_schemes/" class="md-nav__link">
         
   
   
@@ -4212,7 +4101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/adding_support_additional_software/" class="md-nav__link">
+      <a href="../../../2021-isc21/adding_support_additional_software/" class="md-nav__link">
         
   
   
@@ -4235,7 +4124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/jsc/" class="md-nav__link">
+      <a href="../../../2021-isc21/jsc/" class="md-nav__link">
         
   
   
@@ -4258,7 +4147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/computecanada/" class="md-nav__link">
+      <a href="../../../2021-isc21/computecanada/" class="md-nav__link">
         
   
   
@@ -4281,7 +4170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/community/" class="md-nav__link">
+      <a href="../../../2021-isc21/community/" class="md-nav__link">
         
   
   
@@ -4304,7 +4193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2021-isc21/contributing/" class="md-nav__link">
+      <a href="../../../2021-isc21/contributing/" class="md-nav__link">
         
   
   
@@ -4381,7 +4270,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../2020-06-isc20/" class="md-nav__link ">
+            <a href="../../../2020-06-isc20/" class="md-nav__link ">
               
   
   
@@ -4416,7 +4305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/practical_information/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/practical_information/" class="md-nav__link">
         
   
   
@@ -4439,7 +4328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/introduction/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/introduction/" class="md-nav__link">
         
   
   
@@ -4462,7 +4351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/installation/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/installation/" class="md-nav__link">
         
   
   
@@ -4485,7 +4374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/configuration/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/configuration/" class="md-nav__link">
         
   
   
@@ -4508,7 +4397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/basic_usage/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/basic_usage/" class="md-nav__link">
         
   
   
@@ -4531,7 +4420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/troubleshooting/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/troubleshooting/" class="md-nav__link">
         
   
   
@@ -4554,7 +4443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/hmns/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/hmns/" class="md-nav__link">
         
   
   
@@ -4577,7 +4466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/adding_support_software/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/adding_support_software/" class="md-nav__link">
         
   
   
@@ -4600,7 +4489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/jsc/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/jsc/" class="md-nav__link">
         
   
   
@@ -4623,7 +4512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/computecanada/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/computecanada/" class="md-nav__link">
         
   
   
@@ -4646,7 +4535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/community/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/community/" class="md-nav__link">
         
   
   
@@ -4669,7 +4558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/contributing/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/contributing/" class="md-nav__link">
         
   
   
@@ -4692,7 +4581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/comparison_other_tools/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/comparison_other_tools/" class="md-nav__link">
         
   
   
@@ -4715,7 +4604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2020-06-isc20/getting_help/" class="md-nav__link">
+      <a href="../../../2020-06-isc20/getting_help/" class="md-nav__link">
         
   
   
@@ -4773,82 +4662,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#available-configuration-settings" class="md-nav__link">
+  <a href="#repositories-and-their-function" class="md-nav__link">
     <span class="md-ellipsis">
-      Available configuration settings
+      Repositories and their function
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Available configuration settings">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-and-installing-a-new-release-of-the-lumi-software-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating and installing a new release of the LUMI software stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-the-software-stack-on-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documenting the software stack on LUMI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documenting the software stack on LUMI">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#overall-prefix" class="md-nav__link">
+  <a href="#lumi-software-library" class="md-nav__link">
     <span class="md-ellipsis">
-      Overall prefix
+      LUMI Software Library
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-path" class="md-nav__link">
+  <a href="#lumi-softwarestack-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      Install path
+      LUMI-SoftwareStack repository
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#build-path" class="md-nav__link">
+  <a href="#documenting-the-actual-installation-process-on-lumi-uan06" class="md-nav__link">
     <span class="md-ellipsis">
-      Build path
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#source-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source path
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#easyconfigs-archive" class="md-nav__link">
-    <span class="md-ellipsis">
-      Easyconfigs archive
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modules-tool-module-syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      Modules tool &amp; module syntax
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#robot-search-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      Robot search path
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#module-naming-scheme" class="md-nav__link">
-    <span class="md-ellipsis">
-      Module naming scheme
+      Documenting the actual installation process on LUMI uan06
     </span>
   </a>
   
@@ -4856,90 +4718,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration levels
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration levels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuration-level-hierarchy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration level hierarchy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration files
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#easybuild-configuration-files-vs-easyconfig-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      EasyBuild configuration files vs easyconfig files
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#easybuild_-environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      $EASYBUILD_* environment variables
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eb-command-line-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      eb command line options
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inspecting-the-current-configuration-show-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inspecting the current configuration (--show-config)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercises" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercises
-    </span>
-  </a>
   
 </li>
       
@@ -4959,381 +4737,130 @@
 
 
 
-<h1 id="configuring-easybuild">Configuring EasyBuild<a class="headerlink" href="#configuring-easybuild" title="Permanent link">&para;</a></h1>
-<p>After installing EasyBuild, you should <strong>configure</strong> it.</p>
-<p>EasyBuild should work fine out-of-the-box if you use Lmod as your modules tool.
-If you are not using Lmod, please see <a href="#modules-tool-module-syntax">here</a> for more information.</p>
-<p>Nevertheless, we strongly recommend you to inspect the default configuration,
-and to configure EasyBuild according to your preferences and the system on which you will use it.</p>
-<hr />
-<h2 id="available-configuration-settings">Available configuration settings<a class="headerlink" href="#available-configuration-settings" title="Permanent link">&para;</a></h2>
-<p>One of the central policies in the EasyBuild project is to <strong>avoid hardcoded settings</strong> in the codebase.
-While this significantly increases the ability to configure EasyBuild to your liking, it also results
-in a large amount of available configuration settings.</p>
-<p>The <strong>full list of configuration settings can be consulted via <code>eb --help</code></strong>,
-which shows the corresponding command line option accompanied by a short description.
-At the time of writing, <em>about 270 different configuration settings</em> are supported by EasyBuild.</p>
-<p>For the sake of this tutorial we will focus on a specific subset of configuration settings,
-and cover only the most prominent and important ones.</p>
-<p><em>We will refer to EasyBuild configuration settings using the names as they appears in the output of <code>eb --help</code>,
-and omit the leading dashes (<code>--</code>) for the sake of clarity.</em></p>
-<p>Keep in mind that <em>every</em> configuration setting can be defined in 3 different ways,
-see <a href="#consistency-across-configuration-levels">below</a> for more details.</p>
-<hr />
-<h3 id="overall-prefix">Overall prefix<a class="headerlink" href="#overall-prefix" title="Permanent link">&para;</a></h3>
-<p><em>(default: <code>$HOME/.local/easybuild</code>)</em></p>
-<p>The <code>prefix</code> configuration setting specifies the overall prefix that EasyBuild should use,
-which <strong>determines the default value for various other configuration settings</strong>:</p>
+<h1 id="managing-easybuild-installed-software-on-lumi">Managing EasyBuild-installed software on LUMI<a class="headerlink" href="#managing-easybuild-installed-software-on-lumi" title="Permanent link">&para;</a></h1>
+<h2 id="repositories-and-their-function">Repositories and their function<a class="headerlink" href="#repositories-and-their-function" title="Permanent link">&para;</a></h2>
+<p>TODO</p>
+<h2 id="creating-and-installing-a-new-release-of-the-lumi-software-stack">Creating and installing a new release of the LUMI software stack<a class="headerlink" href="#creating-and-installing-a-new-release-of-the-lumi-software-stack" title="Permanent link">&para;</a></h2>
+<p>TODO not complete</p>
 <ul>
-<li><code>installpath</code>: <code>&lt;prefix&gt;</code></li>
-<li><code>buildpath</code>: <code>&lt;prefix&gt;/build</code></li>
-<li><code>sourcepath</code>: <code>&lt;prefix&gt;/sources</code></li>
-<li><code>repositorypath</code> (easyconfigs archive): <code>&lt;prefix&gt;/ebfiles_repo</code></li>
-<li><code>containerpath</code>: <code>&lt;prefix&gt;/containers</code></li>
-</ul>
-<p>Here, <code>&lt;prefix&gt;</code> represents the value of the <code>prefix</code> configuration setting.</p>
-<p>If one of the configuration settings affected by <code>prefix</code> is defined specifically,
-the <code>prefix</code> value becomes irrelevant for that specific configuration setting.</p>
-<hr />
-<h3 id="install-path">Install path<a class="headerlink" href="#install-path" title="Permanent link">&para;</a></h3>
-<p><em>(default: <code>&lt;prefix&gt;</code>)</em></p>
-<p>The <strong>location for both the software installation directories and generated module files</strong>
-can be controlled via the <code>installpath</code> configuration setting.
-Software installation directories will be placed in <code>&lt;installpath&gt;/software</code>, while
-<code>&lt;installpath&gt;/modules/all</code> will be used for generated module files.</p>
-<p>The <code>installpath</code> location is usually set to a directory on a <em>shared filesystem</em> when installing
-software for an HPC cluster. Of course, software can also be installed on a local filesystem,
-which can be useful to test and evaluate software installations.</p>
-<p>Separate configuration settings are available for both software and modules locations,
-as well as for controlling the name of the <code>software</code> and <code>modules/all</code> subdirectories.</p>
-<p><em>We recommend to only change the <code>installpath</code> configuration setting to control the location
-of software installations and accompanying module files,
-such that the software and modules directories are located in the same parent directory,
-and the default <code>software</code> and <code>modules/all</code> names for the subdirectories are used.</em></p>
-<hr />
-<h3 id="build-path">Build path<a class="headerlink" href="#build-path" title="Permanent link">&para;</a></h3>
-<p><em>(default: <code>&lt;prefix&gt;/build</code>)</em></p>
-<p>For each installation it performs, EasyBuild creates a <strong>separate build directory</strong> where software will be compiled
-before installing it. This directory is cleaned up automatically when the installation is successfully completed.
-To control the location where these build directories are created, you can use the <code>buildpath</code> configuration setting.</p>
-<p>Keep in mind that build directories may grow out to several GBs in size during an installation,
-and that the commands that run in there can be fairly I/O-intensive since they may involve
-manipulating lots of small files. In addition, a build directory that corresponds to a failing installation
-is <em>not</em> cleaned up automatically, but it will be cleaned up and recycled when the same installation is re-attempted.
-Running out of disk space in the location where build directories are created will result in failing
-installations.</p>
-<p>It is strongly recommend to use the path to a directory on a <em>local filesystem</em> for the value of the
-<code>buildpath</code> configuration setting, since using a shared filesystem like Lustre or GPFS is known to cause
-problems when building certain software packages. Using an in-memory location (like <code>/dev/shm/$USER</code>) can
-significantly speed up the build process, but may also lead to problems (due to space limitations,
-or specific mount options like <code>noexec</code>).</p>
-<p><em>Use a directory on a local filesystem for <code>buildpath</code> for this tutorial.
-In addition, try to ensure you use a path that will not be used by other users on the same system,
-so set <code>buildpath</code> to <code>/tmp/$USER</code>, for example.</em></p>
-<hr />
-<h3 id="source-path">Source path<a class="headerlink" href="#source-path" title="Permanent link">&para;</a></h3>
-<p><em>(default: <code>&lt;prefix&gt;/sources</code>)</em></p>
-<p>For most supported software, EasyBuild can <strong>automatically download the source files</strong> required for the installation.
-Before trying to download a source file, EasyBuild will first check if it is already present in the source path.</p>
-<p>The locations considered by EasyBuild when checking for available source files, as well as the location to
-store downloaded source files, can be controlled via the <code>sourcepath</code> configuration setting.</p>
-<p>The <code>sourcepath</code> value is a colon (<code>:</code>) separated list of directory paths.
-Each of these paths will be considered in turn when checking for available source files,
-until one of them provides the desired source file. Searching for source files is done
-based on filename, and a couple of subdirectories are considered.
-For example, for a software package named '<code>Example</code>', EasyBuild will consider locations like <code>&lt;sourcepath&gt;/e/Example/</code>, <code>&lt;sourcepath&gt;/Example/</code>, and so on.</p>
-<p>The first path listed in <code>sourcepath</code> is the location where EasyBuild will store downloaded source files,
-organised by software name through subdirectories, so EasyBuild expects to have write permissions to this path.
-For the other paths listed in <code>sourcepath</code> only read permissions are required.</p>
-<p><em>Make sure you have write permissions to the first path listed in <code>sourcepath</code>, so EasyBuild is able
-to store downloaded files there. Feel free to list additional paths if you already have a cache of downloaded
-files available somewhere.</em></p>
-<hr />
-<h3 id="easyconfigs-archive">Easyconfigs archive<a class="headerlink" href="#easyconfigs-archive" title="Permanent link">&para;</a></h3>
-<p><em>(default: <code>&lt;prefix&gt;/ebfiles_repo</code>)</em></p>
-<p>EasyBuild keeps track of the easyconfig files that were used for installations in the easyconfigs
-archive, the location of which is specified by the <code>repositorypath</code> configuration setting.</p>
-<p>By default the specified path is assumed to be a regular directory, but using a Git repository
-as easyconfigs archive is also supported (for more details, see <a href="https://docs.easybuild.io/en/latest/Configuration.html#easyconfigs-repository-repository-repositorypath">the EasyBuild documentation</a>).</p>
-<p><em>For the sake of this tutorial we recommend using a regular directory,
-and sticking to the default location as a subdirectory of the <code>prefix</code> configuration setting.</em></p>
-<hr />
-<h3 id="modules-tool-module-syntax">Modules tool &amp; module syntax<a class="headerlink" href="#modules-tool-module-syntax" title="Permanent link">&para;</a></h3>
-<p><em>(default: <code>Lmod</code> as modules tool, <code>Lua</code> as module syntax)</em></p>
-<p>By default, EasyBuild assumes you are using <strong><a href="https://lmod.readthedocs.io">Lmod</a> as modules tool</strong>.
-In addition, it will generate module files in <a href="https://www.lua.org/">Lua</a> syntax, as supported by Lmod
-(next to <code>Tcl</code> syntax).</p>
-<p>To diverge from this, you can define the <code>modules-tool</code> configuration setting to indicate you
-are using a different modules tool; see the output of <code>eb --avail-modules-tools</code> for a list of supported
-modules tools.
-Note that for anything other than Lmod, you <em>must</em> make
-sure that the actual modules tool binary command is available through <code>$PATH</code> (more information
-on this <a href="https://docs.easybuild.io/en/latest/Configuration.html#modules-tool-modules-tool">in the EasyBuild documentation</a>).</p>
-<p>If you prefer that EasyBuild generates module files in <a href="https://tcl.tk/">Tcl</a> syntax, you can instruct
-it to do so via the <code>module-syntax</code> configuration setting. Note that this is <em>required</em> if you are using
-a modules tool other than Lmod, since only Lmod supports module files in <code>Lua</code> syntax.</p>
-<p><em>We recommend using EasyBuild with the defaults settings: Lmod as modules tool, and Lua as module syntax.</em></p>
-<hr />
-<h3 id="robot-search-path">Robot search path<a class="headerlink" href="#robot-search-path" title="Permanent link">&para;</a></h3>
-<p><em>(default: <code>robot-paths</code> specifies the location to the easyconfig files included with EasyBuild installation;
-dependency resolution is</em> <strong><em>not</em></strong> <em>enabled)</em></p>
-<p>When EasyBuild needs to locate one or more easyconfig files, it will do so via the <strong>robot search path</strong>.
-This applies to both easyconfig files that were specified using only their filename as an argument to the
-<code>eb</code> command, as well as to easyconfigs required to resolve dependencies (more on that later).</p>
-<p>To control the robot search path, two configuration settings are available: <code>robot</code> and <code>robot-paths</code>.
-Both accept a colon-separated list of locations to consider when looking for easyconfig files,
-with <code>robot</code> overriding <code>robot-paths</code>.</p>
-<p>The key difference between these two configuration settings is that defining <code>robot</code> also enables dependency resolution,
-and hence makes EasyBuild install missing dependencies, alongside
-specifying a list of paths to consider when searching for easyconfig files.
-On the other hand, defining <code>robot-paths</code> does not have the side effect of enabling dependency resolution.</p>
-<p>In addition, you can use the <code>--robot</code> command line option without specifying any paths to it,
-to only enable dependency resolution.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Keep in mind that when either of the <code>robot</code> (with paths) or <code>robot-paths</code> configuration settings are
-defined, the default value corresponding to the location of easyconfigs included with the
-EasyBuild is <em>no longer considered</em>.</p>
-<p>There are ways around this however, which are outside of the scope of this tutorial.</p>
-<p>For more information, <a href="https://docs.easybuild.io/en/latest/Using_the_EasyBuild_command_line.html#controlling-robot-search-path">see the EasyBuild documentation</a>.</p>
-</div>
-<hr />
-<h3 id="module-naming-scheme">Module naming scheme<a class="headerlink" href="#module-naming-scheme" title="Permanent link">&para;</a></h3>
-<p><em>(default: <code>EasyBuildMNS</code>)</em></p>
-<p>EasyBuild will use a specific naming scheme for the module files it generates for each of the software installations.
-This ensures consistency, regardless of who uses EasyBuild to perform the installation.</p>
-<p>Different types of module naming schemes are supported (flat, hierarchical, ...) and you can provide an implementation of
-your own custom module naming scheme if desired. A number of different naming schemes are included
-with EasyBuild, which you can consult via <code>eb --avail-module-naming-schemes</code>.</p>
-<p>The default <code>EasyBuildMNS</code> module naming scheme roughly corresponds to the filename of easyconfig files,
-and consists of the software name followed by a combination of the software version, toolchain and
-an optional label (which corresponds to the value of the <code>versionsuffix</code> easyconfig parameter):
-<code>&lt;name&gt;/&lt;version&gt;&lt;-toolchain&gt;&lt;versionsuffix&gt;</code>. Just like with <a href="../terminology/#easyconfig-files">names of easyconfig
-files</a>, the <code>&lt;-toolchain&gt;</code> part is omitted when the <code>system</code> toolchain is used,
-and the <code>&lt;versionsuffix&gt;</code> value is empty by default.</p>
-<hr />
-<h2 id="configuration-levels">Configuration levels<a class="headerlink" href="#configuration-levels" title="Permanent link">&para;</a></h2>
-<p>Configuring EasyBuild can be done in different ways:</p>
+<li>
+<p>We work as much as possible with pull requests so that there is a better history of when 
+    packages were added or modified in the software stack and library.</p>
+<p>It also enables someone to check the layout of the easyconfigs and see if they more or less
+follow the guidelines and for packages centrally installed, it makes it easy to see when there
+is something new that needs to be installed.</p>
+</li>
+<li>
+<p>The central software stack is no playground. Installations in there are tested as much as possible
+    in a copy of the stack. Once a module is in there, it cannot be changed as it could disrupt work
+    of users who are using that module at that time. This is one of the reasons why we prefer to have
+    software as much as possible installed by the users in their account: They only need to talk to their
+    project members to agree when a package can be changed.</p>
+<p>The stack exists in 5 copies on LUMI</p>
 <ul>
-<li>through one or more configuration files;</li>
-<li>via <code>$EASYBUILD_*</code> environment variables;</li>
-<li>using <code>eb</code> command line options;</li>
+<li>
+<p>The master copy is in <code>/pfs/lustref1/appl/lumi</code> and is available on <code>/appl/lumi</code> only on
+    uan06. This implies that currently all software installation in the central stack should
+    be done on uan06 as we want to make sure that paths that may get hard-coded in scripts
+    and binaries use <code>/appl/lumi</code> and do not refer to a specific file system.</p>
+</li>
+<li>
+<p>The copies used on the login nodes and compute nodes are in <code>/pfs/lustrepX/appl/lumi</code>, with X 1, 2, 3 or 4.</p>
+</li>
 </ul>
-<p>Each of the methods corresponds to a <em>configuration level</em>.</p>
-<p><em>Every</em> configuration setting can be defined via one of these
-mechanisms, without exception!</p>
-<hr />
-<h3 id="configuration-level-hierarchy">Configuration level hierarchy<a class="headerlink" href="#configuration-level-hierarchy" title="Permanent link">&para;</a></h3>
-<p>There is a strict <strong>hierarchy between the different configuration levels</strong> supported by EasyBuild.</p>
-<p>Settings defined via a <em>configuration file</em> only override default values.</p>
-<p>A configuration setting that is defined via the corresponding <em><code>$EASYBUILD_*</code> environment variable</em>
-takes precedence over the value specified in a configuration file (if any).</p>
-<p>Finally, values specified through <code>eb</code> command line options <strong>always</strong> win,
-regardless of whether the corresponding
-configuration setting was already defined some other way, be it via a configuration file or
-an environment variable.</p>
-<p>For example, let us consider a fictional configuration setting named <code>magic</code>:</p>
+<p>The <code>*/appl/lumi</code> directories can be written by everybody in the <code>appl_lumi</code>(462000009) project.
+Everybody in that project should use uan06 as little as possible as one may very well 
+accidentally damage the software stack. Some applications want to upgrade themselves - we keep them
+out of the stack but may make errors there - or when using Python, it may decide to install
+additional packages in a directory that happens to be in the Python search path. The number of 
+people in that group should be as small as possible, basically the maintainers of the software
+stacks installed in <code>/appl/lumi</code> and their backups and noone else.</p>
+<p>Deleting a package from the central stack is done in multiple steps:</p>
+<ol>
+<li>Often first a warning via the Lmod <code>admin.lst</code> file</li>
+<li>Delete the module</li>
+<li>And a few weeks later, delete the software from the central stack</li>
+</ol>
+<p>Every synchronisation of the central stack can take more than one hour, and the order in which 
+various directories are synchronised is well thought out so that a module will never appear on
+the system if the software is not first made available on all 4 copies.</p>
+</li>
+<li>
+<p>Every release is currently prepared on a laptop. It has a directory containing the following
+    repositories:</p>
 <ul>
-<li>If a value for <code>magic</code> is specified in an EasyBuild configuration file,
-  then this value will only be used if the corresponding environment variable
-  (<code>$EASYBUILD_MAGIC</code>) is <em>not</em> defined <strong>and</strong> if the <code>--magic</code> command line option is <em>not</em> used;</li>
-<li>If the <code>$EASYBUILD_MAGIC</code> environment variable <em>is</em> defined however, then its value
-  will be used for the <code>magic</code> configuration setting;</li>
-<li><em>Unless</em> the <code>--magic</code> command line option is used,
-  since in that case the value provided as an argument there will be used instead.</li>
+<li>
+<p><a href="https://github.com/Lumi-supercomputer/LUMI-SoftwareStack">LUMI-SoftwareStack</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib">LUMI-EasyBuild-contrib</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-containers">LUMI-EasyBuild-containers</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-docs">LUMI-EasyBuild-docs</a></p>
+</li>
+<li>
+<p>tags: Contains the tags used with each release</p>
+<p>TODO: Restructure and bring the relevant part to lumi-supercomputer</p>
+</li>
 </ul>
-<hr />
-<h3 id="configuration-files">Configuration files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h3>
-<p><em>Configuration files</em> are the most basic way of configuring EasyBuild.
-Two types of are supported by EasyBuild: <em>user-level</em> and <em>system-level</em>
-configuration files. The output of <code>eb --show-default-configfiles</code> tells you which locations
-are considered, and whether any configuration files were found.</p>
-<p>EasyBuild configuration files are written in the standard <a href="https://en.wikipedia.org/wiki/INI_file">INI format</a>,
-and the configuration settings are grouped into different <em>sections</em>.</p>
-<p>To create an EasyBuild configuration file, the output of <code>eb --confighelp</code> is very useful:
-it produces the list of all supported configuration settings which are readily grouped in sections
-and with every entry commented out, along with accompanying descriptive comments mentioning the default values,
-and in the correct syntax.</p>
-<p><em>Configuration files are the recommended mechanism to define configuration settings
-that should always be in place, regardless of the software you are installing.</em></p>
-<h4 id="easybuild-configuration-files-vs-easyconfig-files">EasyBuild configuration files vs easyconfig files<a class="headerlink" href="#easybuild-configuration-files-vs-easyconfig-files" title="Permanent link">&para;</a></h4>
-<p>EasyBuild configuration files are sometimes confused with easyconfig files,
-due to the similar name. However, these are two entirely different concepts!</p>
-<p>EasyBuild configuration files (usually <code>*.cfg</code>) are a way of <em>configuring the general behaviour of EasyBuild</em>
-across different software installations. They define <em>configuration settings</em>,
-such as the location where software should be installed, or the syntax that should
-be used when generating module files.</p>
-<p>An <a href="../terminology/#easyconfig-files">easyconfig file</a> (<code>*.eb</code>) on the other hand <em>specifies the details for one particular software installation</em>.
-It does this by defining a set of <em>easyconfig parameters</em>, which tell EasyBuild the name and version
-of the software to install, which <a href="../terminology/#toolchains">toolchain</a> and <a href="../terminology/#easyblocks">easyblock</a> to use, etc.</p>
-<p>For each software installation performed by EasyBuild, there is a corresponding easyconfig file.
-There typically are only a handful of configuration files used however, for example a system-level
-configuration file, perhaps combined with a user-level one. Or there may be no configuration files involved
-at all, since EasyBuild can also be configured through other mechanisms: environment variables and command line
-options.</p>
-<hr />
-<h3 id="easybuild_-environment-variables"><code>$EASYBUILD_*</code> environment variables<a class="headerlink" href="#easybuild_-environment-variables" title="Permanent link">&para;</a></h3>
-<p>A particularly easy way to configure EasyBuild is through <em>environment variables</em>.</p>
-<p>At startup, EasyBuild will pick up any environment variable of which the name starts with '<code>EASYBUILD_</code>'.
-For each of these, it will determine the corresponding configuration setting (or exit with an error if
-none was found).</p>
-<p>Mapping the name of a configuration setting to the name of the corresponding environment variable is straightforward:
-use capital letters, replace dashes (<code>-</code>) with underscores (<code>_</code>), and prefix with <code>EASYBUILD_</code>.</p>
-<p>For example: the <code>module-syntax</code> configuration setting can be specified by defining
-the <code>$EASYBUILD_MODULE_SYNTAX</code> environment variable:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">EASYBUILD_MODULE_SYNTAX</span><span class="o">=</span>Tcl
-</code></pre></div>
-<p><em>Configuring via environment variables is especially practical for controlling the EasyBuild configuration
-in a more dynamic way. For example, you can implement a simple shell script that defines <code>$EASYBUILD_*</code>
-environment variables based on the current context (user, hostname, other environment variables), and
-configure EasyBuild through <a href="https://bash.cyberciti.biz/guide/Source_command">sourcing</a> it.</em></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Keep in mind that environment variables are only defined for the shell session you are currently working in.
-If you want to configure EasyBuild through environment variables in a more persistent way,
-you can leverage one of the <a href="https://bash.cyberciti.biz/guide/Startup_scripts">shell startup scripts</a> (for example <code>$HOME/.bash_profile</code> or <code>$HOME/.bashrc</code>).</p>
-</div>
-<hr />
-<h3 id="eb-command-line-options"><code>eb</code> command line options<a class="headerlink" href="#eb-command-line-options" title="Permanent link">&para;</a></h3>
-<p>Finally, you can also configure EasyBuild by specifying one or more options to the <code>eb</code> command.</p>
-<p>As mentioned earlier, the values for configuration settings defined this way override the value that
-is specified through any other means. So if you want to be sure that a particular configuration setting
-is defined the way you want it to be, you can use the corresponding command line option.</p>
-<p>There are various configuration settings for which it only makes sense to use the command line option.
-An example of this is letting the <code>eb</code> command print the EasyBuild version (via <code>eb --version</code>).
-Although you could configure EasyBuild to always print its version and then exit whenever the <code>eb</code> command is
-run, that would not be very useful...</p>
-<p><em>Command line options are typically used to define configuration settings that are only relevant to
-that particular EasyBuild session. One example is doing a test installation into a temporary directory:</em></p>
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--installpath<span class="w"> </span>/tmp/<span class="nv">$USER</span><span class="w"> </span>example.eb
-</code></pre></div>
-<h2 id="inspecting-the-current-configuration-show-config">Inspecting the current configuration (<code>--show-config</code>)<a class="headerlink" href="#inspecting-the-current-configuration-show-config" title="Permanent link">&para;</a></h2>
-<p>Given the large amount of available configuration settings in EasyBuild and the different configuration levels,
-you can easily lose track of exactly how EasyBuild is configured.</p>
-<p>Through the <code>--show-config</code> command line option you can
-easily inspect the currently active EasyBuild configuration.</p>
-<p>The output of <code>--show-config</code> includes a sorted list of all configuration settings that are defined to a
-<em>non-default</em> value,
-along with a couple of important ones that are always shown (like <code>buildpath</code>, <code>installpath</code>, <code>sourcepath</code>, and so on).
-In addition, it also indicates at which configuration level each setting was defined,
-so you can trace down <em>where</em> it was defined if needed.</p>
-<p>This is the output produced by <code>eb --show-config</code> for the default EasyBuild configuration,
-where EasyBuild was installed via <code>pip install --user</code> (which affects the value shown for the
-<code>robot-paths</code> configuration setting):</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#</span>
-<span class="c1"># Current EasyBuild configuration</span>
-<span class="c1"># (C: command line argument, D: default value, E: environment variable, F: configuration file)</span>
-<span class="c1">#</span>
-buildpath<span class="w">      </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/.local/easybuild/build
-containerpath<span class="w">  </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/.local/easybuild/containers
-installpath<span class="w">    </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/.local/easybuild
-repositorypath<span class="w"> </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/.local/easybuild/ebfiles_repo
-robot-paths<span class="w">    </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/.local/easybuild/easyconfigs
-sourcepath<span class="w">     </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/.local/easybuild/sources
-</code></pre></div>
-<p>As shown here, all configuration settings shown follow the default <code>prefix</code> value (<code>$HOME/.local/easybuild</code>),
-and none of the values diverge from the default value, since all entries are marked with <code>(D)</code> for "default value").</p>
-<p><strong>Example</strong></p>
-<p>Now let us do some basic configuring and inspect the resulting output of <code>eb --show-config</code>.</p>
-<p>First, create a user-level EasyBuild configuration file to define the <code>prefix</code> configuration setting:</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HOME</span>/.config/easybuild
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;[config]&#39;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$HOME</span>/.config/easybuild/config.cfg
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;prefix=/apps&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$HOME</span>/.config/easybuild/config.cfg
-</code></pre></div>
-<p>In addition, define the <code>buildpath</code> configuration setting using the corresponding
-environment variable:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">EASYBUILD_BUILDPATH</span><span class="o">=</span>/tmp/<span class="nv">$USER</span>
-</code></pre></div>
-<p>Then run <code>eb --show-config</code> while you specify that the <code>installpath</code> configuration
-setting should be defined as <code>/tmp/$USER</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>eb<span class="w"> </span>--show-config<span class="w"> </span>--installpath<span class="o">=</span>/tmp/<span class="nv">$USER</span>
-<span class="c1">#</span>
-<span class="c1"># Current EasyBuild configuration</span>
-<span class="c1"># (C: command line argument, D: default value, E: environment variable, F: configuration file)</span>
-<span class="c1">#</span>
-buildpath<span class="w">      </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/tmp/easybuild
-containerpath<span class="w">  </span><span class="o">(</span>F<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/apps/containers
-installpath<span class="w">    </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/tmp/easybuild
-packagepath<span class="w">    </span><span class="o">(</span>F<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/apps/packages
-prefix<span class="w">         </span><span class="o">(</span>F<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/apps
-repositorypath<span class="w"> </span><span class="o">(</span>F<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/apps/ebfiles_repo
-robot-paths<span class="w">    </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/.local/easybuild/easyconfigs
-sourcepath<span class="w">     </span><span class="o">(</span>F<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/apps/sources
-</code></pre></div>
-<p>The output indicates that the <code>installpath</code> setting was specified through a command line option (indicated
-with <code>(C)</code>), that the <code>buildpath</code> setting was defined via an environment
-variable (indicated with <code>(E)</code>), that the <code>robot-paths</code> setting still has the default value (indicated with <code>(D)</code>), and that all other configuration
-settings were specified via a configuration file, some of which indirectly through the <code>prefix</code> value (indicated with
-<code>(F)</code>).</p>
-<hr />
-<h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
-<p><strong><em>Exercise C.1</em> - Configure EasyBuild</strong></p>
-<p>Configure EasyBuild to use the <code>easybuild</code> subdirectory in your home directory for everything, except for:</p>
+</li>
+<li>
+<p>Before creating a new release, add the release name (YYYyMMDD) to the 
+    <code>docs/whats_new.md</code> with a description of the changes/additions. This page
+    will also appear in the LUMI Software Library.</p>
+</li>
+</ul>
+<p>Also TODO: Rework the script used to create a release and include in LUMI-SoftwareStack rather
+then a totally separate private repository that contains other scripts also that have little to
+do with LUMI.</p>
+<h2 id="documenting-the-software-stack-on-lumi">Documenting the software stack on LUMI<a class="headerlink" href="#documenting-the-software-stack-on-lumi" title="Permanent link">&para;</a></h2>
+<h3 id="lumi-software-library">LUMI Software Library<a class="headerlink" href="#lumi-software-library" title="Permanent link">&para;</a></h3>
+<p>The LUMI Software Library is built automatically from a number of files in markdown syntax.
+The script is very naive when it tries to renumber the title levels. It goes wrong when a
+code block is included that starts on the first column and contains lines starting with <code>#</code>.
+The workaround is to indent such a code block with one space.</p>
+<p>Files stored with the EasyConfig:</p>
 <ul>
-<li>The location of the build directories: use <code>/tmp/$USER</code> for this;</li>
-<li>The locations that should be considered when searching for source files:
-  include both <code>$HOME/easybuild/sources</code> and <code>/easybuild/sources</code>, but make
-  sure that source files that are downloaded by EasyBuild are stored in
-  <code>$HOME/easybuild/sources</code>.</li>
+<li>
+<p><code>USER.md</code>: Optional, extra information for regular users.</p>
+</li>
+<li>
+<p><code>LICENSE.md</code>: Highly preferred. Information on the license of the package.</p>
+</li>
+<li>
+<p><code>README.md</code>: Technical information:</p>
+<ul>
+<li>
+<p>Where can we find the package?</p>
+</li>
+<li>
+<p>Is there already support in EasyBuild or Spack?</p>
+</li>
+<li>
+<p>Overview of our past EasyConfigs and how they were built.</p>
+<p>Never delete information from this, or you'd have to rewrite the first entry
+in the new list to contain all previous elements that are necessary to understand the EasyConfig.</p>
+</li>
 </ul>
-<p>Leave other configuration settings set to their default value.</p>
-<details class="success">
-<summary>(click to show solution)</summary>
-<p>This is pretty straightforward.</p>
-<p>Here we just define the corresponding environment variables:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">EASYBUILD_PREFIX</span><span class="o">=</span><span class="nv">$HOME</span>/easybuild
-<span class="nb">export</span><span class="w"> </span><span class="nv">EASYBUILD_BUILDPATH</span><span class="o">=</span>/tmp/<span class="nv">$USER</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">EASYBUILD_SOURCEPATH</span><span class="o">=</span><span class="nv">$HOME</span>/easybuild/sources:/easybuild/sources
-</code></pre></div>
-<p>The location where EasyBuild should download source files to
-must be listed first in the <code>sourcepath</code> configuration setting.</p>
-<p>The output of <code>--show-config</code> should look like this (assuming that <code>$USER</code> is set to <code>example</code>):</p>
-<div class="highlight"><pre><span></span><code>buildpath<span class="w">      </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/tmp/example
-containerpath<span class="w">  </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/easybuild/containers
-installpath<span class="w">    </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/easybuild
-packagepath<span class="w">    </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/easybuild/packages
-prefix<span class="w">         </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/easybuild
-repositorypath<span class="w"> </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/easybuild/ebfiles_repo
-robot-paths<span class="w">    </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/easybuild/software/EasyBuild/4.4.0/easybuild/easyconfigs
-sourcepath<span class="w">     </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/example/easybuild/sources:/easybuild/sources
-</code></pre></div>
-</details>
-<hr />
-<p><strong><em>Exercise C.2</em> - Install a trivial software package with EasyBuild</strong></p>
-<p>Try running the following command:</p>
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>bzip2-1.0.6.eb
-</code></pre></div>
-<p>Where do you expect to find the installation?</p>
-<details class="success">
-<summary>(click to show solution)</summary>
-<p>The software was installed in <code>$HOME/easybuild</code>,
-since that's how we configured EasyBuild in <em>Exercise 3.1</em>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span><span class="nv">$HOME</span>/easybuild
-ebfiles_repo<span class="w">  </span>modules<span class="w">  </span>software<span class="w">  </span>sources
-</code></pre></div>
-<p>The actual installation is in <code>$HOME/easybuild/software</code>,
-while the module file was generated in <code>$HOME/easybuild/modules/all</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span><span class="nv">$HOME</span>/easybuild/software
-bzip2<span class="w">  </span>EasyBuild
-$<span class="w"> </span>ls<span class="w"> </span><span class="nv">$HOME</span>/easybuild/software/bzip2
-<span class="m">1</span>.0.6
-$<span class="w"> </span>ls<span class="w"> </span><span class="nv">$HOME</span>/easybuild/software/bzip2/1.0.6
-bin<span class="w">  </span>easybuild<span class="w">  </span>include<span class="w">  </span>lib<span class="w">  </span>man
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span><span class="nv">$HOME</span>/easybuild/modules/all
-bzip2<span class="w">  </span>EasyBuild
-$<span class="w"> </span>ls<span class="w"> </span><span class="nv">$HOME</span>/easybuild/modules/all/bzip2
-<span class="m">1</span>.0.6.lua
-</code></pre></div>
-<p>The source file for bzip2 1.0.6 was downloaded to <code>$HOME/easybuild/sources</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span><span class="nv">$HOME</span>/easybuild/sources/b/bzip2
-bzip2-1.0.6.tar.gz
-</code></pre></div>
-<p>We will discuss this in more detail in the next part of the tutorial.</p>
-</details>
-<hr />
-<p><strong>Make sure EasyBuild is configured as instructed in exercise 3.1 before you continue with the rest of this tutorial.</strong></p>
-<p><a href="../basic_usage/"><em>next: Basic usage</em></a> - <a href="../"><em>(back to overview page)</em></a></p>
+</li>
+</ul>
+<h3 id="lumi-softwarestack-repository">LUMI-SoftwareStack repository<a class="headerlink" href="#lumi-softwarestack-repository" title="Permanent link">&para;</a></h3>
+<p>The repository contains a <code>docs</code> subdirectory with markdown-based documentation. </p>
+<p>The <code>docs/config</code> subdirectory contains the <code>mkdocs.yml</code> file for the documentation,
+a <code>Makefile</code> to test the documentation and the <code>requirements.txt</code> file for the mkdocs setup
+in Python.</p>
+<p>The documentation is updated automatically in <code>github.io</code> when a push to the main branch is
+made in the repository and can be accessed on
+<a href="https://lumi-supercomputer.github.io/LUMI-SoftwareStack/">lumi-supercomputer.github.io/LUMI-SoftwareStack/</a>.</p>
+<h3 id="documenting-the-actual-installation-process-on-lumi-uan06">Documenting the actual installation process on LUMI uan06<a class="headerlink" href="#documenting-the-actual-installation-process-on-lumi-uan06" title="Permanent link">&para;</a></h3>
+<p>Each installation done on LUMI uan06 is carefully documented on the
+<a href="https://wiki.eduuni.fi/spaces/CSCLUST/pages/266410121/Change+log+for+the+software+stack+in+appl+lumi">"Change log for the software stack in /appl/lumi" page in the LUST eduuni wiki</a>.</p>
+<p>This is done <em>before</em> actually doing the installation and has been tested as much as possible on a copy of the software stack
+(currently a personal copy, could be a LUST one in 462000008).</p>
+<p><em><a href="../4_02_tips_and_tricks/">[Next: EasyBuild tips &amp; tricks]</a></em></p>
 
 
 
@@ -5354,7 +4881,7 @@ bzip2-1.0.6.tar.gz
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 24, 2022 14:50:53">May 24, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 14, 2025 09:41:11">May 14, 2025</span>
   </span>
 
     
@@ -5446,10 +4973,10 @@ bzip2-1.0.6.tar.gz
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["instant", "navigation.top", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["instant", "navigation.top", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

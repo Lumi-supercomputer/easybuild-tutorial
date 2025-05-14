@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST/4_00_tips_and_tricks/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST/4_EasyBuild_on_LUMI/">
       
       
         <link rel="prev" href="../3_Advanced/3_05_github_integration/">
       
       
-        <link rel="next" href="../5_00_additional_reading/">
+        <link rel="next" href="4_01_managing_software_on_LUMI/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Tips and tricks - EasyBuild tutorials for LUMI</title>
+        <title>EasyBuild on LUMI - EasyBuild tutorials for LUMI</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tips-and-tricks" class="md-skip">
+        <a href="#easybuild-on-lumi" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tips and tricks
+              EasyBuild on LUMI
             
           </span>
         </div>
@@ -890,75 +890,105 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
+        
+          
+        
       
         
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
           
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
   
   <span class="md-ellipsis">
-    Tips and tricks
+    EasyBuild on LUMI
     
   </span>
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            EasyBuild on LUMI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4_01_managing_software_on_LUMI/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Tips and tricks
+    Managing software
     
   </span>
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              
+            
+              
+                
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="4_02_tips_and_tricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tips & tricks
     
+  </span>
   
+
+      </a>
+    </li>
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#long-lists-of-elements-for-preconfigopts-or-options-for-configopts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Long lists of elements for preconfigopts or options for configopts.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#more-to-follow" class="md-nav__link">
-    <span class="md-ellipsis">
-      More to follow....
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -4523,32 +4553,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#long-lists-of-elements-for-preconfigopts-or-options-for-configopts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Long lists of elements for preconfigopts or options for configopts.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#more-to-follow" class="md-nav__link">
-    <span class="md-ellipsis">
-      More to follow....
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -4563,32 +4567,12 @@
 
 
 
-<h1 id="tips-and-tricks">Tips and tricks<a class="headerlink" href="#tips-and-tricks" title="Permanent link">&para;</a></h1>
-<h2 id="long-lists-of-elements-for-preconfigopts-or-options-for-configopts">Long lists of elements for <code>preconfigopts</code> or options for <code>configopts</code>.<a class="headerlink" href="#long-lists-of-elements-for-preconfigopts-or-options-for-configopts" title="Permanent link">&para;</a></h2>
-<p>An example showing both is in recent <a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/tree/main/easybuild/easyconfigs/n/NAMD">LUMI NAMD EasyConfigs</a>, e.g., 
-<a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/blob/main/easybuild/easyconfigs/n/NAMD/NAMD-3.0-cpeGNU-24.03-rocm-gpu-resident.eb">"NAMD-3.0-cpeGNU-24.03-rocm-gpu-resident.eb"</a>.</p>
+<h1 id="easybuild-on-lumi">EasyBuild on LUMI<a class="headerlink" href="#easybuild-on-lumi" title="Permanent link">&para;</a></h1>
+<p><em><a href="../">[back to start page]</a></em></p>
 <ul>
-<li>
-<p><a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/blob/main/easybuild/easyconfigs/n/NAMD/NAMD-3.0-cpeGNU-24.03-rocm-gpu-resident.eb#L100">Line 100</a> shows <code>preconfigopts</code> </p>
-<p>The example is not ideal as it would have been better to join with <code>&amp;&amp;</code> also to guarantee
-that the whole configure command fails if one of the commands in <code>preconfigopts</code> failed.</p>
-</li>
-<li>
-<p><a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/blob/main/easybuild/easyconfigs/n/NAMD/NAMD-3.0-cpeGNU-24.03-rocm-gpu-resident.eb#L106">Line 106</a>
-    shows the <code>configopts</code>.</p>
-</li>
+<li><a href="4_01_managing_software_on_LUMI/">Managing EasyBuild-installed software on LUMI</a></li>
+<li><a href="4_02_tips_and_tricks/">EasyBuild tips &amp; tricks</a></li>
 </ul>
-<p>Of course, one could try to create one large string in Python, or break the assignment up, e.g.,</p>
-<div class="highlight"><pre><span></span><code>configopts  = &#39;--charm-arch $EBTYPECHARMPLUSPLUS &#39;
-configopts += &#39;--charm-base $EBROOTCHARMPLUSPLUS &#39;
-...
-</code></pre></div>
-<p>(and note the spaces that we now have to add at the end), but the "join" method has something
-elegant, makes it very easy to add additional flags or commands, and is less error-prone.
-There is also plenty of space left on each line to explain why an option is used or what it
-means, to make the job easier for others who may want to update or customise this EasyConfig.</p>
-<h2 id="more-to-follow">More to follow....<a class="headerlink" href="#more-to-follow" title="Permanent link">&para;</a></h2>
-<p><em><a href="../5_00_additional_reading.md">[Next: Additional reading]</a></em></p>
 
 
 
@@ -4609,7 +4593,7 @@ means, to make the job easier for others who may want to update or customise thi
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 8, 2025 10:46:44">May 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 14, 2025 09:41:11">May 14, 2025</span>
   </span>
 
     
