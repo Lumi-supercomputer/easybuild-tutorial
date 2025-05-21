@@ -79,7 +79,7 @@ freely available, so unless you have access to a system with this environment yo
     -    [Submitting installations as Slurm jobs](3_Advanced/3_03_slurm_jobs.md)
     -    [Module naming schemes (incl. hierarchical)](3_Advanced/3_04_module_naming_schemes.md)
     -    [GitHub integration to facilitate contributing to EasyBuild](3_Advanced/3_05_github_integration.md)
--   [Part IV: **EasyBuild on LIUMI**](4_EasyBuild_on_LUMI/index.md)
+-   [Part IV: **EasyBuild on LUMI**](4_EasyBuild_on_LUMI/index.md)
     -   [Managing EasyBuild-installed software on LUMI](4_EasyBuild_on_LUMI/4_01_managing_software_on_LUMI.md)
     -   [EasyBuild tips & tricks](4_EasyBuild_on_LUMI/4_02_tips_and_tricks.md)
 -   [**Additional reading**](5_00_additional_reading.md)
