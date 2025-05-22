@@ -12,7 +12,7 @@ and provides a **command-line interface** to facilitate the installation and man
 ---
 
 <a href="https://geek-and-poke.com/geekandpoke/2010/5/14/how-to-become-invaluable.html">
-<img src="../../../img/geek-and-poke-invaluable.png" style="float:right" width="45%"/>
+<img src="../../../img/geek-and-poke-invaluable-Kurt.png" style="float:right" width="45%"/>
 </a>
 
 ## Elevator pitch
