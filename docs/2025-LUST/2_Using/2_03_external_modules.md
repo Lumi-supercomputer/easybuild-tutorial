@@ -60,7 +60,7 @@ and key-value assignments specific to that module.
 The external modules metadata file can be also defined with the corresponding environment variable:
 ```
 echo $EASYBUILD_EXTERNAL_MODULES_METADATA 
-/apps/common/UES/jenkins/production/easybuild/cpe_external_modules_metadata-21.04.cfg
+/appl/lumi/LUMI-SoftwareStack/easybuild/config/external_modules_metadata-CPE-24.03.cfg
 ```
 
 The following keys are 

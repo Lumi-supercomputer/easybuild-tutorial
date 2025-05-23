@@ -104,8 +104,7 @@ software is available to all LUMI users. There might be license and other restri
 
 ## The `partition` module
 
-The ``LUMI`` module currently supports five partition modules, but that number may
-be reduced in the future:
+The ``LUMI`` module currently supports four partition modules:
 
 | Partition         | CPU target            | Accelerator                 |
 |:------------------|-----------------------|:----------------------------|
@@ -116,7 +115,23 @@ be reduced in the future:
 
 All ``partition`` modules also load `craype-network-ofi``.
 
+However, there are four more hidden partition modules that only play a role in configuring
+EasyBuild and shouldn't be used when running software:
 
+-   `partition/common` to install some software available in all four above partitions.
+  
+    Currently only used for some tools compiled with the system compiler, but it could in fact
+    be used to store libraries that are not performance-critical and don't need GPUs (so simply
+    compiled for zen2).
+
+-   `partition/container` to install modules that wrap containers, as that software usually does
+    not depend on a version of the CPE anyway. Those container modules are then available in the `CrayEnv`
+    stack and all of the `LUMI` stacks.
+
+-   `partition/system` to install some software that is available on all of the system, even just
+    after login. That software should only depend on things in the OS!
+
+-   `partition/CrayEnv` to install packages that will be available in CrayEnv.
     
 ---
 

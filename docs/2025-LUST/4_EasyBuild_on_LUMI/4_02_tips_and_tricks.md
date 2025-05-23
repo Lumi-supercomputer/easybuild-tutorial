@@ -29,6 +29,10 @@ means, to make the job easier for others who may want to update or customise thi
 
 ## More to follow....
 
+-   Static and shared libraries in CMakeMake packages (and using lib instead of lib64)
+
+-   Copying the license information
+
 
 *[[Next: Additional reading]](../5_00_additional_reading.md)*
 
