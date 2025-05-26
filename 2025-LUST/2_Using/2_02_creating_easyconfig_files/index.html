@@ -758,6 +758,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#toolchain-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toolchain options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sources-patches-and-checksums" class="md-nav__link">
     <span class="md-ellipsis">
       Sources, patches, and checksums
@@ -4931,6 +4940,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#toolchain-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toolchain options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sources-patches-and-checksums" class="md-nav__link">
     <span class="md-ellipsis">
       Sources, patches, and checksums
@@ -5311,6 +5329,53 @@ install_cmd*<span class="w">                    </span>Install<span class="w"> <
 prefix_opt*<span class="w">                     </span>Prefix<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line<span class="w"> </span>option<span class="w"> </span><span class="k">for</span><span class="w"> </span>configure<span class="w"> </span>script<span class="w"> </span><span class="o">(</span><span class="s1">&#39;--prefix=&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span>None<span class="o">)</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span>
 tar_config_opts*<span class="w">                </span>Override<span class="w"> </span>tar<span class="w"> </span>settings<span class="w"> </span>as<span class="w"> </span>determined<span class="w"> </span>by<span class="w"> </span>configure.<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>False<span class="o">]</span>
 test_cmd*<span class="w">                       </span>Test<span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="o">(</span><span class="s1">&#39;runtest&#39;</span><span class="w"> </span>value<span class="w"> </span>is<span class="w"> </span>appended,<span class="w"> </span>default:<span class="w"> </span><span class="s1">&#39;make&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span>
+</code></pre></div>
+<h4 id="toolchain-options">Toolchain options<a class="headerlink" href="#toolchain-options" title="Permanent link">&para;</a></h4>
+<p>Many toolchain options can be set through <code>toolchainopts</code>, e.g.,</p>
+<div class="highlight"><pre><span></span><code>toolchainopts = {&#39;usempi&#39;: False, &#39;openmp&#39;: False, &#39;extra_cxxflags&#39;: &#39;-std=c++11&#39;}
+</code></pre></div>
+<p>The range of options depends on the toolchain. For the toolchains on LUMI, more information
+can be found in the subsections of "Toolchain documentation" of the 
+<a href="https://lumi-supercomputer.github.io/LUMI-SoftwareStack/">"Docs for the LUMI software stack</a>.
+For regular EasyBuild toolchains, they can be found in the
+<a href="https://docs.easybuild.io/version-specific/toolchain-opts/">"Available toolchain options" page in the EasyBuild docs</a>.</p>
+<p>Some common options are:</p>
+<ul>
+<li>
+<p><code>usempi</code>: When set to <code>True</code>, environment variables for regular compilers such as CC etc. will 
+    point to the MPI wrappers. This setting has currently no effect on LUMI as there are no separate
+    wrappers when using the Cray wrappers.</p>
+<p>We could consider unloading the <code>cray-mpich</code> module though if the value is set explicitly to <code>False</code>.</p>
+</li>
+<li>
+<p><code>openmp</code>: Enable OpenMP. When set to <code>True</code>, this option will make sure that the option to enable OpenMP
+    is added to <code>CFLAGS</code> and other environment variables that set compiler flags.</p>
+<p>EasyBuild currently cannot add this to <code>LDFLAGS</code> which may be an issue when linking as whether or not 
+<code>-fopenmp</code> is used at link time, determines if the single-threaded or multithreaded version of some
+libraries will be used (and in particular LibSci). (TODO: This may have changed in some very recent
+versions of EasyBuild.)</p>
+</li>
+<li>
+<p><code>pic</code>: When set to <code>True</code>, position-independent code will be enabled. Rarely really needed as configure
+    scripts usually set this automatically when creating shared libraries.</p>
+</li>
+<li>
+<p><code>cstd</code>: Set the C/C++ standard version. One of the least useful options as it does not distinguish between
+    C and C++, causing issues when packages are installed that use both C and C++.</p>
+</li>
+<li>
+<p><code>verbose</code>: Sets a compiler flag that may generate more verbose output.</p>
+</li>
+<li>
+<p><code>extra_cflags</code>, <code>extra_cxxflags</code>, <code>extra_f90flags</code>, <code>extra_fcflags</code>, <code>extra_fflags</code>: Add extra compiler
+    flags to the corresponding environment variables.</p>
+</li>
+</ul>
+<p>There are also flags that influence the level of compiler optimisation and the floating point behaviour of 
+the compiler. They are confusing as there are separate settings of which only one of each type should be used,
+and floating point computing flags are not supported by all LUMI toolchains at the moment.</p>
+<p>It is possible to request an overview of all options for a particular toolchain using</p>
+<div class="highlight"><pre><span></span><code>eb --avail-toolchain-opts &lt;tcname&gt;
 </code></pre></div>
 <h4 id="sources-patches-and-checksums">Sources, patches, and checksums<a class="headerlink" href="#sources-patches-and-checksums" title="Permanent link">&para;</a></h4>
 <p>In most easyconfig files you will see that a list of source files is specified via the <code>sources</code>
@@ -5998,7 +6063,7 @@ to do some cleaning up.
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 6, 2025 15:20:25">May 6, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 26, 2025 11:32:05">May 26, 2025</span>
   </span>
 
     
