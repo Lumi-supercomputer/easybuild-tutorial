@@ -254,6 +254,59 @@ tar_config_opts*                Override tar settings as determined by configure
 test_cmd*                       Test command to use ('runtest' value is appended, default: 'make') [default: None]
 ```
 
+
+#### Toolchain options
+
+Many toolchain options can be set through `toolchainopts`, e.g.,
+
+```
+toolchainopts = {'usempi': False, 'openmp': False, 'extra_cxxflags': '-std=c++11'}
+```
+
+The range of options depends on the toolchain. For the toolchains on LUMI, more information
+can be found in the subsections of "Toolchain documentation" of the 
+["Docs for the LUMI software stack](https://lumi-supercomputer.github.io/LUMI-SoftwareStack/).
+For regular EasyBuild toolchains, they can be found in the
+["Available toolchain options" page in the EasyBuild docs](https://docs.easybuild.io/version-specific/toolchain-opts/).
+
+Some common options are:
+
+-   `usempi`: When set to `True`, environment variables for regular compilers such as CC etc. will 
+    point to the MPI wrappers. This setting has currently no effect on LUMI as there are no separate
+    wrappers when using the Cray wrappers.
+
+    We could consider unloading the `cray-mpich` module though if the value is set explicitly to `False`.
+
+-   `openmp`: Enable OpenMP. When set to `True`, this option will make sure that the option to enable OpenMP
+    is added to `CFLAGS` and other environment variables that set compiler flags.
+
+    EasyBuild currently cannot add this to `LDFLAGS` which may be an issue when linking as whether or not 
+    `-fopenmp` is used at link time, determines if the single-threaded or multithreaded version of some
+    libraries will be used (and in particular LibSci). (TODO: This may have changed in some very recent
+    versions of EasyBuild.)
+
+-   `pic`: When set to `True`, position-independent code will be enabled. Rarely really needed as configure
+    scripts usually set this automatically when creating shared libraries.
+
+-   `cstd`: Set the C/C++ standard version. One of the least useful options as it does not distinguish between
+    C and C++, causing issues when packages are installed that use both C and C++.
+
+-   `verbose`: Sets a compiler flag that may generate more verbose output.
+
+-   `extra_cflags`, `extra_cxxflags`, `extra_f90flags`, `extra_fcflags`, `extra_fflags`: Add extra compiler
+    flags to the corresponding environment variables.
+
+There are also flags that influence the level of compiler optimisation and the floating point behaviour of 
+the compiler. They are confusing as there are separate settings of which only one of each type should be used,
+and floating point computing flags are not supported by all LUMI toolchains at the moment.
+
+It is possible to request an overview of all options for a particular toolchain using
+
+```
+eb --avail-toolchain-opts <tcname>
+```
+
+
 #### Sources, patches, and checksums
 
 In most easyconfig files you will see that a list of source files is specified via the `sources`
