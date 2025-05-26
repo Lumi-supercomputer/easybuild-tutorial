@@ -27,11 +27,69 @@ There is also plenty of space left on each line to explain why an option is used
 means, to make the job easier for others who may want to update or customise this EasyConfig.
 
 
+## Adding license information
+
+EasyBuild has an EasyConfig parameter for that but it is rarely used in the regular EasyBuild repositories:
+
+```
+software_license_urls = [
+    f'https://bitbucket.org/multicoreware/x265_git/src/{version}/COPYING',
+]
+```
+
+One issue is that currently in our module scheme, it does nothing as the information is not being added to
+the module.
+
+We recently also started copying license information, etc., found in the sources of a package into 
+`%(installdir)s/share/licenses/<name_of_package>` where for a bundle we use the name of each of the 
+packages in the bundle for `<name_of_package>`. This is often easily done in `postinstallcmds` though 
+for Bundle components it is easier to do so via `installopts` (adding the commands with the `&&` trick)
+as there are no separate `postinstallcmds` for each Bundle component (at least, last time I tested those
+did not work properly).
+
+Some code fragments:
+
+-   For software built with the `ConfigureMake` EasyBlock: As the build commands run in the sources directly,
+    this will often work (but you may need to adapt the name of the files to copy):
+
+    ```
+    postinstallcmds = [
+        'mkdir -p %(installdir)s/share/licenses/%(name)s',
+        'cp COPYING %(installdir)s/share/licenses/%(name)s',   
+    ]
+    ```
+
+-   With the `CMakeMake` EasyBlock, the build process runs in a separate directory, so you'll have to move
+    to sources directory to copy:
+
+    ```
+    postinstallcmds = [
+        'mkdir -p %(installdir)s/share/licenses/%(name)s',
+        'cd ../%(namelower)s-%(version)s && cp AUTHORS CHANGELOG.md LICENSE.txt README.md README.SZIP THANKS %(installdir)s/share/licenses/%(name)s',   
+    ]
+    ```
+
+    The `%(namelower)s-%(version)s` does not work for all software, you may have to check! E.g., you can just start EasyBuild but
+    stop after the Prepare step with `--stop prepare` to inspect the sources.
+
+-   The next one has worked for some `MesonNinja` software:
+
+    ```
+    postinstallcmds = [
+        'mkdir -p %(installdir)s/share/licenses/%(name)s',
+        'cd %(start_dir)s && cp AUTHORS CHANGELOG.md LICENSE.txt README.md README.SZIP THANKS %(installdir)s/share/licenses/%(name)s',   
+    ]
+    ```
+
+
 ## More to follow....
 
 -   Static and shared libraries in CMakeMake packages (and using lib instead of lib64)
 
--   Copying the license information
+-   Fix Python shebang lines: EasyConfig parameter `fix_python_shebang_for`.  See the EasyConfigs for GLib.
+  
+    NOTE: There is currently only python3 on LUMI so this does not work as it should... So the GLib EasyConfigs for 24.03
+    are wrong and will need a different trick.
 
 
 *[[Next: Additional reading]](../5_00_additional_reading.md)*
