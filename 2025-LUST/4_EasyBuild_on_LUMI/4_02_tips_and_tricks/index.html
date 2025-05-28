@@ -1021,6 +1021,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#creating-a-full-working-copy-of-the-software-stack-to-develop-in-the-core-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a full working copy of the software stack to develop in the core stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#long-lists-of-elements-for-preconfigopts-or-options-for-configopts" class="md-nav__link">
     <span class="md-ellipsis">
       Long lists of elements for preconfigopts or options for configopts.
@@ -4629,6 +4638,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#creating-a-full-working-copy-of-the-software-stack-to-develop-in-the-core-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a full working copy of the software stack to develop in the core stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#long-lists-of-elements-for-preconfigopts-or-options-for-configopts" class="md-nav__link">
     <span class="md-ellipsis">
       Long lists of elements for preconfigopts or options for configopts.
@@ -4672,6 +4690,165 @@
 
 
 <h1 id="tips-tricks">Tips &amp; tricks<a class="headerlink" href="#tips-tricks" title="Permanent link">&para;</a></h1>
+<h2 id="creating-a-full-working-copy-of-the-software-stack-to-develop-in-the-core-stack">Creating a full working copy of the software stack to develop in the core stack<a class="headerlink" href="#creating-a-full-working-copy-of-the-software-stack-to-develop-in-the-core-stack" title="Permanent link">&para;</a></h2>
+<p>This can be a lot of work, as it implies you'd also have to compile the toolchains you
+want to use. For rare development, it may be better to use a copy in the LUST project (which
+existed but was not maintained as noone used it).</p>
+<p>Basic process:</p>
+<ul>
+<li>
+<p>Create a directory where the software stack will be installed. Call this <code>&lt;DIR1&gt;</code></p>
+</li>
+<li>
+<p>In that directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;DIR1&gt;
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:Lumi-supercomputer/LUMI-SoftwareStack.git
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:Lumi-supercomputer/LUMI-EasyBuild-contrib.git
+<span class="c1"># Next one not strictly needed unless you want to process documentation</span>
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:Lumi-supercomputer/LUMI-EasyBuild-docs.git
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:Lumi-supercomputer/LUMI-EasyBuild-containers.git
+mkdir<span class="w"> </span>appl-local-containers
+<span class="nb">cd</span><span class="w"> </span>appl-local-containers
+ln<span class="w"> </span>-s<span class="w"> </span>../LUMI-EasyBuild-containers
+ln<span class="w"> </span>-s<span class="w"> </span>/appl/local/containers/sif-images
+ln<span class="w"> </span>-s<span class="w"> </span>/appl/local/containers/easybuild-sif-images
+<span class="nb">cd</span><span class="w"> </span>-
+</code></pre></div>
+<p>(And in fact, you may want to make a directory <code>easybuild-sif-images</code> instead and link to the individual
+files in the system as then you can add additional containers for testing without putting them already in
+<code>/appl/local/containers/easybuild-sif-images</code>.)</p>
+</li>
+<li>
+<p>Also create a separate directory for your local user stack in which you want to experiment with
+    building on top of the "central" stack in <code>&lt;DIR1&gt;</code>. Call this directory <code>&lt;DIR2&gt;</code>.</p>
+</li>
+<li>
+<p>In that directory:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:Lumi-supercomputer/LUMI-EasyBuild-contrib.git
+</code></pre></div>
+<p>and you could clone a repository with your personal easyconfigs also and call this <code>UserRepo</code>.</p>
+</li>
+<li>
+<p>You need a script to set up the environment to use that copy of the software stack instead.
+    E.g., with a bash function like</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>init-lumi-h<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="c1"># (Re-)initialize my personal LUMI test environment</span>
+
+<span class="w">    </span><span class="c1">###################################################################</span>
+<span class="w">    </span><span class="c1">#</span>
+<span class="w">    </span><span class="c1"># First part: Ensure our initialisation variables are set in case</span>
+<span class="w">    </span><span class="c1"># init-lumi would be configured to preload an environment,</span>
+<span class="w">    </span><span class="c1">#</span>
+
+<span class="w">    </span><span class="c1"># Place of the installation</span>
+<span class="w">    </span><span class="c1"># installroot=&quot;$HOME/LUMI&quot;</span>
+<span class="w">    </span><span class="nv">installroot</span><span class="o">=</span><span class="s2">&quot;&lt;DIR1&gt;&quot;</span>
+
+<span class="w">    </span><span class="c1"># Our matching LUMI-user</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">EBU_USER_PREFIX</span><span class="o">=</span><span class="s2">&quot;&lt;DIR2&gt;&quot;</span>&gt;<span class="s2">&quot;</span>
+
+<span class="s2">    # Use the test container repository</span>
+<span class="s2">    export LUMI_CONTAINER_REPOSITORY_ROOT=&#39;&lt;DIR1&gt;/appl-local-containers&#39;</span>
+
+<span class="s2">    # Force partition L as the others aren&#39;t ready yet</span>
+<span class="s2">    # export LUMI_OVERWRITE_PARTITION=&#39;L&#39;</span>
+
+<span class="s2">    # LMOD to use</span>
+<span class="s2">    installroot_lmod=&quot;</span>/opt/cray/pe/lmod/lmod<span class="s2">&quot;</span>
+
+
+<span class="s2">    ###################################################################</span>
+<span class="s2">    #</span>
+<span class="s2">    # Second part: LMOD initialisation</span>
+<span class="s2">    #</span>
+
+<span class="s2">    # Clear LMOD. We will restart it.</span>
+<span class="s2">    # As it is a function we use eval.</span>
+<span class="s2">    #eval &#39;clearLmod&#39;</span>
+<span class="s2">    eval &#39;module --force purge&#39;</span>
+<span class="s2">    eval </span><span class="k">$(</span><span class="nv">$LMOD_DIR</span>/clearLMOD_cmd<span class="w"> </span>--shell<span class="w"> </span>bash<span class="w"> </span>--full<span class="k">)</span>
+<span class="s2">    unset LUMI_INIT_FIRST_LOAD</span>
+
+<span class="s2">    # Clear the lmod cache as we may be switching between versions of Lmod.</span>
+<span class="s2">    [ -d </span><span class="nv">$HOME</span><span class="s2">/.lmod.d/.cache ] &amp;&amp; /bin/rm -rf </span><span class="nv">$HOME</span><span class="s2">/.lmod.d/.cache  # System Lmod 8.3.1</span>
+<span class="s2">    [ -d </span><span class="nv">$HOME</span><span class="s2">/.cache/lmod ]    &amp;&amp; /bin/rm -rf </span><span class="nv">$HOME</span><span class="s2">/.cache/lmod     # Lmod 8.7.x</span>
+
+<span class="s2">    # Resource the program environment initialisation</span>
+<span class="s2">    # source /appl/lumi/LUMI-SoftwareStack/Setup/cray-pe-configuration.sh</span>
+<span class="s2">    source /etc/cray-pe.d/cray-pe-configuration.sh</span>
+
+<span class="s2">    # Correct the path in some variables read from the system file.</span>
+<span class="s2">    sysroot=&#39;/appl/lumi&#39;</span>
+<span class="s2">    mpaths=&quot;</span><span class="si">${</span><span class="nv">mpaths</span><span class="p">//</span><span class="nv">$sysroot</span><span class="p">/</span><span class="nv">$installroot</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">    LMOD_PACKAGE_PATH=&quot;</span><span class="si">${</span><span class="nv">LMOD_PACKAGE_PATH</span><span class="p">/</span><span class="nv">$sysroot</span><span class="p">/</span><span class="nv">$installroot</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">    LMOD_RC=&quot;</span><span class="si">${</span><span class="nv">LMOD_RC</span><span class="p">/</span><span class="nv">$sysroot</span><span class="p">/</span><span class="nv">$installroot</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">    LMOD_ADMIN_FILE=&quot;</span><span class="si">${</span><span class="nv">LMOD_ADMIN_FILE</span><span class="p">/</span><span class="nv">$sysroot</span><span class="p">/</span><span class="nv">$installroot</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="s2">    # Initialise LMOD</span>
+<span class="s2">    source </span><span class="si">${</span><span class="nv">installroot_lmod</span><span class="si">}</span><span class="s2">/init/profile</span>
+
+<span class="s2">    # Build MODULEPATH</span>
+<span class="s2">    mod_paths=&quot;</span>/opt/cray/pe/lmod/modulefiles/core
+<span class="w">            </span>/opt/cray/pe/lmod/modulefiles/craype-targets/default
+<span class="w">            </span><span class="nv">$mpaths</span>
+<span class="w">            </span>/opt/cray/modulefiles
+<span class="w">            </span>/opt/modulefiles<span class="s2">&quot;</span>
+<span class="s2">    MODULEPATH=&#39;&#39;</span>
+<span class="s2">    for p in </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$mod_paths</span><span class="k">)</span><span class="s2"> ; do</span>
+<span class="s2">        if [ -d </span><span class="nv">$p</span><span class="s2"> ] ; then</span>
+<span class="s2">            MODULEPATH=</span><span class="nv">$MODULEPATH</span><span class="s2">:</span><span class="nv">$p</span>
+<span class="s2">        fi</span>
+<span class="s2">    done</span>
+<span class="s2">    export MODULEPATH=</span><span class="si">${</span><span class="nv">MODULEPATH</span><span class="p">/:/</span><span class="si">}</span><span class="s2"> # Export and remove the leading :.</span>
+
+<span class="s2">    # Build LMOD_SYSTEM_DEFAULT_MODULES</span>
+<span class="s2">    LMOD_SYSTEM_DEFAULT_MODULES=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">init_module_list</span><span class="k">:-</span><span class="nv">PrgEnv</span><span class="p">-</span><span class="nv">$default_prgenv</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s2">&quot;s_  *_:_g&quot;</span><span class="k">)</span>
+<span class="s2">    export LMOD_SYSTEM_DEFAULT_MODULES</span>
+<span class="s2">    # Need eval on the next line as it is a shell function.</span>
+<span class="s2">    eval &quot;</span>module<span class="w"> </span>--initial_load<span class="w"> </span>--no_redirect<span class="w"> </span>restore<span class="s2">&quot;</span>
+
+
+<span class="s2">    ###################################################################</span>
+<span class="s2">    #</span>
+<span class="s2">    # Third part: Personal finishing touches</span>
+<span class="s2">    #</span>
+
+<span class="s2">    # Set some aliases</span>
+<span class="s2">    alias cdesr=&quot;</span><span class="nb">cd</span><span class="w">    </span><span class="nv">$installroot</span><span class="s2">&quot;</span>
+<span class="s2">    alias pdesr=&quot;</span><span class="nb">pushd</span><span class="w"> </span><span class="nv">$installroot</span><span class="s2">&quot;</span>
+<span class="s2">    alias cdeur=&#39;cd    </span><span class="nv">$EBU_USER_PREFIX</span><span class="s2">&#39;</span>
+<span class="s2">    alias pdeur=&#39;pushd </span><span class="nv">$EBU_USER_PREFIX</span><span class="s2">&#39;</span>
+<span class="s2">    alias cdes=&quot;</span><span class="nb">cd</span><span class="w">     </span><span class="nv">$installroot</span>/LUMI-SoftwareStack/easybuild/easyconfigs<span class="s2">&quot;</span>
+<span class="s2">    alias pdes=&quot;</span><span class="nb">pushd</span><span class="w">  </span><span class="nv">$installroot</span>/LUMI-SoftwareStack/easybuild/easyconfigs<span class="s2">&quot;</span>
+<span class="s2">    alias cdec=&quot;</span><span class="nb">cd</span><span class="w">     </span><span class="nv">$installroot</span>/LUMI-EasyBuild-contrib/easybuild/easyconfigs<span class="s2">&quot;</span>
+<span class="s2">    alias pdec=&quot;</span><span class="nb">pushd</span><span class="w">  </span><span class="nv">$installroot</span>/LUMI-EasyBuild-contrib/easybuild/easyconfigs<span class="s2">&quot;</span>
+<span class="s2">    alias cdecc=&quot;</span><span class="nb">cd</span><span class="w">    </span><span class="nv">$LUMI_CONTAINER_REPOSITORY_ROOT</span>/LUMI-EasyBuild-containers/easybuild/easyconfigs<span class="s2">&quot;</span>
+<span class="s2">    alias pdecc=&quot;</span><span class="nb">pushd</span><span class="w"> </span><span class="nv">$LUMI_CONTAINER_REPOSITORY_ROOT</span>/LUMI-EasyBuild-containers/easybuild/easyconfigs<span class="s2">&quot;</span>
+<span class="s2">    alias cdeu=&#39;cd     </span><span class="nv">$EBU_USER_PREFIX</span><span class="s2">/UserRepo/easybuild/easyconfigs&#39;</span>
+<span class="s2">    alias pdeu=&#39;pushd  </span><span class="nv">$EBU_USER_PREFIX</span><span class="s2">/UserRepo/easybuild/easyconfigs&#39;</span>
+<span class="s2">    alias upgrade-tc=&quot;</span><span class="nv">$installroot</span>/LUMI-SoftwareStack/tools/upgrade-tc.py<span class="s2">&quot;</span>
+<span class="s2">    alias upgrade-locals=&quot;</span><span class="nv">$installroot</span>/LUMI-SoftwareStack/tools/upgrade-locals.lua<span class="s2">&quot;</span>
+<span class="s2">    echo -e &quot;</span><span class="se">\n</span>Aliases<span class="w"> </span>introduced<span class="w"> </span>by<span class="w"> </span>this<span class="w"> </span>command:<span class="se">\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>cdesr/pdesr<span class="w">    </span>:<span class="w"> </span>system<span class="w"> </span>install<span class="w"> </span>root<span class="w">     </span>:<span class="w"> </span><span class="nv">$installroot</span><span class="se">\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>cdeur/pdeur<span class="w">    </span>:<span class="w"> </span>user<span class="w"> </span>install<span class="w"> </span>root<span class="w">       </span>:<span class="w"> </span><span class="nv">$EBU_USER_PREFIX</span><span class="se">\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>cdes/pdes<span class="w">      </span>:<span class="w"> </span>system<span class="w"> </span>EasyConfigs<span class="w">      </span>:<span class="w"> </span><span class="nv">$installroot</span>/LUMI-SoftwareStack/easybuild/easyconfigs<span class="se">\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>cdec/pdec<span class="w">      </span>:<span class="w"> </span>contributed<span class="w"> </span>EasyConfigs<span class="w"> </span>:<span class="w"> </span><span class="nv">$installroot</span>/LUMI-EasyBuild-contrib/easybuild/easyconfigs<span class="se">\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>cdecc/pdecc<span class="w">    </span>:<span class="w"> </span>container<span class="w"> </span>EasyConfigs<span class="w">   </span>:<span class="w"> </span><span class="nv">$LUMI_CONTAINER_REPOSITORY_ROOT</span>/LUMI-EasyBuild-containers/easybuild/easyconfigs<span class="se">\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>cdeu/pdeu<span class="w">      </span>:<span class="w"> </span>user<span class="w"> </span>EasyConfigs<span class="w">        </span>:<span class="w"> </span><span class="nv">$EBU_USER_PREFIX</span>/UserRepo/easybuild/easyconfig<span class="se">\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>upgrade-tc<span class="w">     </span>:<span class="w"> </span>CSCS<span class="w"> </span>script<span class="w"> </span>to<span class="w"> </span>upgrade<span class="w"> </span>a<span class="w"> </span>toolchain<span class="w"> </span><span class="k">in</span><span class="w"> </span>an<span class="w"> </span>EasyConfig<span class="se">\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>upgrade-locals<span class="w"> </span>:<span class="w"> </span>script<span class="w"> </span>to<span class="w"> </span>upgrade<span class="w"> </span>the<span class="w"> </span>local_*_version<span class="w"> </span>lines<span class="w"> </span><span class="k">in</span><span class="w"> </span>an<span class="w"> </span>EasyConfig<span class="se">\n\n</span><span class="s2">&quot; \</span>
+<span class="s2">    &quot;</span>Lmod<span class="w"> </span>version:<span class="w"> </span><span class="k">$(</span><span class="nb">eval</span><span class="w"> </span><span class="s1">&#39;module --version&#39;</span><span class="w"> </span><span class="p">|&amp;</span><span class="w"> </span>grep<span class="w"> </span>Version<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s|.*Version *\(8.[[:digit:]]*.[[:digit:]]*\).*|\1|&#39;</span><span class="k">)</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="s2">}</span>
+</code></pre></div>
+<p>but of course adapt <code>&lt;DIR1&gt;</code> and <code>&lt;DIR2&gt;</code>.</p>
+</li>
+<li>
+<p>Now you can follow the steps in the <a href="https://lumi-supercomputer.github.io/LUMI-SoftwareStack/procedures/">"Some procedures" page</a>
+    of the <a href="https://lumi-supercomputer.github.io/LUMI-SoftwareStack/">LUMI Software Stack technical documentation</a>.</p>
+<p>This documentation is in fact generated from files in the <code>docs</code> subdirectory in the <code>LUMI-SoftwareStack</code> repository
+with a similar mkdocs environment as the LUMI Software Library.</p>
+</li>
+</ul>
 <h2 id="long-lists-of-elements-for-preconfigopts-or-options-for-configopts">Long lists of elements for <code>preconfigopts</code> or options for <code>configopts</code>.<a class="headerlink" href="#long-lists-of-elements-for-preconfigopts-or-options-for-configopts" title="Permanent link">&para;</a></h2>
 <p>An example showing both is in recent <a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/tree/main/easybuild/easyconfigs/n/NAMD">LUMI NAMD EasyConfigs</a>, e.g., 
 <a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/blob/main/easybuild/easyconfigs/n/NAMD/NAMD-3.0-cpeGNU-24.03-rocm-gpu-resident.eb">"NAMD-3.0-cpeGNU-24.03-rocm-gpu-resident.eb"</a>.</p>
@@ -4772,7 +4949,7 @@ are wrong and will need a different trick.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 26, 2025 12:10:59">May 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 28, 2025 16:02:54">May 28, 2025</span>
   </span>
 
     
